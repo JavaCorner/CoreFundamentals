@@ -18,9 +18,9 @@ import java.sql.SQLException;
  * Any number of Subclass of IOException like FileNotFoundException, EOFException etc.
  *
  * Not Allowed in Checked Exception
- * If say Overriden method of Parent class throws IOException, then overriding method in Child class cannot throw
- * It cannot throw exception from totally new inheritance hierarchy like SQLException.
- * It cannot throw broader exception like Throwable or Exception in our case.
+ * If say Overriden method of Parent class throws IOException, then overriding method in Child class
+ * cannot throw exception from totally new inheritance hierarchy like SQLException.
+ * cannot throw broader exception like Throwable or Exception in our case.
  */
 
 class Parent1{

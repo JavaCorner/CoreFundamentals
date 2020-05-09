@@ -5,7 +5,7 @@ import java.io.IOException;
 /**
  * @author Arpit Bhardwaj
  */
-public class ThrowCheckUncheck {
+public class ThrowCheckUnCheck {
     public static void main(String[] args) {
         inValidTest();
         inValidTest2();
