@@ -40,6 +40,7 @@ public class ThreadLocalLeak {
         @Override
         public Object call() throws Exception {
             final String value = threadLocal.get();
+            threadLocal.remove();//to avoid thread local leak
             return value.length();
         }
     }
