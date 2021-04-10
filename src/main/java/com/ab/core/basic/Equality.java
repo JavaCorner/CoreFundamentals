@@ -1,5 +1,7 @@
 package com.ab.core.basic;
 
+import java.util.Arrays;
+
 /**
  * @author Arpit Bhardwaj
  *
@@ -17,8 +19,9 @@ public class Equality {
         //for primitive as use == as equals works only with object
         //primitivesComparison();
         //for objects as per best practise use equals till you don't want to equate reference address
-
-        objectComparison();
+        //objectComparison();
+        //stringComparison();
+        arrayComparison();
     }
 
     private static void objectComparison() {
@@ -49,5 +52,13 @@ public class Equality {
         System.out.println('a' == 'a');
         System.out.println('a' == 'b');
         System.out.println(true == true);
+    }
+
+    private static void arrayComparison() {
+        int[] arr1 = new int[]{1,2,3};
+        int[] arr2 = new int[]{1,2,3};
+        System.out.println(arr1 == arr2);
+        System.out.println(arr1.equals(arr2));
+        System.out.println(Arrays.equals(arr1,arr2));
     }
 }
