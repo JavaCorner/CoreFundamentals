@@ -1,7 +1,7 @@
 package com.ab.core.lambda;
 
-import java.math.BigDecimal;
-import java.util.Comparator;
+import com.ab.core.lambda.model.Product;
+
 import java.util.List;
 
 public class LambdaExpressionSyntax {

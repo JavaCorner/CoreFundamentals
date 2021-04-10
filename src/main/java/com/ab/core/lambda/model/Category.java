@@ -1,4 +1,4 @@
-package com.ab.core.lambda;
+package com.ab.core.lambda.model;
 
 public enum Category {
     FOOD,

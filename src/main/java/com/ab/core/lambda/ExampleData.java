@@ -1,10 +1,12 @@
 package com.ab.core.lambda;
 
+import com.ab.core.lambda.model.Product;
+
 import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;
 
-import static com.ab.core.lambda.Category.*;
+import static com.ab.core.lambda.model.Category.*;
 
 public class ExampleData {
 
