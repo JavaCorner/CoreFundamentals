@@ -20,11 +20,12 @@ public class OverwriteReturn {
         }finally {
             a = 30;
             System.out.println("a in finally : " + a);
-            return a;
+            //return a;
         }
         //compile error : unreachable code
-        /*a = 40;
+        //Need to remove return in finally to make to reachable
+        a = 40;
         System.out.println("a outside try catch finally : " + a);
-        return a;*/
+        return a;
     }
 }
