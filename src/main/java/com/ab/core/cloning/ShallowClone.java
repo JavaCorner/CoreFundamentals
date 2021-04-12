@@ -6,6 +6,8 @@ import java.util.logging.Logger;
 
 /**
  * @author Arpit Bhardwaj
+ *
+ *
  */
 public class ShallowClone {
     private static final Logger logger = Logger.getLogger(ShallowClone.class.getName());
@@ -23,7 +25,7 @@ public class ShallowClone {
         } catch (CloneNotSupportedException e) {
             e.printStackTrace();
         }
-
+        logger.info(rectangleCopy.toString());
         //1st rule a.clone() != a
         logger.info("Rule 1:a.clone() != a " + (rectangleCopy != rectangle));
 
@@ -31,7 +33,6 @@ public class ShallowClone {
         logger.info("Rule 2:a.clone().getClass() == a.getClass() " + (rectangleCopy.getClass() == rectangle.getClass()));
 
         //3st rule clone.equals(a)
-        logger.info("Rule 3:clone.equals(a) " + rectangleCopy.equals(rectangle));
-
+        logger.info("Rule 3:a.clone().equals(a) " + rectangleCopy.equals(rectangle));
     }
 }

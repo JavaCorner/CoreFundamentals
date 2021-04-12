@@ -9,19 +9,29 @@ package com.ab.core.error;
  * All errors in java are unchecked type.
  *
  * Example:
- * java.lang.StackOverflowError, java.lang.OutOfMemoryError
+ * java.lang.ExceptionInInitializerError
+ * java.lang.StackOverflowError
+ * java.lang.OutOfMemoryError
  */
 public class ThrowError {
     public static void main(String[] args) {
         try{
             defectedCode();
             System.out.println("A");
-        }catch(Exception e){
+        }
+        catch(Error e){
             System.out.println("B");
-        }finally{
+        }
+        catch(Exception e){
             System.out.println("C");
         }
-        System.out.print("D");
+        catch(Throwable e){
+            System.out.println("D");
+        }
+        finally{
+            System.out.println("E");
+        }
+        System.out.print("F");
     }
 
     private static void defectedCode() {

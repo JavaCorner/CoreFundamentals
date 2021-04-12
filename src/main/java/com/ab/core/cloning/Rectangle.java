@@ -20,6 +20,10 @@ public class Rectangle implements Cloneable {
         return width;
     }
 
+    public void setWidth(int width) {
+        this.width = width;
+    }
+
     @Override
     public String toString() {
         return "Rectangle{" +
@@ -28,6 +32,7 @@ public class Rectangle implements Cloneable {
                 '}';
     }
 
+    //default clone method implementation as below do shallow copy
     @Override
     protected Rectangle clone() throws CloneNotSupportedException {
         return (Rectangle) super.clone();

@@ -36,6 +36,7 @@ public class Employee implements Cloneable{
                 '}';
     }
 
+    //return copy of a cloned object to support deep copy
     @Override
     protected Employee clone() {
         Employee cloneEmployee = null;
