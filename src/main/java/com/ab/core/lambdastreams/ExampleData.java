@@ -1,12 +1,12 @@
-package com.ab.core.lambda;
+package com.ab.core.lambdastreams;
 
-import com.ab.core.lambda.model.Product;
+import com.ab.core.lambdastreams.model.Product;
 
 import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;
 
-import static com.ab.core.lambda.model.Category.*;
+import static com.ab.core.lambdastreams.model.Category.*;
 
 public class ExampleData {
 

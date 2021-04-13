@@ -1,4 +1,4 @@
-package com.ab.core.streams;
+package com.ab.core.io;
 
 import java.io.IOException;
 

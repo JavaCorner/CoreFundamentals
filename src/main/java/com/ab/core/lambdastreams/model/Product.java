@@ -1,4 +1,4 @@
-package com.ab.core.lambda.model;
+package com.ab.core.lambdastreams.model;
 
 import java.math.BigDecimal;
 import java.util.Objects;

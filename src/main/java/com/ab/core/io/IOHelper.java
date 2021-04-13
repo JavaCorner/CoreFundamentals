@@ -1,11 +1,21 @@
-package com.ab.core.streams;
+package com.ab.core.io;
 
 import java.io.*;
 //java.io.FileXXX are deprecated
 //java.nio.file is the preffered
 
+/**
+ * @author Arpit Bhardwaj
+ *
+ * Abstract Classes
+ * Reader : For reading characters
+ * Writer : For writing characters
+ *
+ * InputStream : For reading bytes
+ * OutputStream : For writing bytes
+ */
 
-public class StreamsHelper {
+public class IOHelper {
 
     public static Reader openReader(String s) throws FileNotFoundException {
         FileReader fileReader = new FileReader(s);

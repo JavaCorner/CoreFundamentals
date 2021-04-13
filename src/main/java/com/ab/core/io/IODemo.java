@@ -1,13 +1,10 @@
-package com.ab.core.streams;
+package com.ab.core.io;
 
-import com.sun.org.apache.xml.internal.security.utils.HelperNodeList;
-
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.Writer;
 
-public class StreamsDemo {
+public class IODemo {
     public static void main(String[] args) throws Exception {
         doTryCatchFinally();
         //doTryWithResources();
@@ -39,8 +36,8 @@ public class StreamsDemo {
     private static void doTryWithResourcesMulti() {
         char[] buffer = new char[8];
         int length;
-        try (Reader reader = StreamsHelper.openReader("file1.txt")
-             ; Writer writer = StreamsHelper.openWriter("files2.txt")){
+        try (Reader reader = IOHelper.openReader("file1.txt")
+             ; Writer writer = IOHelper.openWriter("files2.txt")){
             while ((length = reader.read(buffer))>= 0){
                 System.out.println("\nlength: " + length);
                 writer.write(buffer,0,length);
@@ -53,7 +50,7 @@ public class StreamsDemo {
     private static void doTryWithResources() {
         char[] buffer = new char[8];
         int length;
-        try (Reader reader = StreamsHelper.openReader("file1.txt")){
+        try (Reader reader = IOHelper.openReader("file1.txt")){
             while ((length = reader.read(buffer))>= 0){
                 System.out.println("\nlength: " + length);
                 for (int i = 0; i < length; i++) {
@@ -70,7 +67,7 @@ public class StreamsDemo {
         Reader reader = null;
         int length;
         try {
-            reader = StreamsHelper.openBufferedReader("file1.txt");
+            reader = IOHelper.openBufferedReader("file1.txt");
             while ((length = reader.read(buffer))>= 0){
                 System.out.println("\nlength: " + length);
                 for (int i = 0; i < length; i++) {
