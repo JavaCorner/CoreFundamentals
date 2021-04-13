@@ -11,8 +11,10 @@ public class UnboxingDemo {
         //before Java 5 (explicit conversion from object to primitive)
         Integer int1 = Integer.valueOf(2);
         int int2 = int1.intValue();
+        System.out.println(int2);
         //after java 5 (taken care by compiler)
-        int int3 = 3;
+        int int3 = int1;
+        System.out.println(int3);
 
     }
 }

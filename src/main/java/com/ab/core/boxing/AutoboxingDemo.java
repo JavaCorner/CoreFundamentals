@@ -21,11 +21,14 @@ public class AutoboxingDemo {
         autoboxingInMethods(3);
     }
 
-    private static void autoboxingInMethods(Integer integer) {}
+    private static void autoboxingInMethods(Integer integer) {
+        System.out.println(integer.intValue());
+    }
 
     private static void autoboxingInCollection() {
         ArrayList<Integer> list = new ArrayList<>();
         list.add(2);
         list.add(4);
+        System.out.println(list);
     }
 }
