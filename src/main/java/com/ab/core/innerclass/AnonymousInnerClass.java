@@ -6,6 +6,8 @@ package com.ab.core.innerclass;
  * Anonymous inner classes are declared without any name at all. They are created in two ways.
  * a) As subclass of specified type
  * a) As implementer of the specified interface
+ *
+ * Applied Rules of Local Inner Class except constructors are not allowed
  */
 public class AnonymousInnerClass {
     public static void main(String[] args) {
@@ -14,13 +16,16 @@ public class AnonymousInnerClass {
         Demo subDemo = new Demo(){
             @Override
             void display() {
-                //super.display();
                 System.out.println("Inside Anonymous subclass of Demo base class");
             }
         };
         subDemo.display();
 
         DemoInterface anonymous = new DemoInterface() {
+            int i = 0;
+            void test(){};
+            class test{}
+            {}
             @Override
             public void display() {
                 System.out.println("inside anonymous implementation of DemoInterface");
@@ -31,6 +36,7 @@ public class AnonymousInnerClass {
 }
 
 class Demo{
+    void test(){};
     void display(){
         System.out.println("Inside Demo base class");
     }
