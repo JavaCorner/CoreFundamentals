@@ -1,6 +1,7 @@
 package com.ab.core.jdbc;
 
 import java.sql.*;
+import java.time.LocalDate;
 
 /**
  * @author Arpit Bhardwaj
@@ -16,7 +17,42 @@ public class JDBCDemo {
             //readWithExecuteQuery(conn);
             //insertUpdateDeleteWithExecuteUpdate(conn);
             //crudWithExecute(conn);
-            parametrizedStatements(conn);
+            //parametrizedStatements(conn);
+            //callStoredProcedure(conn);
+            //callStoredProcedureWithInParameter(conn);
+            callStoredProcedureWithOutParameter(conn);
+        }
+    }
+
+    private static void callStoredProcedureWithOutParameter(Connection conn) throws SQLException {
+        String storedProcedure = "{ ?= call sp1(?,?) }";
+        CallableStatement cs = conn.prepareCall(storedProcedure);
+        cs.setDate("startDate", Date.valueOf(LocalDate.now()));
+        cs.setDate("endDate", Date.valueOf(LocalDate.now()));
+        cs.registerOutParameter(1, Types.DOUBLE);
+        ResultSet rs = cs.executeQuery();//used for reading the data
+        while (rs.next()){
+            System.out.println(rs.getString(1));
+        }
+    }
+
+    private static void callStoredProcedureWithInParameter(Connection conn) throws SQLException {
+        String storedProcedure = "{ call sp1(?,?) }";
+        CallableStatement cs = conn.prepareCall(storedProcedure);
+        cs.setDate("startDate", Date.valueOf(LocalDate.now()));
+        cs.setDate("endDate", Date.valueOf(LocalDate.now()));
+        ResultSet rs = cs.executeQuery();//used for reading the data
+        while (rs.next()){
+            System.out.println(rs.getString(1));
+        }
+    }
+
+    private static void callStoredProcedure(Connection conn) throws SQLException {
+        String storedProcedure = "{ call sp1() }";
+        CallableStatement cs = conn.prepareCall(storedProcedure);
+        ResultSet rs = cs.executeQuery();//used for reading the data
+        while (rs.next()){
+            System.out.println(rs.getString(1));
         }
     }
 
