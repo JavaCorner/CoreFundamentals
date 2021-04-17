@@ -18,7 +18,7 @@ package com.ab.core.controlflow;
  * Any Constant Expression
  * or Value must be resolved at compile time
  */
-public class SwitchCaseDemo {
+public class SwitchCase {
     public static void main(String[] args) {
         char sign = '+';
         switch (sign){
