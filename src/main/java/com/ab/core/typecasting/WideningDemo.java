@@ -17,6 +17,17 @@ package com.ab.core.typecasting;
  * From an int    ---> long ---> float ---> double
  * From a long   ---> float ---> double
  * From a float   ---> double
+ *
+ * Widening of reference variable depends on inheritance tree
+ * Ex. Integer cannot be widened to Long. But, Integer widened to Number because they are in same inheritance hierarchy).
+ *
+ *  Inheritance Hirarchy
+ *
+ *  Number implements Serializable
+ *  Byte,Short,Integer,Long,Double,Float extends Number and implements Comparable
+ *
+ *  Character extends nothing implements Serializable and Comparable
+ *  Boolean extends nothing implements Serializable and Comparable
  */
 public class WideningDemo {
     public static void main(String[] args) {
@@ -25,9 +36,11 @@ public class WideningDemo {
     }
 
     private static void wideningObjects() {
-        Integer integer = new Integer(1);
-        Number number = integer;
-        System.out.println(number);
+        Integer i = new Integer(1);
+        Number n = i;
+
+        //Long l = i;//compile error
+        //Float f = i;//compile error
     }
 
     private static void wideningPrimitives() {
@@ -44,5 +57,12 @@ public class WideningDemo {
         System.out.println("long value : "+ l);
         System.out.println("float value : "+ f);
         System.out.println("double value : "+ d);
+
+        char c = 'x';
+        //byte b1 = c;//compile error
+        //short s1 = c;//compile error
+        int i1 = c;
+        long l1 = c;
+
     }
 }

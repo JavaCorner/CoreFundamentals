@@ -26,7 +26,11 @@ public class NarrowingDemo {
     }
 
     private static void narrowingObjects() {
-
+        Number n = 10;
+        Integer i1 = (Integer) n;
+        Long l = new Long(10);
+        //Integer i2 = (Integer) l;//compile error
+        Long l2 = (Long) n;
     }
 
     private static void narrowingPrimitives() {

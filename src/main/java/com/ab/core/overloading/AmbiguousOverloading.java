@@ -10,8 +10,6 @@ package com.ab.core.overloading;
  * Widening wins over boxing eg. test(10) will call test(long) instead of test(Integer) if both are available.
  * Widening wins over var-args eg test(byte,byte) will call test(int,int) instead of test(byte...x) method.
  * Boxing beats var-args eg test(byte,byte) will call test(Byte,Byte) instead of test(byte...x) method.
- * You cannot widen and then box.
- * You can box and then widen.
  */
 public class AmbiguousOverloading {
 
