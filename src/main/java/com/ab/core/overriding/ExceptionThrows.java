@@ -24,59 +24,32 @@ import java.sql.SQLException;
  */
 
 class Parent1{
-    protected Object connect(String s1) {
-        System.out.println("Doing connection in Parent way");
-        return null;
-    }
+    protected void connect(String s1) {}
 
-    protected Object connect1(String s1) throws Exception{
-        System.out.println("Doing connection in Parent way");
-        return null;
-    }
+    protected void connect1(String s1) throws Exception{}
 
-    protected Object connect2(String s1) throws IOException, SQLException {
-        System.out.println("Doing connection in Parent way");
-        return null;
-    }
+    protected void connect2(String s1) throws IOException, SQLException {}
 
-    protected Object connect3(String s1) throws IOException{
-        System.out.println("Doing connection in Parent way");
-        return null;
-    }
+    protected void connect3(String s1) throws IOException{}
 
-    protected Object connect4(String s1){
-        System.out.println("Doing connection in Parent way");
-        return null;
-    }
+    protected void connect4(String s1){}
 
 }
 
 class Child1 extends Parent1{
     @Override
-    public Integer connect(String s2){ //It will work
-        System.out.println("Doing connection in Child way");
-        return null;
-    }
+    public void connect(String s2) throws IllegalArgumentException, ArrayIndexOutOfBoundsException{}
     @Override
-    protected Object connect1(String s1) throws Exception, FileNotFoundException, MalformedURLException { //It will work
-        System.out.println("Doing connection in Child way");
-        return null;
-    }
+    protected void connect1(String s1) throws Exception, FileNotFoundException, MalformedURLException {}
     @Override
-    protected Object connect2(String s1) throws FileNotFoundException{ //It will work
-        System.out.println("Doing connection in Child way");
-        return null;
+    protected void connect2(String s1) throws FileNotFoundException{}
+    //compile error
+    /*@Override
+    protected void connect3(String s1) throws Exception{}*/
+    //compile error
+    /*@Override
+    protected void connect4(String s1) throws FileNotFoundException{}*/
     }
-    /*@Override
-    protected Object connect3(String s1) throws Exception{ //It will NOT work
-        System.out.println("Doing connection in Child way");
-        return null;
-    }*/
-    /*@Override
-    protected Object connect4(String s1) throws Exception{ //It will NOT work
-        System.out.println("Doing connection in Child way");
-        return null;
-    }*/
-}
 public class ExceptionThrows {
+    public static void main(String[] args) {}
 }

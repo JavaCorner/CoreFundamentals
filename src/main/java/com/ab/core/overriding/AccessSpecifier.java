@@ -7,6 +7,9 @@ package com.ab.core.overriding;
  * or can increase visibility but cannot decrease it.
  */
 public class AccessSpecifier {
+    public static void main(String[] args) {
+
+    }
 }
 
 class AAccess{
