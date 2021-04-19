@@ -28,6 +28,13 @@ package com.ab.core.typecasting;
  *
  *  Character extends nothing implements Serializable and Comparable
  *  Boolean extends nothing implements Serializable and Comparable
+ *
+ *
+ *  String extends nothing implements CharSequence, Serializable and Comparable
+ *  AbstractStringBuilder implements CharSequence, Apendable
+ *  StringBuilder extends AbstractStringBuilder implements CharSequence, Serializable
+ *  StringBuffer extends AbstractStringBuilder implements CharSequence, Serializable
+ *
  */
 public class WideningDemo {
     public static void main(String[] args) {
@@ -41,6 +48,15 @@ public class WideningDemo {
 
         //Long l = i;//compile error
         //Float f = i;//compile error
+
+        String s = "abc";
+        StringBuilder sBuild = new StringBuilder("abc");
+        StringBuffer sBuf = new StringBuffer("abc");
+
+        CharSequence cs = null;
+        cs = s;
+        cs = sBuild;
+
     }
 
     private static void wideningPrimitives() {

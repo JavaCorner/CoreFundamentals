@@ -4,6 +4,7 @@ import com.ab.core.annotation.model.Engineer;
 import com.ab.core.annotation.model.Person;
 
 import java.lang.annotation.Annotation;
+import java.util.function.Function;
 
 @SuppressWarnings("deprecation")
 public class BuiltinAnnotation {
@@ -30,5 +31,7 @@ public class BuiltinAnnotation {
                 }
             }
         }
+        String x = "abc";
+        //Function<String, String> func = (@NonNull x) > x.toUpperCase();
     }
 }

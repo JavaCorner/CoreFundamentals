@@ -94,6 +94,23 @@ public class SwitchCase {
             //case maxItems://compile error
             default:
         }
+
+        //below is enhanced switch case version which is supported in java 13 onwards
+        final int i = 1;
+        /*switch (i){
+            case 1:
+                System.out.println("Choice 1");
+                break;
+            case 2, 3:
+                System.out.println("Choice 2,3");
+                break;
+            case 4:
+                System.out.println("Choice 4");
+                break;
+            default:
+                System.out.println("No Choice");
+                break;
+        }*/
     }
 
     private static int readMaxItems() {
