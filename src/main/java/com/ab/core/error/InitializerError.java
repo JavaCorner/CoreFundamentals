@@ -4,6 +4,8 @@ package com.ab.core.error;
  * @author Arpit Bhardwaj
  *
  * java.lang.ExceptionInInitializerError
+ *
+ *
  */
 
 public class InitializerError {

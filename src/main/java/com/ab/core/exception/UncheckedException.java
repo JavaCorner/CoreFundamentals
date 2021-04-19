@@ -5,12 +5,18 @@ import java.util.Locale;
 /**
  * @author Arpit Bhardwaj
  *
+ * Throwable <- Exception <- RuntimeException
+ *
+ * All below exception extends RuntimeException
+ *
  * java.lang.ArithmeticException
  * java.lang.ArrayIndexOutOfBoundsException
  * java.lang.ClassCastException
  * java.lang.IllegalArgumentException
  * java.lang.IllegalStateException
  * java.lang.NullPointerException
+ *
+ * IllegalArgumentException <- NumberFormatException
  * java.lang.NumberFormatException
  */
 public class UncheckedException {
@@ -51,5 +57,32 @@ public class UncheckedException {
 
         //NumberFormatException
         //System.out.println(Integer.parseInt("a"));
+
+        //all dis-joint (non related) are allowed in multi catch
+        try {
+
+        }
+        catch (NumberFormatException e){
+            try {
+
+            }catch (NumberFormatException f){//if use e as veriable then code will not compile
+
+            }
+        }catch (ArithmeticException
+                | ArrayIndexOutOfBoundsException
+                | ClassCastException
+                | IllegalArgumentException
+                | IllegalStateException
+                | NullPointerException e){
+
+        }
+        catch (RuntimeException e){
+
+        }catch (Exception e){
+
+        }catch (Throwable e){
+
+        }
+
     }
 }

@@ -22,6 +22,7 @@ public class JDBCDemo {
             //callStoredProcedureWithInParameter(conn);
             callStoredProcedureWithOutParameter(conn);
         }
+
     }
 
     private static void callStoredProcedureWithOutParameter(Connection conn) throws SQLException {

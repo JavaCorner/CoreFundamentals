@@ -13,6 +13,7 @@ public class ComplexBranching {
             System.out.println("for");
 
         int i = 1;
+
         while (i==1)
             i=0;
 
@@ -30,6 +31,7 @@ public class ComplexBranching {
 
 
             int j = 0;
+
             if (j==0)
                 //the below do while block is considered as 1 statement
                 do
@@ -38,6 +40,11 @@ public class ComplexBranching {
                     else
                 System.out.println("if do while else");
 
+        //while and for exists without body but not do while
+        // while(true);//compiles
+        //for (;true;);//compiles
+        //do while(true);//not compile
 
+        //while(false);//not compile due to unreachability
     }
 }
