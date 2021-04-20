@@ -11,6 +11,8 @@ import java.util.List;
  * it will be passed as a code to other method
  *
  * A Lambda expression implements a functional interface
+ *
+ *
  */
 public class LambdaExpression {
     String msg = "Hello";

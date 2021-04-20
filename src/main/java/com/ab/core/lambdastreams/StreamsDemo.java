@@ -7,9 +7,8 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
+import java.math.BigDecimal;
+import java.util.*;
 import java.util.regex.Pattern;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -17,7 +16,9 @@ import java.util.stream.Stream;
 /**
  * @author Arpit Bhardwaj
  *
- *
+ * Streams may or may not produce elements in specific order
+ * List is an ordered collection, hence stream on it produce ordered elements
+ * Set is an unordered collection, hence stream on it produce unordered elements
  */
 public class StreamsDemo {
     public static void main(String[] args) {
@@ -58,6 +59,7 @@ public class StreamsDemo {
             e.printStackTrace();
         }
 
+        //filtering and mapping
         products.stream()
                 .filter(product -> product.getCategory()== Category.FOOD)
                 .forEach(System.out::println);
@@ -69,6 +71,40 @@ public class StreamsDemo {
         products.stream()
                 .flatMap(product -> Pattern.compile("\\s").splitAsStream(product.getName()))
                 .forEach(System.out::println);
+
+        //searching
+        Optional<Product> firstOfficeProduct = products.stream()
+                .filter(product -> product.getCategory() == Category.OFFICE)
+                .findFirst();
+
+        firstOfficeProduct.ifPresent(System.out::println);
+
+        //in case the stream produce unordered elements then findFirst and findAny has no difference
+        //in case the stream produce ordered elements then findFirst element which first match the filter criteria and findAny return any random
+        //match
+        Optional<Product> anyOfficeProduct = products.stream()
+                .filter(product -> product.getCategory() == Category.OFFICE)
+                .findAny();
+
+        firstOfficeProduct.ifPresent(System.out::println);
+
+        //in case you just want whether filter criteria element is present in the stream or not
+
+        boolean foundOfficeProduct = products.stream()
+                .anyMatch(product -> product.getCategory() == Category.OFFICE);
+
+        System.out.println("Does the list contains at least one office product : " + foundOfficeProduct);
+
+        BigDecimal priceLimit = new BigDecimal("10.00");
+        boolean allCheapProducts = products.stream()
+                .allMatch(product -> product.getPrice().compareTo(priceLimit) < 0);
+
+        System.out.println("Are all products cheap : " + allCheapProducts);
+
+        boolean allExpensiveProducts = products.stream()
+                .noneMatch(product -> product.getPrice().compareTo(priceLimit) < 0);
+
+        System.out.println("Are all products expensive : " + allExpensiveProducts);
 
     }
 }

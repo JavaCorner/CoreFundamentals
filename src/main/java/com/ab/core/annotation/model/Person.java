@@ -2,7 +2,7 @@ package com.ab.core.annotation.model;
 
 import com.ab.core.annotation.Version;
 
-@Version(1)
+@Version(value=1)
 @Version(2)
 public class Person {
 
