@@ -18,6 +18,11 @@ package com.ab.core.lambdastreams;
  * Specialized Functional Interfaces are present for int, long, double
  *                  "PrefixToSuffixInterface"
  *
+ *                  Before To will be taken types
+ *                  After To will be return type
+ *
+ *                  In case return type is generic To will be omitted.
+ *
  * IntFunction (Function) Take int return R
  * ToIntFunction (Function) Take T return int
  * IntToDoubleFunction (Function) (takes int return double)

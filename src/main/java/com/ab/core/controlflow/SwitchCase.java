@@ -19,6 +19,13 @@ package com.ab.core.controlflow;
  * or Value must be resolved at compile time
  */
 public class SwitchCase {
+    enum ENUM_CONSTANT{
+        POSITIVE('+'),NEGATIVE('-'),MULTIPLY('*');
+        char c;
+        ENUM_CONSTANT(char c) {
+            this.c = c;
+        }
+    }
     public static void main(String[] args) {
         char sign = '+';
         switch (sign){
@@ -63,6 +70,14 @@ public class SwitchCase {
                 System.out.println("Divide3");
         }
 
+        switch (ENUM_CONSTANT.MULTIPLY){
+
+            //case ENUM_CONSTANT.MULTIPLY://will not compile
+            case POSITIVE:
+            case NEGATIVE:
+            default:
+        }
+
         char a = 'a';
         byte b = 2;
         short c = 3;
@@ -71,10 +86,7 @@ public class SwitchCase {
         double f = 4; //not allowed
         float g = 5; // not allowed
         boolean h = true; // not allowed
-
-        switch (a){
-
-        }
+        var v =1;
 
         int iVal = 10;
         final int even = 0;

@@ -27,7 +27,9 @@ public class DateTimeZoneDemo {
         System.out.println("Default Formatted Date Time: " + localDateTime);
 
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd-MMMM-yyyy HH:mm:ss.SSS");
+        var df = DateTimeFormatter.ofPattern("MMMM' at 'h' o''clock'");
         System.out.println("Custom Formatted Date Time: " + localDateTime.format(dateTimeFormatter));
+        System.out.println("Custom Formatted Date Time: " + localDateTime.format(df));
 
         Locale.setDefault(Locale.FRANCE);
         DateTimeFormatter dateTimeFormatterFr = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM);

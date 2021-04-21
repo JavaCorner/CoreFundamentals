@@ -3,6 +3,9 @@ package com.ab.core.lambdastreams;
 import com.ab.core.lambdastreams.model.Product;
 
 import java.util.List;
+import java.util.function.BiFunction;
+import java.util.function.IntBinaryOperator;
+import java.util.function.ToIntBiFunction;
 
 /**
  * @author Arpit Bhardwaj
@@ -43,6 +46,12 @@ public class LambdaExpression {
              products) {
             System.out.println(p);
         }
+
+        IntBinaryOperator intBinaryOperator = (p, q) -> p + q;
+        ToIntBiFunction<Integer, Integer> toIntBiFunction = (Integer x, Integer y) -> x * y;
+        BiFunction biFunction = (left,right) -> {
+            return "null";
+        };
 
     }
 

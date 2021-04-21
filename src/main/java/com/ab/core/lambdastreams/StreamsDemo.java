@@ -77,6 +77,9 @@ public class StreamsDemo {
                 .filter(product -> product.getCategory() == Category.OFFICE)
                 .findFirst();
 
+        //The Optional class has an isPresent() method that doesn't take any parameters.
+        // It returns a boolean and is commonly used in if statements.
+        // There is also an ifPresent() method that takes a Consumer parameter and runs it only if the Optional is nonempty.
         firstOfficeProduct.ifPresent(System.out::println);
 
         //in case the stream produce unordered elements then findFirst and findAny has no difference
@@ -89,6 +92,7 @@ public class StreamsDemo {
         firstOfficeProduct.ifPresent(System.out::println);
 
         //in case you just want whether filter criteria element is present in the stream or not
+        //use anyMatch, allMatch, noneMatch
 
         boolean foundOfficeProduct = products.stream()
                 .anyMatch(product -> product.getCategory() == Category.OFFICE);

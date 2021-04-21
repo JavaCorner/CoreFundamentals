@@ -28,9 +28,10 @@ public class WriterDemo {
             e.printStackTrace();
         }
 
-        try(StringWriter writer = new StringWriter()) {
+        try(StringWriter writer = new StringWriter(); var t = System.out) {
             writer.write("Hello World!");// write chars to internal buffer, hence explicit flush required to flush
             writer.flush();
+            writer.write('c');
             StringBuffer buf = writer.getBuffer();
             System.out.println(buf.toString());
             System.out.println(writer.toString());

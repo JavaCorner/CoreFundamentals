@@ -45,7 +45,8 @@ public enum Currency implements Runnable{
 
     private int value;
 
-    Currency(int value) {
+    //constructors of enum are by default private,specifying the same is redundant
+    private Currency(int value) {
         this.value = value;
     }
 

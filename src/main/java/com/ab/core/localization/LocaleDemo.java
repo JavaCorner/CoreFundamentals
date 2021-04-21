@@ -5,6 +5,11 @@ import java.util.Locale;
 import static java.util.Locale.CANADA;
 import static java.util.Locale.ITALIAN;
 
+/**
+ * @author Arpit Bhardwaj
+ *
+ * Oracle defines a locale as a geographical, political, or cultural region.
+ */
 public class LocaleDemo {
     public static void main(String[] args) {
         Locale locale = Locale.getDefault();
@@ -17,17 +22,21 @@ public class LocaleDemo {
         Locale inLocaleC = new Locale("hi", "IN", "WIN");
         displayLocaleAttributes(inLocaleC);
 
+
         Locale frLocale = new Locale.Builder().setLanguage("fr").setRegion("FR").build();
         displayLocaleAttributes(frLocale);
 
-        System.out.println("********Displaying Locale Constants Attributes********");
-        System.out.println("Country: " + CANADA.getDisplayCountry());
-        System.out.println("Language: " + ITALIAN.getDisplayLanguage());
+        System.out.println("********Predefined Locale********");
+        displayLocaleAttributes(CANADA);
+        displayLocaleAttributes(ITALIAN);
+
+        Locale.setDefault(new Locale("is", "IS"));
+        displayLocaleAttributes(Locale.getDefault());
     }
 
     static void displayLocaleAttributes(Locale locale){
         System.out.println("********Displaying Locale Attributes********");
-
+        System.out.println(locale);
         System.out.println("Locale Name: " + locale.getDisplayName());
 
         System.out.println("Country: " + locale.getDisplayCountry());
