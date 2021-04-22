@@ -16,7 +16,10 @@ public class PrimitiveTypes {
         double num1 = 2.718;
         //double num2 = 2._718;
         double num3 = 2.7_1_8;
-        //double num4 = _2.718;
+        //double num4 =
+
+        double f = 3.14;
+        float d = 3.14f;
     }
 
     public void $fg(){

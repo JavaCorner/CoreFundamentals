@@ -87,18 +87,8 @@ public class StreamsUtility {
                 .skip(2)
                 .limit(4)
                 .sorted()
-                .peek(System.out::println)
+                .peek(System.out::println)//Returns a stream consisting of the elements of this stream, additionally performing the provided action on each element
                 .forEach(System.out::println);
-
-/*        var dice = new TreeSet<Integer>();
-        dice.add(6);
-        dice.add(6);
-        dice.add(4);
-
-        dice.stream()
-                .filter(n -> n != 4)
-                .forEach(System.out::println)
-                .count();*/
 
     }
 }
