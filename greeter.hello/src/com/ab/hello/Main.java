@@ -1,4 +1,4 @@
-package com.ab.main;
+package com.ab.hello;
 
 /**
  * @author Arpit Bhardwaj

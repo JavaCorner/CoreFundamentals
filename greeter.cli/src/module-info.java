@@ -1,3 +1,4 @@
+
 /**
  * @author Arpit Bhardwaj
  *
@@ -18,7 +19,12 @@
  *
  * jar --help
  *
+ * uses <package><type_name>
+ *
  */
+
 module greeter.cli {
     requires greeter.hello;
+    requires greeter.api;
+    uses com.ab.api.MessageService;
 }

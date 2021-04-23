@@ -1,3 +1,4 @@
+
 /**
  * @author Arpit Bhardwaj
  *
@@ -17,15 +18,20 @@
  * -m : modules
  * C:\Users\ARPIBHAR\IdeaProjects\CoreFundamentals\greeter.hello>java -p out -m greeter.hello/com.ab.main.Main
  *
- * requires is followed by a module name
- * exports is followed by a package name
+ * requires <module>
+ * exports <package>
+ * opens <package>
  * open module implicitly opens all packages
  * requires transitive (whoever is requires x module get also all his requires transitive dependecies implicitly)
+ * provides <package><type_name> with <package><type_name>
  *
  */
+
 module greeter.hello {
     exports com.ab.service; //export to everyone
     //exports com.ab.service to greeter.cli; //export only to greeter.cli
     //opens com.ab.util; //open only for reflective access at runtime
     //opens com.ab.util to greeter.cli, java.base;//open only to greeter.cli and java.base
+    requires greeter.api;
+    provides com.ab.api.MessageService with com.ab.service.HelloMessageService;
 }

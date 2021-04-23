@@ -1,5 +1,9 @@
 package com.ab.core.oop;
 
+/**
+ * @author Arpit Bhardwaj
+ *
+ */
 public class MultipleInheritance {
 
     interface Plant {
