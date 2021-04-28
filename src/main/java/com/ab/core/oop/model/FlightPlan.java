@@ -29,7 +29,7 @@ public class FlightPlan extends Flight{
     List<String> route;
 
     private FlightPlan(){
-        super("Test Flight");//without this line there will be a compile time error
+        super("Test Flight");//without this line there will be a compile error as there is no  noarg constructor in parent
         System.out.println("FlightPlan()");
         this.id = UUID.randomUUID().toString();
     }
@@ -39,19 +39,18 @@ public class FlightPlan extends Flight{
         System.out.println("FlightPlan Static block 1");
     }
     {
-        // This code is executed whenever any constructor is invoked (before the constructor’s contents)
         System.out.println("FlightPlan IIB 1");
     }
     static {
-        //this code is executed only once: the first time the class is loaded into memory
         System.out.println("FlightPlan Static block 2");
     }
+
     {
-        // This code is executed whenever any constructor is invoked (before the constructor’s contents)
         System.out.println("FlightPlan IIB 2");
     }
+
+
     public FlightPlan(String departure, String destination){
-        //IIB code if any got run at this point
         this();//should be the first line else will be compiler error
         if(departure == null || destination == null){
             throw new IllegalArgumentException();
@@ -62,7 +61,6 @@ public class FlightPlan extends Flight{
     }
 
     public FlightPlan(String departure, String destination, LocalDateTime departureTime, List<String> route) {
-        //IIB code if any got run at this point
         this(departure,destination);//should be the first line else will be compiler error
 
         if(departureTime == null || route == null){
@@ -92,4 +90,5 @@ public class FlightPlan extends Flight{
                 ", route=" + route +
                 '}';
     }
+
 }

@@ -14,11 +14,11 @@ public class FlightPlanDemo {
 
         System.out.println(berlinTOBucharest);
 
-        FlightPlan parisToLondon = new FlightPlan("CDG",
+        /*FlightPlan parisToLondon = new FlightPlan("CDG",
                 "LHR",
                 LocalDateTime.of(2020,01,10,23,15),
                 Arrays.asList(new String[]{"CDG","FGH"}));
 
-        System.out.println(parisToLondon);
+        System.out.println(parisToLondon);*/
     }
 }

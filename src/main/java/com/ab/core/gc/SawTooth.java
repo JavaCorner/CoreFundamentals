@@ -1,6 +1,6 @@
 package com.ab.core.gc;
 
-//import sun.misc.Unsafe;
+import sun.misc.Unsafe;
 
 import java.lang.reflect.Field;
 
@@ -8,7 +8,7 @@ import java.lang.reflect.Field;
  * @author Arpit Bhardwaj
  */
 public class SawTooth {
-    /*
+
     private static Unsafe unsafe;
 
     static {
@@ -45,5 +45,5 @@ public class SawTooth {
         long aaaaaa;
         long aaaaaaa;
     }
-    */
+
 }

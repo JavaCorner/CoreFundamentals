@@ -24,6 +24,7 @@
  * open module implicitly opens all packages
  * requires transitive (whoever is requires x module get also all his requires transitive dependecies implicitly)
  * provides <package><type_name> with <package><type_name>
+ * uses <package><type_name>
  *
  */
 

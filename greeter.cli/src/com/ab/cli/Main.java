@@ -5,6 +5,11 @@ import com.ab.service.HelloMessageService;
 import java.lang.reflect.Type;
 import java.util.ServiceLoader;
 
+/**
+ * @author Arpit Bhardwaj
+ *
+ * service locator
+ */
 public class Main {
     public static void main(String[] args) {
         //System.out.println("Hello from greeter.cli module");

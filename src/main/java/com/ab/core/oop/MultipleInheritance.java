@@ -6,31 +6,35 @@ package com.ab.core.oop;
  */
 public class MultipleInheritance {
 
-    interface Plant {
-        default String grow() { return "Grow!"; }
+    interface Leaf {
+        default void grow() {
+            System.out.println("Leaf!!");
+        }
     }
 
     interface Living {
-        default String grow() { return "Super Growing!"; }
+        default void grow() {
+            System.out.println("Living!!");
+        }
     }
 
-    static class Tree implements Plant, Living, Broccoli {
+    static class Tree implements Living,Leaf, Plant {
         @Override
-        public String grow() {
-            return Broccoli.super.grow();
+        public void grow() {
+            //Leaf.super.grow();//compile error (redundant super call)
+            Plant.super.grow();
         }
         public static void main(String[] leaves) {
             Plant p = new Tree();
-            System.out.print(((Living)p).grow());
+            ((Living)p).grow();
         }
     }
 
-    interface Broccoli extends Plant,Living{
+    interface Plant extends Leaf,Living{
         @Override
-        default String grow() {
-            return Living.super.grow();
-            //or
-            //return Plant.super.grow();
+        default void grow() {
+            Living.super.grow();
+            Leaf.super.grow();
         }
     }
 }
