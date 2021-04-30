@@ -51,11 +51,19 @@ public class PrimitiveTypes {
         char c = 65535;
         int i = 2147483647;
         long l1 = 2147483647;//here the value is treated as an int and casted to long
-        //long l2 = 2147483648;//compile error- need to add l or L to avoid compile error and treat it as long
+        //long l2 = 2147483648;//compile error- need to add l or L to avoid compile error and treat it as long value
         long l3 = 2147483648L;
         long l4 = 9223372036854775807L;
 
-        float f =  99999999999999999999999999999999999999F;
+        float f1 = 2147483647;
+        //float f2 = 2147483648;//compile error - as the literal value is treated as int and its out of range as per int range
+                                                // need to add l or L to avoid compile error and treat it as long value
+        float f3 = 2147483648L;
+        //float f4 = 99999999999999999999999999999999999999L;//compile error as the value treated as long but out of range as per long range
+        float f5 =  99999999999999999999999999999999999999F;
+
+        //float f6 = 1.24;//compile error (floating-point literals are assumed to be double, unless postfixed with an f and double cannot be widen to float)
+
         double d = 99999999999999999999999999999999999999F;
     }
 }

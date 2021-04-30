@@ -18,11 +18,44 @@ package com.ab.core.typecasting;
  * From a long     ---> byte ---> short ---> char ---> int
  * From a float     ---> byte ---> short ---> char ---> int ---> long
  * From a double  ---> byte ---> short ---> char ---> int ---> long ---> float
+ *
+ * Overflow is when a number is so large that it will no longer fit within the data type,
+ * so the system “wraps around” to the lowest negative value and counts up from there, similar to how modulus arithmetic works.
+ *
+ * Underflow, when the number is too low to fit in the data type
  */
 public class NarrowingDemo {
     public static void main(String[] args) {
+
+        //in below examples putting a larger value into a smaller data type.
+        //float egg = 2.0 / 9;        // DOES NOT COMPILE
+        //int tadpole = (int)5 * 2L;  // DOES NOT COMPILE
+        //short frog = 3 - 2.0;       // DOES NOT COMPILE
+
+
+        //int fish = 1.0;        // DOES NOT COMPILE
+        //short bird = 1921222;  // DOES NOT COMPILE
+        //int mammal = 9f;       // DOES NOT COMPILE
+        //long reptile = 192301398193810323;  // DOES NOT COMPILE
+
+        //fixes for above statements through down casting but it involves cost of OVERFLOW AND UNDERFLOW
+        int fish = (int)1.0;
+        System.out.println(fish);
+
+        short bird = (short)1921222;//overflow
+        System.out.println(bird);
+        int mammal = (int)9f;
+        System.out.println(mammal);
+        long reptile = 192301398193810323L;
+        System.out.println(reptile);
+
+        byte rat = (byte) -200;//underflow
+        System.out.println(rat);
+
         narrowingPrimitives();
         narrowingObjects();
+
+
     }
 
     private static void narrowingObjects() {
@@ -30,7 +63,7 @@ public class NarrowingDemo {
         Integer i1 = (Integer) n;
         Long l = new Long(10);
         //Integer i2 = (Integer) l;//compile error
-        Long l2 = (Long) n;
+        //Long l2 = (Long) n;//throws class cast exception
     }
 
     private static void narrowingPrimitives() {

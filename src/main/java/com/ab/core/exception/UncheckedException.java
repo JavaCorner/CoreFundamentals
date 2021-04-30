@@ -50,9 +50,16 @@ public class UncheckedException {
         }*/
 
         //NullPointerException
-        /*String s1 = null;
-        s1.toUpperCase();*/
+        try{
+            String s1 = null;
+            s1.toUpperCase();
 
+        }catch (NullPointerException e){
+            e.printStackTrace();
+            System.out.println(e.getCause());
+            System.out.println(e.getMessage());
+            System.out.println(e.getLocalizedMessage());
+        }
         //System.out.println(Integer.parseInt("1"));
 
         //NumberFormatException
