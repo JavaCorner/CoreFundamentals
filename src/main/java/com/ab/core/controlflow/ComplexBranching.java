@@ -46,5 +46,32 @@ public class ComplexBranching {
         //do while(true);//not compile
 
         //while(false);//not compile due to unreachability
+
+        int x = 0;
+        for(long y = 0, z = 4; x < 5 && y < 10; x++, y++)
+            System.out.print(y + " ");
+
+
+        //for(long y = 0, int z = 4; x < 5; x++) // DOES NOT COMPILE
+            //System.out.print(y + " ");
+
+        int[][] myComplexArray = {{5,2,1,3},{3,9,8,9},{5,7,12,7}};
+
+        //A label is an optional pointer to the head of a statement that allows the application flow to jump to it or break from it.
+        //Labels follow the same rules for formatting as identifiers.
+        OUTER_LOOP:  for(int[] mySimpleArray : myComplexArray) {
+            INNER_LOOP:  for(int k=0; i<mySimpleArray.length; k++) {
+                System.out.print(mySimpleArray[k]+"\t");
+            }
+            System.out.println();
+        }
+
+        //it is possible to add optional labels to control and block statements.
+        //but its actually of no use and its very uncommon
+        int frog = 15;
+        BAD_IDEA: if(frog>10)
+            EVEN_WORSE_IDEA: {
+                frog++;
+        }
     }
 }

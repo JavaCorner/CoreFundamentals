@@ -9,7 +9,9 @@ package com.ab.core.controlflow;
  * The order of branch doesn't matter
  *
  * Supported Types
+ *
  * char, byte, short, int, Character, Byte, Short, Integer, String, or an enum
+ * in short only int values or those values that could be promoted to int,their wrappers, String and enum
  *
  * Switch test value
  * Any expression that returns a value (of supported type)
@@ -123,6 +125,15 @@ public class SwitchCase {
                 System.out.println("No Choice");
                 break;
         }*/
+
+        short size = 4;
+        final int small = 15;
+        final int big = 1_000_000;
+        switch(size) {
+            case small:
+            case 1+2 :
+            //case big:  // DOES NOT COMPILE//1_000_000 is too large to fit inside of short without an explicit cast
+        }
     }
 
     private static int readMaxItems() {
