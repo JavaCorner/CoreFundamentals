@@ -39,11 +39,19 @@ public class Equality {
         String s2 = new String("Hello");
 
         System.out.println(s1.equals(s2));//String class overrides equals
-        System.out.println(s1==s2);//allowed but not suppose to be used as it does reference comparison
+        System.out.println(s1==s2);//false //allowed but not suppose to be used as it does reference comparison
 
         String s3 = "Hello";
         System.out.println(s1.equals(s3));
         System.out.println(s1==s3);
+
+        String x = "Hello World";
+        String y = "Hello World";
+        System.out.println(x == y);    // true
+
+        String x1 = "Hello World";
+        String z1 = " Hello World".trim();
+        System.out.println(x1 == z1); // false
     }
 
     private static void primitivesComparison() {

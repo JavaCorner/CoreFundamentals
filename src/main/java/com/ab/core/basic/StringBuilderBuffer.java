@@ -60,5 +60,11 @@ public class StringBuilderBuffer {
 
         builder.replace(3, 100, "");
         System.out.println(builder);
+
+        //StringBuilder did not implement equals(). If you call equals() on two StringBuilder instances, it will check reference equality.
+        StringBuilder one = new StringBuilder("abc");
+        StringBuilder two = new StringBuilder("abc");
+        System.out.println(one.equals(two));
+        System.out.println(one.toString().equals(two.toString()));
     }
 }
