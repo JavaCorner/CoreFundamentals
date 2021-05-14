@@ -10,6 +10,8 @@ import java.util.*;// causes Date declaration to not compile
 import java.sql.*;
 import java.util.Date;
 
+import static java.util.Arrays.asList;
+
 /**
  * @author Arpit Bhardwaj
  *
@@ -35,6 +37,9 @@ For any program	                                For programs with one file
 Can import code in any available Java library	Can only import code that came with the JDK
 
 Imports
+
+1. regular imports are for importing a class
+2. static imports are only for importing static members.
 
 You can import a specific class or all classes in a specific package.
 Point to note:
@@ -93,6 +98,11 @@ public class Basic {
     }
 
     Date date;
+
+    public static void main(String[] args) {
+        //Arrays.asList("one"); // DOES NOT COMPILE if we don't regular import arrays and only do static import of asList
+        asList("two"); //this wil compile if we only do static import of asList
+    }
 }
 
 class test{

@@ -7,17 +7,12 @@ package com.ab.core.overriding;
  * or can increase visibility but cannot decrease it.
  */
 public class AccessSpecifier {
-    public static void main(String[] args) {
-
+    class A{
+        protected void connect(){};
     }
+    class B extends A{
+        @Override
+        public void connect() {}
+    }
+    public static void main(String[] args) {}
 }
-
-class AAccess{
-    protected void connect(){};
-}
-
-class BAccess extends AAccess{
-    @Override
-    public void connect() {}
-}
-

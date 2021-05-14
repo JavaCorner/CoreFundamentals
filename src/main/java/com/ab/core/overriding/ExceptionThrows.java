@@ -22,34 +22,33 @@ import java.sql.SQLException;
  * cannot throw exception from totally new inheritance hierarchy like SQLException.
  * cannot throw broader exception like Throwable or Exception in our case.
  */
-
-class Parent1{
-    protected void connect(String s1) {}
-
-    protected void connect1(String s1) throws Exception{}
-
-    protected void connect2(String s1) throws IOException, SQLException {}
-
-    protected void connect3(String s1) throws IOException{}
-
-    protected void connect4(String s1){}
-
-}
-
-class Child1 extends Parent1{
-    @Override
-    public void connect(String s2) throws IllegalArgumentException, ArrayIndexOutOfBoundsException{}
-    @Override
-    protected void connect1(String s1) throws Exception, FileNotFoundException, MalformedURLException {}
-    @Override
-    protected void connect2(String s1) throws FileNotFoundException{}
-    //compile error
-    /*@Override
-    protected void connect3(String s1) throws Exception{}*/
-    //compile error
-    /*@Override
-    protected void connect4(String s1) throws FileNotFoundException{}*/
-    }
 public class ExceptionThrows {
+    class Parent1{
+        protected void connect(String s1) {}
+
+        protected void connect1(String s1) throws Exception{}
+
+        protected void connect2(String s1) throws IOException, SQLException {}
+
+        protected void connect3(String s1) throws IOException{}
+
+        protected void connect4(String s1){}
+
+    }
+
+    class Child1 extends Parent1{
+        @Override
+        public void connect(String s2) throws IllegalArgumentException, ArrayIndexOutOfBoundsException{}
+        @Override
+        protected void connect1(String s1) throws Exception, FileNotFoundException, MalformedURLException {}
+        @Override
+        protected void connect2(String s1) throws FileNotFoundException{}
+        //compile error
+        /*@Override
+        protected void connect3(String s1) throws Exception{}*/
+        //compile error
+        /*@Override
+        protected void connect4(String s1) throws FileNotFoundException{}*/
+    }
     public static void main(String[] args) {}
 }
