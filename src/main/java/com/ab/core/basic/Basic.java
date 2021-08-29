@@ -23,10 +23,10 @@ import static java.util.Arrays.asList;
  *                  Javadoc comments have a specific structure that the Javadoc tool knows how to read.
  *
  * Multiple Classes in Single File
- * You can put two classes in the same file. But When you do so,
- *      at most one of the classes in the file is allowed to be public.
- *      and the public class needs to match the filename.
- *
+ * You can put multiple default(package private) classes and a single public class in the same file.
+ * In Nutshell
+ *   at most one of the classes in the file is allowed to be public.
+ *   and the public class needs to match the filename.
  *
 Full command	                                Single-file source-code command
 javac HelloWorld.java                           java HelloWorld.java

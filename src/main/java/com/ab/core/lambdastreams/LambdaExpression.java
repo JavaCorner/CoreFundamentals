@@ -23,6 +23,7 @@ public class LambdaExpression {
     public static void main(String[] args) {
         List<Product> products = ExampleData.getProducts();
 
+        //Anonymous Inner Class
         /*products.sort(new Comparator<Product>() {
             @Override
             public int compare(Product p1, Product p2) {
@@ -30,6 +31,7 @@ public class LambdaExpression {
             }
         });*/
 
+        //Lambda Expression
         /*products.sort((Product p1, Product p2) -> {
             return p1.getPrice().compareTo(p2.getPrice());
         });*/

@@ -9,14 +9,17 @@ public class ComplexBranching {
     public static void main(String[] args) {
         //by default loops are tied to only statement below it like if/else
         //more than 1 statement required to be wrapped in brackets
+
+        //for loop
         for (int i = 0; i < 1; i++)
             System.out.println("for");
 
         int i = 1;
 
+        //while loop
         while (i==1)
             i=0;
-
+        //do while loop
         do
             System.out.println("do while");
         while (i==1);
@@ -28,7 +31,6 @@ public class ComplexBranching {
                 System.out.println("for if");
             else
                 System.out.println("for else");
-
 
             int j = 0;
 
@@ -43,11 +45,15 @@ public class ComplexBranching {
         //while and for exists without body but not do while
         // while(true);//compiles
         //for (;true;);//compiles
+
         //do while(true);//not compile
 
         //while(false);//not compile due to unreachability
 
+        int sum = 0;
         int x = 0;
+        for(int k = 0; k < 2; sum += k++)
+
         for(long y = 0, z = 4; x < 5 && y < 10; x++, y++)
             System.out.print(y + " ");
 

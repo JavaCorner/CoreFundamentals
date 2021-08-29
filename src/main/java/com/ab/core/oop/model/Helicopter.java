@@ -2,6 +2,8 @@ package com.ab.core.oop.model;
 
 /**
  * @author Arpit Bhardwaj
+ *
+ * You cannot override sttaic methods even though you can have the same method signature without @override annotation
  */
 public class Helicopter extends Aircraft{
 
@@ -21,6 +23,11 @@ public class Helicopter extends Aircraft{
 
     @Override
     protected void implementActions() {
+
+    }
+
+    //@Override //uncomment will result in compiler error
+    public static void aircraftDimensions(){
 
     }
 }

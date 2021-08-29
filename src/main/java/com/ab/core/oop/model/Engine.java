@@ -6,8 +6,8 @@ package com.ab.core.oop.model;
  * Interface methods are abtract and public by default.Even though you can sepcify abtract and public but that will be redundant
  * Interface methods can not be protected or private
  * Fileds defined in interfaces are public static final by default. Specifying the same will be redundant
- * Default methods are by default public
- *
+ * Default methods are by default public and are only allowed in Interfaces
+ * Interfaces may contain default, private or static methods
  * Iterface cannot contain constructors
  */
 
@@ -19,7 +19,7 @@ public interface Engine {
     default String healthCheck(){
         return "OK";
     }
-
+    private void test(){}
     static boolean canStart(int outsideTemp){
         return outsideTemp>MIN_OPERATING_TEMP;
     }

@@ -16,6 +16,7 @@ package com.ab.core.oop.model;
  * Share some common functionality with future subclasses
  * Implement Template design pattern
  *
+ *
  */
 public abstract class Aircraft {
     private int altitude;
@@ -34,6 +35,9 @@ public abstract class Aircraft {
         return altitude;
     }
 
+    public static void aircraftDimensions(){
+
+    }
     public final void takeOff(){
         checkSystems();
         getClearance();

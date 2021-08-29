@@ -10,9 +10,10 @@ package com.ab.core.exception;
  */
 public class TryCatchFinally {
     public static void main(String[] args) {
-        System.out.println("Value of a: " + validTest());
-        System.out.println("Value of a: " + validTest2());
-        System.out.println("Value of a: " + validTest3());
+        test1();
+        //System.out.println("Value of a: " + validTest());
+        //System.out.println("Value of a: " + validTest2());
+        //System.out.println("Value of a: " + validTest3());
     }
 
     private static int validTest() {
@@ -46,5 +47,18 @@ public class TryCatchFinally {
             a = 50;
             return a;
         }
+    }
+
+    private static void test1(){
+        try{
+            test2();
+        }catch (NullPointerException e){
+            System.out.println("Custom NPE");
+        }catch (Exception e){
+            System.out.println("Custom Exception");
+        }
+    }
+    private static void test2() throws Exception{
+        throw new NullPointerException("Custom Null Pointer");
     }
 }
