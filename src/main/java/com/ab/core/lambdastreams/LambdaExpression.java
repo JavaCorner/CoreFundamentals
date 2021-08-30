@@ -14,7 +14,8 @@ import java.util.function.ToIntBiFunction;
  * it will be passed as a code to other method
  *
  * A Lambda expression implements a functional interface
- *
+ * {} and return keyword is optional in case one line simple statement
+ * () are optional in case of single parameter
  *
  */
 public class LambdaExpression {

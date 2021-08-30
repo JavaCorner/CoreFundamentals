@@ -1,12 +1,17 @@
 package com.ab.core.lambdastreams.model;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.Objects;
 
 public class Product {
     private final String name;
     private final Category category;
     private final BigDecimal price;
+
+    private LocalDate bestBefore;
+    private BigDecimal discount;
 
     public Product(Category category, String name, BigDecimal price) {
         this.name = name;
@@ -24,6 +29,22 @@ public class Product {
 
     public BigDecimal getPrice() {
         return price;
+    }
+
+    public LocalDate getBestBefore() {
+        return bestBefore;
+    }
+
+    public void setBestBefore(LocalDate bestBefore) {
+        this.bestBefore = bestBefore;
+    }
+
+    public BigDecimal getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(BigDecimal discount) {
+        this.discount = discount;
     }
 
     @Override

@@ -8,7 +8,9 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.*;
+import java.util.function.*;
 import java.util.regex.Pattern;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -19,6 +21,18 @@ import java.util.stream.Stream;
  * Streams may or may not produce elements in specific order
  * List is an ordered collection, hence stream on it produce ordered elements
  * Set is an unordered collection, hence stream on it produce unordered elements
+ *
+ * Intermediate :
+ *      filter,map,flatmap,peek,distinct,sorted,dropWhile,skip.limit,takeWhile
+ * Terminal :
+ *      forEach, forEachOrdered,count,min,max,sum,average,collect,reduce,allMatch,anyMatch,NoneMatch,findAny, findFirst
+ *
+ * Differences:
+ *      forEach and forEachOrdered: forEach operation doesn't gurantee the order of elements, which is actually beneficial for parallel stream
+ *      map, flatMap:
+ *          map stream elements to a new stream of different content type
+ *          flatMap flatten a number of streams to a single stream
+ *
  */
 public class StreamsDemo {
     public static void main(String[] args) {
@@ -35,22 +49,20 @@ public class StreamsDemo {
 
         productStream.forEach(product -> {});
 
-        //obtaining streams from collection
+        //obtaining streams from collection.
         Stream<Product> productStream1 = products.stream();
 
         //obtaining streams from array
         String[] strings = new String[]{"one","two","three"};
         Stream<String> stream0 = Arrays.stream(strings);
 
+        //obtaining streams from static methods of Stream
         Stream<String> stream1 = Stream.of("one", "two", "three");
-
         Stream<String> stream2 = Stream.ofNullable("one");
-
         Stream<Object> stream3 = Stream.empty();
 
         //other objects which provides stream
         IntStream dice = new Random().ints(1, 7);//gives an infinite stream
-
         dice.limit(10).forEach(System.out::println);
 
         try (BufferedReader reader = new BufferedReader(new FileReader("files/words.txt"))){
@@ -61,7 +73,7 @@ public class StreamsDemo {
 
         //filtering and mapping
         products.stream()
-                .filter(product -> product.getCategory()== Category.FOOD)
+                .filter(product -> product.getCategory() == Category.FOOD)
                 .forEach(System.out::println);
 
         products.stream()
@@ -92,7 +104,7 @@ public class StreamsDemo {
         firstOfficeProduct.ifPresent(System.out::println);
 
         //in case you just want whether filter criteria element is present in the stream or not
-        //use anyMatch, allMatch, noneMatch
+        //use anyMatch, allMatch, noneMatch and all takes predicate
 
         boolean foundOfficeProduct = products.stream()
                 .anyMatch(product -> product.getCategory() == Category.OFFICE);
@@ -109,6 +121,38 @@ public class StreamsDemo {
                 .noneMatch(product -> product.getPrice().compareTo(priceLimit) < 0);
 
         System.out.println("Are all products expensive : " + allExpensiveProducts);
+
+
+        //Perform actions on stream pipeline elements
+        //combine consumers
+        //Default addThen Method of Consumer Interface combines consumer together
+        Consumer<Product> expireProduct = product -> product.setBestBefore(LocalDate.now());
+        Consumer<Product> discountProduct = p -> p.setDiscount(BigDecimal.valueOf(0.1));
+
+        products.stream().forEach(expireProduct.andThen(discountProduct));
+
+        products.stream().peek(expireProduct)
+                .filter(p->p.getPrice().compareTo(BigDecimal.valueOf(10))>0)
+                .forEach(discountProduct);
+
+        //Perform filtering on stream pipeline elements
+        //combine filtering
+        Predicate<Product> foodFilter = p -> p.getCategory().equals(Category.FOOD);
+        Predicate<Product> priceFiter = p -> p.getPrice().compareTo(BigDecimal.valueOf(2)) < 0;
+
+        products.stream().filter(foodFilter.negate().or(priceFiter))
+                .forEach(discountProduct);
+
+        //Perform mapping on stream pipeline elements
+        Function<Product,String> nameMapper = p -> p.getName();
+        UnaryOperator<String> trimMapper = p -> p.trim();
+        ToIntFunction<String> lengthMapper = p -> p.length();
+
+        products.stream()
+                .map(nameMapper.andThen(trimMapper))
+                .mapToInt(lengthMapper)
+                .sum();
+
 
     }
 }

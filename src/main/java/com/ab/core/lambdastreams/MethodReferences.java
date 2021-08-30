@@ -11,12 +11,17 @@ import java.util.List;
  *
  * Method reference are useful if you want to omit the extra method call of lambda
  *
- * The methods methods reference points to must match with the method defined by functional interface which labda going to implement
+ * Method Reference is semantically identical to the method that lamdba expression is implementing
  *
  * Method Reference can refer to:
- *      static methods
- *      intsnace method
- *      constructor
+ *      Reference a static method
+ *          <class>::<static method>
+ *      Reference a instance method of a particular object
+ *          <object>::<instance method>
+ *      Reference a instance method of an arbitrary object of a particular type
+ *          <class>::<instance method>
+ *      Reference a constructor
+ *          <class>::new
  *
  */
 public class MethodReferences {
@@ -30,7 +35,7 @@ public class MethodReferences {
     public static void main(String[] args) {
         List<Product> products = ExampleData.getProducts();
 
-        //here there are 2 layers - first labda which in turns calls a single instance method
+        //here there are 2 layers - first lambda which in turns calls a single instance method
         //products.forEach(product -> System.out.println(product));
 
         //we can avoid extra lambda layer by using method reference
