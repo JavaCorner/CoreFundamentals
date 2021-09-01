@@ -6,14 +6,14 @@ package com.ab.core.exception;
  * 1. After try block, there can be direct finally block. OR
  * 2. After try block, there can be direct catch block.
  *
- * Note: Only try block without catch or finally is compile time error.
+ * Note: Only try block without catch or finally is compiletime error.
  */
 public class TryCatchFinally {
     public static void main(String[] args) {
-        test1();
-        //System.out.println("Value of a: " + validTest());
-        //System.out.println("Value of a: " + validTest2());
-        //System.out.println("Value of a: " + validTest3());
+        //test1();
+        System.out.println("Value of a: " + validTest());   // print a : 20
+        System.out.println("Value of a: " + validTest2());  // print a : 30
+        System.out.println("Value of a: " + validTest3());  // print a : 50
     }
 
     private static int validTest() {

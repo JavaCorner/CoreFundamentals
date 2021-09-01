@@ -5,19 +5,21 @@ import java.util.Locale;
 /**
  * @author Arpit Bhardwaj
  *
+ * Unchecked exceptions are often an evidence of a bug in your code, which should be fixed rather than caught
+ *
  * Throwable <- Exception <- RuntimeException
  *
  * All below exception extends RuntimeException
  *
+ * java.lang.NullPointerException
  * java.lang.ArithmeticException
- * java.lang.ArrayIndexOutOfBoundsException
+ * java.lang.IndexOutOfBoundsException
+ *      java.lang.ArrayIndexOutOfBoundsException
  * java.lang.ClassCastException
  * java.lang.IllegalArgumentException
+ *      java.lang.NumberFormatException
  * java.lang.IllegalStateException
- * java.lang.NullPointerException
  *
- * IllegalArgumentException <- NumberFormatException
- * java.lang.NumberFormatException
  */
 public class UncheckedException {
     public static void main(String[] args) {

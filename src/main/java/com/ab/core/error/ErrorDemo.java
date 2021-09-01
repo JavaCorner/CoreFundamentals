@@ -7,10 +7,10 @@ package com.ab.core.error;
  * Throwable <- Error
  *
  * java.lang.LinkageError(abstract)
- * java.lang.ExceptionInInitializerError,java.lang.NoClassDefFoundError
+ *      java.lang.ExceptionInInitializerError,java.lang.NoClassDefFoundError
  *
  * java.lang.VirtualMachineError(abstract)
- * java.lang.StackOverflowError,java.lang.OutOfMemoryError
+ *      java.lang.StackOverflowError,java.lang.OutOfMemoryError
  *
  * You can throw, throws and catch Errors
  *

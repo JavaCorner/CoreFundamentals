@@ -8,6 +8,10 @@ import java.io.IOException;
  *
  * If exceptions are thrown from both the try block and the try-with-resources statement,
  * exception from the try block is thrown and exception from the try-with-resources statement is suppressed.
+ *
+ * Closeable extends AutoCloseable and Closeable is mainly directed to IO streams.
+ * Closeable close throws IOException whereas AutoCloseable close throws Exception.
+ * Closeable interface is idempotent (calling close() method more than once does not have any side effects) whereas AutoCloseable does not provide this feature.
  */
 public class TryWithResourceDemo {
     public static void main(String[] args) {

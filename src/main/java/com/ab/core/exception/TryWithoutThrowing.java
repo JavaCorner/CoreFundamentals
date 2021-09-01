@@ -55,8 +55,9 @@ public class TryWithoutThrowing {
     private static void validTest2() throws IOException{throw new IOException();}
 
     /*NullPointerException which is Unchecked exception,
-    So it is not mandatory for caller to catch it, If it catches still it is fine, that is why compiler
-    doesn't complain for catch block.*/
+    So it is not mandatory for caller to catch it, If it catches still it is fine.
+    also propagating the same is also optional
+    that is why compiler doesn't complain for catch block.*/
 
     private static void validTest3() {throw new NullPointerException();}
 
@@ -64,7 +65,6 @@ public class TryWithoutThrowing {
         try {
             throw new NullPointerException();
         } catch (NullPointerException e){
-
         }
     }
 
@@ -83,7 +83,7 @@ public class TryWithoutThrowing {
     //It is allowed to throw a Checked Exception using throws clause (as compiler respects unreachable code)
     private static int validTest6() throws IOException{return 0;}
 
-    /*compiler doesn't complains because when you catch Unchecked exception
+    /*compiler doesn't complain because when you catch Unchecked exception
     that is either RuntimeException or Error or any subclass of it then compiler doesn't check what is written in try block
     because this Exception/Error can occur at run time*/
 
@@ -99,8 +99,8 @@ public class TryWithoutThrowing {
     //It is allowed to throw a unchecked Exception using throws clause
     private static int validTest8() throws NullPointerException{return 0;}
 
-    /*Compiler doesn't complain because compiler is not sure that catch block is wrote to handle checked exception or unchecked(Runtime) exception
-    as Exception class can handle both so above code is perfectly valid.*/
+    /*Compiler doesn't complain because compiler is not sure if that catch block is wrote to handle checked exception or unchecked(Runtime) exception
+    as Exception class can handle both so below code is perfectly valid.*/
 
     private static int validTest9() {
         try {
