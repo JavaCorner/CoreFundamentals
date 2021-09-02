@@ -18,6 +18,12 @@ import java.time.LocalDate;
  * Disadvantages of Basic Statement
  *      Parameter concatenation present a security risk of SQL Injection
  *      Basic statement have to be parsed and recompiled before every execution
+ *
+ * By Default connections are in auto commit mode
+ *      means commit occurs automatically when the statement processing successfully completes
+ *      in order to change this default behaviour use setAutoCommit to false
+ *
+ * By Default ResultSet are forward direction means only next() method os enabled
  */
 public class JDBCDemo {
 
@@ -26,6 +32,12 @@ public class JDBCDemo {
     static String password = "sysman";
     public static void main(String[] args) throws SQLException {
         try (Connection conn = DriverManager.getConnection(url,username,password)) {
+
+            DatabaseMetaData metaData = conn.getMetaData();
+            String databaseProductName = metaData.getDatabaseProductName();
+            String databaseProductVersion = metaData.getDatabaseProductVersion();
+            boolean b = metaData.supportsOuterJoins();
+            boolean b1 = metaData.supportsSavepoints();
             //basicStatement(conn)
             //readWithExecuteQuery(conn);
             //insertUpdateDeleteWithExecuteUpdate(conn);
@@ -133,17 +145,29 @@ public class JDBCDemo {
     }
 
 
-    private static void basicStatement(Connection conn) {
+    private static void basicStatement(Connection conn) throws SQLException {
         int price = 2;
         String sql = "select * from t where price > " + price;
         Statement ps = null;
         try {
+            conn.setAutoCommit(false);
             ps = conn.createStatement();
             ResultSet rs = ps.executeQuery(sql);//used for reading the data
+
+            //analyze result set
+            ResultSetMetaData metaData = rs.getMetaData();
+            for (int i = 0; i < metaData.getColumnCount(); i++) {
+                String columnName = metaData.getColumnName(i);
+                int columnType = metaData.getColumnType(i);
+            }
+
             while (rs.next()){
+
                 System.out.println(rs.getString(1));
             }
+            conn.commit();
         } catch (SQLException e) {
+            conn.rollback();
             String state = e.getSQLState(); //get the database error
             int errorCode = e.getErrorCode();
             e.printStackTrace();
