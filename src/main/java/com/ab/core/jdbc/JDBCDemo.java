@@ -6,6 +6,18 @@ import java.time.LocalDate;
 /**
  * @author Arpit Bhardwaj
  *
+ * Class
+ *      Driver Manager : Manages JDBC Drivers and creates connection objects
+ * Interface:
+ *      Connection : represent a session with a specific database and creates all type of statements
+ *      Statement : represent a basic SQL Statement
+ *      Prepared Statement : represent a precompiled SQL Statement
+ *      Callable Statement : represent calls SQL stored procedures and function
+ *      ResultSet : represent a set of records returned by the execution of the query of DQL statement
+ *
+ * Disadvantages of Basic Statement
+ *      Parameter concatenation present a security risk of SQL Injection
+ *      Basic statement have to be parsed and recompiled before every execution
  */
 public class JDBCDemo {
 
@@ -14,6 +26,7 @@ public class JDBCDemo {
     static String password = "sysman";
     public static void main(String[] args) throws SQLException {
         try (Connection conn = DriverManager.getConnection(url,username,password)) {
+            //basicStatement(conn)
             //readWithExecuteQuery(conn);
             //insertUpdateDeleteWithExecuteUpdate(conn);
             //crudWithExecute(conn);
@@ -111,10 +124,29 @@ public class JDBCDemo {
 
     private static void readWithExecuteQuery(Connection conn) throws SQLException {
         String sql = "select * from t";
-        PreparedStatement ps = conn.prepareStatement(sql);
+        PreparedStatement ps = null;
+        ps = conn.prepareStatement(sql);
         ResultSet rs = ps.executeQuery();//used for reading the data
         while (rs.next()){
             System.out.println(rs.getString(1));
+        }
+    }
+
+
+    private static void basicStatement(Connection conn) {
+        int price = 2;
+        String sql = "select * from t where price > " + price;
+        Statement ps = null;
+        try {
+            ps = conn.createStatement();
+            ResultSet rs = ps.executeQuery(sql);//used for reading the data
+            while (rs.next()){
+                System.out.println(rs.getString(1));
+            }
+        } catch (SQLException e) {
+            String state = e.getSQLState(); //get the database error
+            int errorCode = e.getErrorCode();
+            e.printStackTrace();
         }
     }
 }
