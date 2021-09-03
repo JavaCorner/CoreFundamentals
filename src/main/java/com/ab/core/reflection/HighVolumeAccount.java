@@ -12,11 +12,13 @@ public class HighVolumeAccount extends BankAccount implements Runnable {
 
     private int[] readDailyDeposits(){
         int[] deposits = new int[10];
+        System.out.println("readDailyDeposits method called");
         return deposits;
     }
 
     private int[] readDailyWithdrawals(){
         int[] withdrawals = new int[10];
+        System.out.println("readDailyWithdrawals method called");
         return withdrawals;
     }
     @Override
