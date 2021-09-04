@@ -11,4 +11,8 @@ public class ListTooLargeException extends RuntimeException {
     public ListTooLargeException(String message) {
         super(message);
     }
+
+    public ListTooLargeException(String message,Throwable e) {
+        super(message,e);
+    }
 }
