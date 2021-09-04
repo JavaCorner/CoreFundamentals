@@ -7,10 +7,41 @@ import java.lang.annotation.*;
 /**
  * @author Arpit Bhardwaj
  *
- * An annotation element type must be a primitive type, a String, a Class, an enum, another annotation, or an array of any of these types.
+ * Annotation can have attributes
+ * Attributes could be
+ *      primitive type
+ *      String
+ *      Class
+ *      enum
+ *      another annotation
+ *      An array of any of the above.
  *
+ * Different Retention Levels
+ *      SOURCE : is retained in the source code by discarded by the compiler
+ *      CLASS : is retained by the compiler but ignored by the JVM
+ *      RUNTIME : is reatined by JVM and readble at runtime
+ * Different Target Type
+ *      ANNOTATION_TYPE
+ *      CONSTRUCTOR
+ *      FIELD
+ *      LOCAL_VARIABLE
+ *      METHOD
+ *      MODULE
+ *      PACKAGE
+ *      PARAMETER
+ *      TYPE
+ *      TYPE_PARAMETER
+ *      TPE_USE
  * Marker Annotation
- * @Inherited, @Documented, @Override
+ *      @Inherited
+ *      @Documented : Class documentation would include a reference to annotations that are marked as documented
+ *      The annotation that validates design
+ *          @Override :
+ *          @FunctionalInterface
+ * Other Annotations
+ *      @Deprecated
+ *      @SuppressWarnings
+ *      @SafeVarargs
  */
 
 @Target({ElementType.TYPE,ElementType.CONSTRUCTOR,ElementType.METHOD})
@@ -18,13 +49,16 @@ import java.lang.annotation.*;
 @Repeatable(Versions.class)
 @Inherited
 public @interface Version {
-    int value();
-    String author() default "Arpit Bhardwaj";
-    String license() default "MIT";
-    String[] environments() default {"development"};
-    public static final int z = 2;
-    class test{};
-    //default void test1();//not allowed
-    //static void test2();//not allowed
-    Category category() default Category.FOOD;
+    int value();                                                    //primitive
+    String author() default "Arpit Bhardwaj";                       //string
+    class test{};                                                   //class
+    Category category() default Category.FOOD;                      //enum
+    String[] environments() default {"development","production"};   //array of Strings
+    String license() default z;
+    public static final String  z = "MIT";                          //constants allowed
+
+    //default void test1();                                         //not allowed
+    //static void test2();                                          //not allowed
+    //private void test3();                                         //not allowed
+
 }

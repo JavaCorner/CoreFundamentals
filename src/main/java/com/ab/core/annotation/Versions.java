@@ -6,5 +6,5 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Inherited
 public @interface Versions {
-    Version[] value();
+    Version[] value(); //array of another annotation
 }
