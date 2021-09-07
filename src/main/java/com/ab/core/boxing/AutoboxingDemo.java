@@ -5,8 +5,8 @@ import java.util.ArrayList;
 /**
  * @author Arpit Bhardwaj
  *
- * automatically convert the primitive type into boxed primitive( Object or Wrapper class
- * Compiler uses valueOf() method to convert primitive to respective wrapper Object
+ * Automatically convert the primitive type into wrapper
+ * After Java 5 compiler implicitly uses valueOf() method to convert primitive to respective wrapper Object
  * valueOf is also used for converting String to a wrapper class which may throw exception in case of invalid conversion
  *
  * Wrapper class	Converting String to a primitive	Converting String to a wrapper class
@@ -23,7 +23,7 @@ import java.util.ArrayList;
  */
 public class AutoboxingDemo {
     public static void main(String[] args) {
-        //before Java 5 (explicit conversion from primitive to object)
+        //before Java 5 (explicit conversion from primitive to wrapper)
         Integer int1 = Integer.valueOf(2);
         //after java 5 (taken care by compiler)
         Integer int2 = 3;

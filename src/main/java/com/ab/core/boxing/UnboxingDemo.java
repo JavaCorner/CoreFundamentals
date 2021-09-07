@@ -5,8 +5,8 @@ package com.ab.core.boxing;
  *
  * Opposite of Autoboxing is unboxing
  *
- * intValue() and similar to get primitive value from Wrapper Object.
- * parseInt() and similar are used to covert string to primitive which may throw exception in case of invalid conversion
+ * xxxValue() and similar to get primitive value from Wrapper Object.
+ * parseXxx() and similar are used to covert string to primitive which may throw exception in case of invalid conversion
  */
 public class UnboxingDemo {
     public static void main(String[] args) {
