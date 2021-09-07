@@ -1,4 +1,4 @@
-package com.ab.core.exception;
+package com.ab.core.trywithresource;
 
 import java.io.Closeable;
 import java.io.IOException;
@@ -13,7 +13,7 @@ import java.io.IOException;
  * Closeable close throws IOException whereas AutoCloseable close throws Exception.
  * Closeable interface is idempotent (calling close() method more than once does not have any side effects) whereas AutoCloseable does not provide this feature.
  */
-public class TryWithResourceDemo {
+public class TryWithResourceDemo1 {
     public static void main(String[] args) {
         var resource1 = new Closeable(){
 

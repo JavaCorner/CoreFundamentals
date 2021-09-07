@@ -104,7 +104,3 @@ public class Basic {
         asList("two"); //this wil compile if we only do static import of asList
     }
 }
-
-class test{
-
-}

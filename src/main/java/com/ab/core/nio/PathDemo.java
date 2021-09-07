@@ -1,19 +1,20 @@
 package com.ab.core.nio;
 
+import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
 /**
  * @author Arpit Bhardwaj
  *
- * Path is an interface.
- * A path is created from a file system.
+ * Path is an interface and it represents files and folders as immutable objects
  * Specfic implementation can be created for specific file system
  *
  */
 
 public class PathDemo {
     public static void main(String[] args) {
+        /*
         Path path0 = Paths.get("debug.log");
         Path path1 = Paths.get("C:/files/debug.log");
         Path path2 = Path.of("data.csv");
@@ -52,5 +53,36 @@ public class PathDemo {
 
         //normalize simplifies the path
         System.out.println(path6.normalize());
+        */
+
+        Path someFile = Path.of("/","users","joe","docs","some.txt");
+
+        Path justSomeFile = someFile.getFileName();
+        System.out.println(justSomeFile);
+
+        Path docsFolder = someFile.getParent();
+        System.out.println(docsFolder);
+
+        Path currentFolder = Path.of(".");
+        System.out.println(currentFolder);
+
+        Path acmeFile = docsFolder.resolve("../pics/acme.jpg");
+        System.out.println(acmeFile);
+
+        Path otherFile = someFile.resolveSibling("others.txt");
+        System.out.println(otherFile);
+
+        Path normalizeAcmeFile = acmeFile.normalize();
+        System.out.println(normalizeAcmeFile);
+
+        try {
+            Path verifiedPath = acmeFile.toRealPath();
+            System.out.println(verifiedPath);
+        } catch (IOException e) {
+
+        }
+
+        Path betweenSomeAndAcme = someFile.relativize(acmeFile);
+        System.out.println(betweenSomeAndAcme);
     }
 }

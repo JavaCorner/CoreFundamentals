@@ -1,4 +1,4 @@
-package com.ab.core.io;
+package com.ab.core.trywithresource;
 
 import java.io.IOException;
 import java.io.Reader;
@@ -6,7 +6,7 @@ import java.io.Writer;
 /**
  * @author Arpit Bhardwaj
  */
-public class IODemo {
+public class TryWithResourceDemo2 {
     public static void main(String[] args) throws Exception {
         doTryCatchFinally();
         //doTryWithResources();

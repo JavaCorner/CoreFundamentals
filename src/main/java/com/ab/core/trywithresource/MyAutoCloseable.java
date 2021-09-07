@@ -1,4 +1,4 @@
-package com.ab.core.io;
+package com.ab.core.trywithresource;
 
 import java.io.IOException;
 
