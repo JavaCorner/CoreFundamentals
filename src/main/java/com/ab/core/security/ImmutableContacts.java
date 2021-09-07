@@ -1,4 +1,4 @@
-package com.ab.core.mutable;
+package com.ab.core.security;
 
 /**
  * @author Arpit Bhardwaj
@@ -8,11 +8,11 @@ package com.ab.core.mutable;
  * its get tricky when the fields are mutable
  *
  */
-public final class Contacts {
+public final class ImmutableContacts {
     private final String name;
     private final String mobile;
 
-    public Contacts(String name, String mobile) {
+    public ImmutableContacts(String name, String mobile) {
         this.name = name;
         this.mobile = mobile;
     }

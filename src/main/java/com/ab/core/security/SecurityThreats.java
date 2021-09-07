@@ -1,4 +1,4 @@
-package com.ab.core.misc;
+package com.ab.core.security;
 
 /**
  * @author Arpit Bhardwaj
