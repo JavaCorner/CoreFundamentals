@@ -1,15 +1,15 @@
 package com.ab.core.oop.model;
 
 public interface Roller {
-    int MIN_OPERATING_TEMP = -50;
+    int minOperatingTemp = -50;
     void start();
     void stop();
 
     default String healthCheck(){
-        return "OK";
+        return "Roller";
     }
     private void test(){}
     static boolean canStart(int outsideTemp){
-        return outsideTemp>MIN_OPERATING_TEMP;
+        return outsideTemp>minOperatingTemp;
     }
 }

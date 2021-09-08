@@ -2,6 +2,7 @@ package com.ab.core.lambdastreams;
 
 import java.util.List;
 import java.util.function.BiFunction;
+import java.util.function.Function;
 import java.util.function.IntBinaryOperator;
 import java.util.function.ToIntBiFunction;
 
@@ -53,7 +54,19 @@ public class LambdaExpression {
         BiFunction biFunction = (left,right) -> {
             return "null";
         };
+        wouldNotCompile();
+    }
 
+    private static void wouldNotCompile() {
+        //ToIntBiFunction<Integer, Integer> f1 = (int x,int y) -> x+y;
+        //cannot mix implicitly and explicitly typed parameters
+        //ToIntBiFunction<Integer, Integer> f2 = (Integer x, y) -> x+y;
+        //cannot mix var and non-var implicitly typed parameters
+        //ToIntBiFunction<Integer, Integer> f3 = (var x, y) -> x+y;
+        //cannot mix var and non-var explicitly typed parameters
+        //ToIntBiFunction<Integer, Integer> f4 = (Integer x, var y) -> x+y;
+        //cannot omit parenthesis for single explicitly typed or var parameters
+        //Function<Integer, Integer> f4 = var x -> x++;
     }
 
     public void printMessageAnonymous(){

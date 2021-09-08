@@ -8,7 +8,7 @@ package com.ab.core.oop.model;
  * Default methods may create conflicts which must be resolved by overriding default method with in implementation class
  *
  */
-public class WaterEngine implements Engine, Roller{
+public class WaterEngine extends Gear implements Engine,Roller{
     @Override
     public void start() {
 
@@ -19,10 +19,20 @@ public class WaterEngine implements Engine, Roller{
 
     }
     //You must override default methods if it conflicts with another default method with same signature from other interface
-    // as happening here. IF you don't it leads to compiler error
+    // as happening here. If you don't it leads to compiler error
     @Override
     public String healthCheck() {
-        return "Water Engine Ok";
+        //call the Engine impl
+        System.out.println(Engine.super.healthCheck());
+        //call the Roller impl
+        System.out.println(Roller.super.healthCheck());
+
+        return "WaterEngine";
+    }
+
+    public static void main(String[] args) {
+        WaterEngine w = new WaterEngine();
+        System.out.println(w.healthCheck());
     }
 
 }
