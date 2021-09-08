@@ -1,10 +1,6 @@
 package com.ab.core.annotation;
 
-import com.ab.core.annotation.model.Engineer;
-import com.ab.core.annotation.model.Person;
-
 import java.lang.annotation.Annotation;
-import java.util.function.Function;
 
 @SuppressWarnings("deprecation")
 public class BuiltinAnnotation {

@@ -1,8 +1,7 @@
-package com.ab.core.lambdastreams.model;
+package com.ab.core.lambdastreams;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.Objects;
 
 public class Product {

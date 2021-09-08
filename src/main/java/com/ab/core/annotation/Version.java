@@ -1,6 +1,6 @@
 package com.ab.core.annotation;
 
-import com.ab.core.lambdastreams.model.Category;
+import com.ab.core.lambdastreams.Category;
 
 import java.lang.annotation.*;
 

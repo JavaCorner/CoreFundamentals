@@ -1,10 +1,6 @@
 package com.ab.core.lambdastreams;
 
-import com.ab.core.lambdastreams.model.Category;
-import com.ab.core.lambdastreams.model.Product;
-
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.math.BigDecimal;

@@ -1,7 +1,5 @@
 package com.ab.core.lambdastreams;
 
-import com.ab.core.lambdastreams.model.Product;
-
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;

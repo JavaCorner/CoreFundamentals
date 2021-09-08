@@ -20,12 +20,15 @@ All object references (everything else)	    null
  * INTRODUCING VAR ( local variable type inference)
  *
  * A var is used as a local variable in a constructor, method, or initializer block.
- * A var cannot be used in constructor parameters, method parameters, instance variables, or class variables.
- * A var is always initialized on the same line (or statement) where it is declared.
- * The value of a var can change, but the type cannot.
- * A var cannot be initialized with a null value without a type.
- * A var is not permitted in a multiple-variable declaration.
  * A var is a reserved type name but not a reserved word, meaning it can be used as an identifier except as a class, interface, or enum name.
+ * A var should always be initialized on the same line (or statement) where it is declared.
+ * The value of a var can change, but the type cannot.
+ *
+ * A var cannot be used in below scenario
+ *      A var cannot be used in constructor parameters, method parameters, method return types, instance variables, or class variables.
+ *      A var cannot be initialized with a null value without a type.
+ *      A var is not permitted in a multiple-variable declaration.
+ *      A var cannot be used as array initializers.
  *
  * REVIEWING SCOPE
  *
@@ -35,7 +38,7 @@ All object references (everything else)	    null
  */
 public class ReferenceTypes {
     static int i;
-    //var k = 2;//not compile as var is only allowed for local variables
+    //var k = 2;                //not compile as var is only allowed for local variables
     public static void main(String[] args) {
 
         int j;
@@ -43,10 +46,10 @@ public class ReferenceTypes {
 
         System.out.println(i);
 
-        //var l;//not compile
-        //int a, var b = 3;  // DOES NOT COMPILE
-        //var n = null;      // DOES NOT COMPILE
-        //var a = 2, b = 3;  // DOES NOT COMPILE
+        //var l;                //DOES NOT COMPILE
+        //var a = 2, b = 3;     // DOES NOT COMPILE
+        //var n = null;         // DOES NOT COMPILE
+        //var[] prices = {1,2}; // DOES NOT COMPILE
 
         var n = (String)null;
     }
@@ -54,7 +57,7 @@ public class ReferenceTypes {
     public void reassignment() {
         var number = 7;
         number = 4;
-        //number = "five";  // DOES NOT COMPILE
+        //number = "five";      // DOES NOT COMPILE
 
         var apples = (short)10;
         apples = (byte)5;
@@ -76,7 +79,7 @@ public class ReferenceTypes {
         }
     }
 
-    /*public class var {  // DOES NOT COMPILE
+    /*public class var {        // DOES NOT COMPILE
         public var() {
         }
     }*/

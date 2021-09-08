@@ -1,4 +1,4 @@
-package com.ab.core.annotation.model;
+package com.ab.core.annotation;
 
 import com.ab.core.annotation.Version;
 

@@ -1,7 +1,5 @@
 package com.ab.core.lambdastreams;
 
-import com.ab.core.lambdastreams.model.Product;
-
 import java.util.List;
 import java.util.function.BiFunction;
 import java.util.function.IntBinaryOperator;

@@ -1,6 +1,6 @@
-package com.ab.core.annotation.model;
+package com.ab.core.annotation;
 
-public class Engineer extends Person{
+public class Engineer extends Person {
     public Engineer(Long id, String name) {
         super(id, name);
     }

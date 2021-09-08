@@ -1,9 +1,6 @@
 package com.ab.core.lambdastreams;
 
-import com.ab.core.lambdastreams.model.Product;
-
 import java.math.BigInteger;
-import java.util.List;
 import java.util.UUID;
 import java.util.stream.Stream;
 
