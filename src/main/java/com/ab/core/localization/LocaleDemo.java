@@ -22,7 +22,6 @@ public class LocaleDemo {
         Locale inLocaleC = new Locale("hi", "IN", "WIN");
         displayLocaleAttributes(inLocaleC);
 
-
         Locale frLocale = new Locale.Builder().setLanguage("fr").setRegion("FR").build();
         displayLocaleAttributes(frLocale);
 
@@ -36,15 +35,9 @@ public class LocaleDemo {
 
     static void displayLocaleAttributes(Locale locale){
         System.out.println("********Displaying Locale Attributes********");
-        System.out.println(locale);
-        System.out.println("Locale Name: " + locale.getDisplayName());
-
-        System.out.println("Country: " + locale.getDisplayCountry());
-        System.out.println("Language: " + locale.getDisplayLanguage());
-        System.out.println("Variant: " + locale.getDisplayVariant());
-
-        System.out.println("Country Code: " + locale.getCountry());
-        System.out.println("Language Code: " + locale.getLanguage());
-        System.out.println("Variant Code: " + locale.getVariant());
+        System.out.println("Locale: " + locale.getDisplayName() + " (" +locale+")");
+        System.out.println("Country: " + locale.getDisplayCountry() + " (" +locale.getCountry()+ ")");
+        System.out.println("Language: " + locale.getDisplayLanguage() + " (" +locale.getLanguage()+ ")");
+        System.out.println("Variant: " + locale.getDisplayVariant() + " (" +locale.getVariant()+ ")");
     }
 }

@@ -4,6 +4,11 @@ import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Locale;
 
+/**
+ * @author Arpit Bhardwaj
+ *
+ *
+ */
 public class FormatNumbersDemo {
     public static void main(String[] args) {
         double num = 32360.856974;

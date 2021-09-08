@@ -4,6 +4,11 @@ import java.text.NumberFormat;
 import java.util.Currency;
 import java.util.Locale;
 
+/**
+ * @author Arpit Bhardwaj
+ *
+ *
+ */
 public class CurrencyDemo {
     public static void main(String[] args) {
         Locale locale = Locale.getDefault();
