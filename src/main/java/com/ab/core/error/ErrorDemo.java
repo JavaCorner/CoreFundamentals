@@ -3,14 +3,19 @@ package com.ab.core.error;
 /**
  * @author Arpit Bhardwaj
  *
- * Errors are unchecked exceptions
- * Throwable <- Error
+ * Errors are the conditions which cannot get recovered by any handling techniques
  *
- * java.lang.LinkageError(abstract)
- *      java.lang.ExceptionInInitializerError,java.lang.NoClassDefFoundError
+ * Recovering from Error is not possible.
+ * All errors in java are unchecked type.
  *
- * java.lang.VirtualMachineError(abstract)
- *      java.lang.StackOverflowError,java.lang.OutOfMemoryError
+ * Throwable
+ *      Error
+ *          LinkageError(abstract)
+ *              ExceptionInInitializerError
+ *              NoClassDefFoundError
+ *          VirtualMachineError(abstract)
+ *              StackOverflowError
+ *              OutOfMemoryError
  *
  * You can throw, throws and catch Errors
  *
@@ -25,11 +30,30 @@ public class ErrorDemo {
                 | java.lang.NoClassDefFoundError
                 | StackOverflowError
                 | OutOfMemoryError e){
-
         }catch (Error e){
-
         }catch (Throwable e){
-
         }
+
+        try{
+            defectedCode();
+            System.out.print("A");
+        }
+        catch(Error e){
+            System.out.print("B");
+        }
+        catch(Exception e){
+            System.out.print("C");
+        }
+        catch(Throwable e){
+            System.out.print("D");
+        }
+        finally{
+            System.out.print("E");
+        }
+        System.out.print("F");
+    }
+
+    private static void defectedCode() {
+        throw new Error();
     }
 }

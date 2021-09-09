@@ -3,12 +3,14 @@ package com.ab.core.controlflow;
 /**
  * @author Arpit Bhardwaj
  *
+ * By default, loops are tied to only statement below it like if/else
+ * more than 1 statement required to be wrapped in brackets
  *
+ * The break terminates innermost switch or loop
+ * The return exit current method and terminates all switches and loops within that method
  */
 public class ComplexBranching {
     public static void main(String[] args) {
-        //by default loops are tied to only statement below it like if/else
-        //more than 1 statement required to be wrapped in brackets
 
         //for loop
         for (int i = 0; i < 1; i++)
@@ -19,14 +21,14 @@ public class ComplexBranching {
         //while loop
         while (i==1)
             i=0;
+
         //do while loop
         do
             System.out.println("do while");
         while (i==1);
 
-
         for (int j = 0; j < 1; j++)
-            //the below if else block considered as 1 statement hence brackets not required for for loop
+            //the below if else block considered as 1 statement hence brackets not required
             if (j!=0)
                 System.out.println("for if");
             else
@@ -42,23 +44,20 @@ public class ComplexBranching {
                     else
                 System.out.println("if do while else");
 
-        //while and for exists without body but not do while
-        // while(true);//compiles
-        //for (;true;);//compiles
-
-        //do while(true);//not compile
+        //while and for exists without body but not doWhile
+        // while(true);     //compiles (infinite loop)
+        //for (;true;);     //compiles (infinite loop)
+        //do while(true);   //not compile
 
         //while(false);//not compile due to unreachability
 
         int sum = 0;
         int x = 0;
         for(int k = 0; k < 2; sum += k++)
-
         for(long y = 0, z = 4; x < 5 && y < 10; x++, y++)
             System.out.print(y + " ");
 
-
-        //for(long y = 0, int z = 4; x < 5; x++) // DOES NOT COMPILE
+        //for(long y = 0, int z = 4; x < 5; x++) // DOES NOT COMPILE (only compound initialization works)
             //System.out.print(y + " ");
 
         int[][] myComplexArray = {{5,2,1,3},{3,9,8,9},{5,7,12,7}};
@@ -73,11 +72,22 @@ public class ComplexBranching {
         }
 
         //it is possible to add optional labels to control and block statements.
-        //but its actually of no use and its very uncommon
+        //but its actually of no use, and it's very uncommon
         int frog = 15;
         BAD_IDEA: if(frog>10)
             EVEN_WORSE_IDEA: {
                 frog++;
+        }
+        methodWithLoops();
+    }
+
+    private static void methodWithLoops() {
+        for (int i = 1; i < 4; i++) {
+            System.out.println(i);
+            for (int j = 0; j < 5; j++) {
+                System.out.println(j);
+                return;
+            }
         }
     }
 }

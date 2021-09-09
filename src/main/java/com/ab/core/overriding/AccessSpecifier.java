@@ -3,7 +3,7 @@ package com.ab.core.overriding;
 /**
  * @author Arpit Bhardwaj
  *
- * Overriding method in Child class can either have same access specifier as that of Parent class method
+ * Overriding method in Child class can either have same access specifier as that of parent class method
  * or can increase visibility but cannot decrease it.
  */
 public class AccessSpecifier {

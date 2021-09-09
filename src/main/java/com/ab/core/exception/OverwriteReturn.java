@@ -22,8 +22,7 @@ public class OverwriteReturn {
             System.out.println("a in finally : " + a);
             //return a;
         }
-        //compile error : unreachable code
-        //Need to remove return in finally to make to reachable
+        //Need to remove return in finally to make below code reachable
         a = 40;
         System.out.println("a outside try catch finally : " + a);
         return a;

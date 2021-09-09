@@ -7,18 +7,17 @@ import java.util.Locale;
  *
  * Unchecked exceptions are often an evidence of a bug in your code, which should be fixed rather than caught
  *
- * Throwable <- Exception <- RuntimeException
- *
- * All below exception extends RuntimeException
- *
- * java.lang.NullPointerException
- * java.lang.ArithmeticException
- * java.lang.IndexOutOfBoundsException
- *      java.lang.ArrayIndexOutOfBoundsException
- * java.lang.ClassCastException
- * java.lang.IllegalArgumentException
- *      java.lang.NumberFormatException
- * java.lang.IllegalStateException
+ * Throwable
+ *      Exception
+ *          RuntimeException
+ *              NullPointerException
+ *              ArithmeticException
+ *              IndexOutOfBoundsException
+ *                  ArrayIndexOutOfBoundsException
+ *              ClassCastException
+ *              IllegalArgumentException
+ *                  NumberFormatException
+ *              IllegalStateException
  *
  */
 public class UncheckedException {
@@ -67,31 +66,24 @@ public class UncheckedException {
         //NumberFormatException
         //System.out.println(Integer.parseInt("a"));
 
-        //all dis-joint (non related) are allowed in multi catch
         try {
-
         }
         catch (NumberFormatException e){
             try {
-
-            }catch (NumberFormatException f){//if use e as veriable then code will not compile
-
+            }catch (NumberFormatException f){//if you use e as variable then code will not compile
             }
-        }catch (ArithmeticException
+        }
+        //all dis-joint (non related) are allowed in multi catch
+        catch (ArithmeticException
                 | ArrayIndexOutOfBoundsException
                 | ClassCastException
                 | IllegalArgumentException
                 | IllegalStateException
                 | NullPointerException e){
-
         }
         catch (RuntimeException e){
-
         }catch (Exception e){
-
         }catch (Throwable e){
-
         }
-
     }
 }

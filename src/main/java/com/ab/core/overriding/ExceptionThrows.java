@@ -9,18 +9,17 @@ import java.sql.SQLException;
  * @author Arpit Bhardwaj
  *
  * Unchecked Exception:
- * Overriding method in Child class can throw any number of Unchecked Exception irrespective of Parent class overriden method has declared any Checked/Unchecked Exception or not.
+ * Overriding method in Child class can throw any number of unchecked exception irrespective of parent class overriden method has declared any checked/unchecked exception or not.
  *
  * Checked Exception:
- * If say Overriden method of Parent class throws IOException, then overriding method in Child class can either throw
- * No Exception,
- * Same IOException,
- * Any number of Subclass of IOException like FileNotFoundException, EOFException etc.
+ * If say overriden method of parent class throws IOException, then overriding method in child class can either throw
+ *      No Exception,
+ *      Same IOException,
+ *      Any number of Subclass of IOException like FileNotFoundException, EOFException etc.
  *
- * Not Allowed in Checked Exception
- * If say Overriden method of Parent class throws IOException, then overriding method in Child class
- * cannot throw exception from totally new inheritance hierarchy like SQLException.
- * cannot throw broader exception like Throwable or Exception in our case.
+ * If say overriden method of parent class throws IOException, then overriding method in child class
+ *      cannot throw exception from totally new inheritance hierarchy like SQLException.
+ *      cannot throw broader exception like throwable or exception in our case.
  */
 public class ExceptionThrows {
     class Parent1{

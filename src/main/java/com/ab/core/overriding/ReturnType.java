@@ -8,10 +8,10 @@ package com.ab.core.overriding;
  * Overriding method was said to be invariant with respect to return type.
  *
  * After JDK 5.0
- * it is possible to have different return type for a overriding method in child class,
+ * it is possible to have different return type for an overriding method in child class,
  * Overriding method becomes variant with respect to return type.
  *
- * Overriding method in Child class can either have same return type or should be Subclass of return type declared in method of Super class.
+ * Overriding method in child class can either have same return type or should be subclass of return type declared in method of Super class.
  */
 public class ReturnType {
     class A{

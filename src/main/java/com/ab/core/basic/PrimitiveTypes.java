@@ -32,7 +32,7 @@ package com.ab.core.basic;
  * Underscores in numbers are allowed to make them easier to read.
  * You can add underscores anywhere except at the beginning, at the end, right before a decimal, or right after a decimal.
  *
- * Bydefault all whole numbers literals are treated as int
+ * Bydefault all whole numbers literals are treated as int starting from short ending range
  * Bydefault all decimal numbers literals are treated as double
  */
 public class PrimitiveTypes {

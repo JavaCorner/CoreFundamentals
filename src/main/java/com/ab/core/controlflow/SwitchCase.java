@@ -4,21 +4,18 @@ package com.ab.core.controlflow;
  * @author Arpit Bhardwaj
  *
  * Whichever case matches the all code after it ignore case and default get executed till end of switch.
- * In order to stop it break key word is required whereever you want to break.
+ * In order to stop it break keyword is required
  *
  * The order of branch doesn't matter
  *
  * Supported Types
- *
- * char, byte, short, int, Character, Byte, Short, Integer, String, or an enum
- * in short only int values or those values that could be promoted to int,their wrappers, String and enum
+ *      char, byte, short, int, Character, Byte, Short, Integer, String, Enum
  *
  * Switch test value
- * Any expression that returns a value (of supported type)
+ *      Any expression that returns a value (of supported type)
  *
  * Branch Case Value
- * Any Constant Expression
- * or Value must be resolved at compile time
+ *      Any Constant Expression or value must be resolved at compile time
  */
 public class SwitchCase {
     enum ENUM_CONSTANT{
@@ -72,9 +69,8 @@ public class SwitchCase {
                 System.out.println("Divide3");
         }
 
-        switch (ENUM_CONSTANT.MULTIPLY){
-
-            //case ENUM_CONSTANT.MULTIPLY://will not compile
+        switch (ENUM_CONSTANT.MULTIPLY){    //a switch condition should qualified enum constant
+            //case ENUM_CONSTANT.MULTIPLY:  //will not compile a case label should be unqualified constant
             case POSITIVE:
             case NEGATIVE:
             default:
@@ -84,15 +80,16 @@ public class SwitchCase {
         byte b = 2;
         short c = 3;
         int d = 1;
-        long e = 2; //not allowed
-        double f = 4; //not allowed
-        float g = 5; // not allowed
-        boolean h = true; // not allowed
-        var v =1;
+        long e = 2;         //not allowed
+        double f = 4;       //not allowed
+        float g = 5;        // not allowed
+        boolean h = true;   // not allowed
+        var v = 1;
 
         int iVal = 10;
         final int even = 0;
         final int odd = 1;
+
         switch (iVal % 2){
             case even:
             //case even + 1://compile time error as it duplicates with odd value

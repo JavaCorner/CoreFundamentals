@@ -20,9 +20,8 @@ public class OverridingDemo {
         @Override
         void nonstaticFun() {
             System.out.println("Camel-nonstaticFun()-" + i);
-
         }
-
+        //@Override//compile error as it doesn't override superclass method
         static void staticFun(){
             System.out.println("Camel-staticFun()");
         }
@@ -34,6 +33,9 @@ public class OverridingDemo {
 
         a1.nonstaticFun();
         a2.nonstaticFun();
+
+        a1.staticFun();
+        a2.staticFun();
 
         Camel.staticFun();
         Animal.staticFun();

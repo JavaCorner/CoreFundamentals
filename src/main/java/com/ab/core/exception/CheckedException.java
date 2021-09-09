@@ -7,16 +7,14 @@ import java.io.*;
  *
  * Checked exceptions usually represent genuine problem that a normal fnctioning program may encounter and thus must be caught
  *
- * Throwable <- Exception <- IOException
- *
- * java.lang.Exception
- *      java.io.IOException
- *          java.io.FileNotFoundException, java.io.EOFException
- *
- * java.lang.Exception
- *      java.lang.ReflectiveOperationException
- *          java.lang.ClassNotFoundException, java.lang.NoSuchMethodException
- *
+ * Throwable
+ *      Exception
+ *          java.io.IOException
+ *              java.io.FileNotFoundException
+ *              java.io.EOFException
+ *          java.lang.ReflectiveOperationException
+ *              ClassNotFoundException
+ *              NoSuchMethodException
  */
 public class CheckedException {
     public static void main(String[] args) {
