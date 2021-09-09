@@ -9,12 +9,12 @@ package com.ab.core.basic;
  * Variables that are not local variables are defined either as instance variables or as class variables.
  * Instance and class variables do not require you to initialize them, they get default values as below
  *
-Variable type	                            Default initialization value
-boolean	                                    false
-byte, short, int, long	                    0
-float, double	                            0.0
-char	                                    '\u0000' (NUL)
-All object references (everything else)	    null
+ * Variable type	                            Default initialization value
+ * boolean	                                    false
+ * byte, short, int, long	                    0
+ * float, double	                            0.0
+ * char	                                    '\u0000' (NUL)
+ * All object references (everything else)	    null
  *
  *
  * INTRODUCING VAR ( local variable type inference)

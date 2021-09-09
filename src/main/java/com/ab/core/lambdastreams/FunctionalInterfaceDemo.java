@@ -1,9 +1,7 @@
 package com.ab.core.lambdastreams;
 
 import java.util.*;
-import java.util.function.Consumer;
-import java.util.function.Predicate;
-import java.util.function.Supplier;
+import java.util.function.*;
 
 /**
  * @author Arpit Bhardwaj
@@ -43,13 +41,26 @@ import java.util.function.Supplier;
  */
 public class FunctionalInterfaceDemo {
     public static void main(String[] args) {
+        //Function
+        Function<Integer,Double> f1 = x -> 2.0 * x;
+        UnaryOperator<Integer> f2 = x -> 2 * x;
+        BiFunction<Integer,Integer,Double> f3 = (x,y) -> 2.0*x*y;
+        BinaryOperator<Integer> f4 = (x,y)-> Math.max(x,y);
+
+        IntFunction<Integer> f5 = (int x) -> 2*x;
+        ToIntFunction<Integer> f6 = (Integer x) -> 2*x;
+        IntToDoubleFunction f7 = x -> 2.0*x;
+
         //predicate
         Predicate<String> p1 = x -> true;
         Predicate<String> p2 = (var x) -> true;
         Predicate<String> p3 = (String x) -> true;
+        Predicate<String> p4 = (final var x) -> true;
+        Predicate<String> p5 = (final String x) -> true;
+        //Predicate<String> p6 = (final x) -> true;                     //not allowed
 
         //consumer
-        Consumer<String> consumer = x -> System.out.println(x);
+        Consumer<String> c1 = x -> System.out.println(x);
 
         //supplier
         Supplier<Integer> random = () ->  new Random().nextInt();

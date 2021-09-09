@@ -7,7 +7,7 @@ package com.ab.core.basic;
  *
  * In Primitive Type
  * Java creates a copy of the variable being passed in the method and then do the manipulations.
- * Hence the change is not reflected in the main method.
+ * Hence, the change is not reflected in the main method.
  *
  * In Reference Type
  * Java creates a copy of references and pass it to method

@@ -1,4 +1,4 @@
-package com.ab.core.boxing;
+package com.ab.core.basic;
 
 import java.util.ArrayList;
 
@@ -20,9 +20,31 @@ import java.util.ArrayList;
  * Character	    None	                            None
  *
  * The wrapper classes are immutable and take advantage of some caching as well.
+ *
+ * Opposite of Autoboxing is unboxing
+ *
+ * xxxValue() and similar to get primitive value from Wrapper Object.
+ * parseXxx() and similar are used to covert string to primitive which may throw exception in case of invalid conversion
  */
-public class AutoboxingDemo {
+
+public class BoxingDemo {
     public static void main(String[] args) {
+        autoBoxing();
+        unBoxing();
+    }
+
+    private static void unBoxing() {
+        //before Java 5 (explicit conversion from object to primitive)
+        Integer int1 = Integer.valueOf(2);
+        int int2 = int1.intValue();
+        int int3 = Integer.parseInt("12");
+        //int int4 = Integer.parseInt("a");//throws NumberFormatException
+
+        //after java 5 (taken care by compiler)
+        int int5 = int1;
+    }
+
+    private static void autoBoxing() {
         //before Java 5 (explicit conversion from primitive to wrapper)
         Integer int1 = Integer.valueOf(2);
         //after java 5 (taken care by compiler)
@@ -47,7 +69,7 @@ public class AutoboxingDemo {
         Integer i1 = list.get(0);
         Integer i2 = list.get(2);
         //int i3 = list.get(2);//throws NullPointerException as java tries to do implicit unboxing here
-        //list.remove(1);//this will remove the value at index 1 means element 2 in case you want remove element 1
+        //list.remove(1);//this will remove the value at index 1 means element 2 in case you want to remove element 1
         list.remove(new Integer(1));
         System.out.println(list);
     }

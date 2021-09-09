@@ -4,14 +4,13 @@ package com.ab.core.basic;
  * @author Arpit Bhardwaj
  *
  * Identifiers Naming Rules (variable, method, class, interface, or package)
- * Allowed (letters, numbers, $, _)
- * An identifier name must begin with a letter, dollar sign ($), or underscore (_).
- * Numbers are permitted only for subsequent characters
- * Since Java 9, a single underscore _ is not allowed as an identifier., though single dollar sign is allowed
+ *      Allowed (letters, numbers, $, _)
+ *      An identifier name must begin with a letter, dollar sign ($), or underscore (_).
+ *      Numbers are permitted only for subsequent characters
+ *      Since Java 9, a single underscore _ is not allowed as an identifier., though single dollar sign is allowed
  *
  * DECLARING MULTIPLE VARIABLES
- *
- * The shortcut to declare multiple variables in the same statement is legal only when they share a type.
+ *      The shortcut to declare multiple variables in the same statement is legal only when they share a type.
  *
  */
 public class AllowedNaming {
@@ -23,12 +22,12 @@ public class AllowedNaming {
         char __SStillOkbutKnotsonice$;
 
         //not allowed
-        //int 3DPointClass;    // identifiers cannot begin with a number
-        //byte hollywood@vine; // @ is not a letter, digit, $ or _
-        //String *$coffee;     // * is not a letter, digit, $ or _
-        //double public;       // public is a reserved word
-        //short _;             // a single underscore is not allowed
-
+        //int 3DPointClass;     // identifiers cannot begin with a number
+        //byte hollywood@vine;  // @ is not a letter, digit, $ or _
+        //String *$coffee;      // * is not a letter, digit, $ or _
+        //double public;        // public is a reserved word
+        //short _;              // a single underscore is not allowed
+        var var = 1;            //var is a reserved type name noy a keyword
         boolean b1, b2;
         String s1 = "1", s2;
         //double d1, double d2;

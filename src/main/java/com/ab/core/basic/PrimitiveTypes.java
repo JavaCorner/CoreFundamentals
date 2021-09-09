@@ -18,19 +18,22 @@ package com.ab.core.basic;
  * A float requires the letter f following the number so Java knows it is a float.
  * In most computer systems, floating-point numbers are stored in scientific notation. This means the numbers are stored as two numbers, a and b, of the form a x 10b.
  *
- *
  * short and char are closely related, as both are stored as integral types with the same 16-bit length.
  * The primary difference is that short is signed, which means it splits its range across the positive and negative integers.
  * Alternatively, char is unsigned, which means range is strictly positive including 0.
  * Therefore, char can hold a higher positive numeric value than short, but cannot hold any negative numbers.
  *
- *
  * Java allows you to specify digits in several other formats:
- * Binary (digits 0–1), which uses the number 0 followed by b or B as a prefix—for example, 0b10, 0B10
- * Octal (digits 0–7), which uses the number 0 as a prefix—for example, 017
- * Hexadecimal (digits 0–9 and letters A–F/a–f), which uses 0x or 0X as a prefix—for example, 0xFF, 0xff, 0XFf. Hexadecimal is case insensitive so all of these examples mean the same value.
+ * Binary       (digits 0–1)                       which uses the number 0 followed by b or B as a prefix—for example, 0b10, 0B10
+ * Octal        (digits 0–7)                       which uses the number 0 as a prefix—for example, 017
+ * Hexadecimal  (digits 0–9 and letters A–F/a–f)   which uses 0x or 0X as a prefix—for example, 0xFF, 0xff, 0XFf.
+ *
+ * Hexadecimal is caseinsensitive so all of these examples mean the same value.
  * Underscores in numbers are allowed to make them easier to read.
- * You can add underscores anywhere except at the beginning of a literal, the end of a literal, right before a decimal point, or right after a decimal point.
+ * You can add underscores anywhere except at the beginning, at the end, right before a decimal, or right after a decimal.
+ *
+ * Bydefault all whole numbers literals are treated as int
+ * Bydefault all decimal numbers literals are treated as double
  */
 public class PrimitiveTypes {
 
@@ -50,20 +53,19 @@ public class PrimitiveTypes {
         short s = 32767;
         char c = 65535;
         int i = 2147483647;
-        long l1 = 2147483647;//here the value is treated as an int and casted to long
-        //long l2 = 2147483648;//compile error- need to add l or L to avoid compile error and treat it as long value
+        long l1 = 2147483647;                   //here the literal is treated as an int and compiler cast it to long
+        //long l2 = 2147483648;                 //compile error- need to add l or L to avoid compile error and treat it as long value
         long l3 = 2147483648L;
         long l4 = 9223372036854775807L;
 
-        float f1 = 2147483647;
-        //float f2 = 2147483648;//compile error - as the literal value is treated as int and its out of range as per int range
+        float f1 = 2147483647;                  //here the literal is treated as an int and compiler cast it to float
+        //float f2 = 2147483648;                //compile error - as the literal value is treated as int and its out of range as per int range
                                                 // need to add l or L to avoid compile error and treat it as long value
         float f3 = 2147483648L;
         //float f4 = 99999999999999999999999999999999999999L;//compile error as the value treated as long but out of range as per long range
         float f5 =  99999999999999999999999999999999999999F;
 
-        //float f6 = 1.24;//compile error (floating-point literals are assumed to be double, unless postfixed with an f and double cannot be widen to float)
-
+        //float f6 = 1.24;                      //here the literal is treated as double, unless postfixes with f. Double cannot be widened to float
         double d = 99999999999999999999999999999999999999F;
     }
 }

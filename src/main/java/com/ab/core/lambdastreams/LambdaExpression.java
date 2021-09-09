@@ -58,13 +58,18 @@ public class LambdaExpression {
     }
 
     private static void wouldNotCompile() {
+        //incompatible parameter types
         //ToIntBiFunction<Integer, Integer> f1 = (int x,int y) -> x+y;
+
         //cannot mix implicitly and explicitly typed parameters
         //ToIntBiFunction<Integer, Integer> f2 = (Integer x, y) -> x+y;
+
         //cannot mix var and non-var implicitly typed parameters
         //ToIntBiFunction<Integer, Integer> f3 = (var x, y) -> x+y;
+
         //cannot mix var and non-var explicitly typed parameters
         //ToIntBiFunction<Integer, Integer> f4 = (Integer x, var y) -> x+y;
+
         //cannot omit parenthesis for single explicitly typed or var parameters
         //Function<Integer, Integer> f4 = var x -> x++;
     }

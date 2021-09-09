@@ -13,9 +13,13 @@ import java.text.SimpleDateFormat;
 public class IdentityHashCodeDemo {
     static class SimpleData{
         private String str;
-
         public SimpleData(String str) {
             this.str = str;
+        }
+
+        @Override
+        public int hashCode() {
+            return 123;
         }
     }
     public static final String NEWLINE = System.lineSeparator();
@@ -38,7 +42,7 @@ public class IdentityHashCodeDemo {
 
     private static void printHashCodes(final Object object) {
         System.out.println("==== "
-                + String.valueOf(object)
+                + object
                 +" / "
                 + (object != null?object.getClass().getName(): null)
                 + " ====");
