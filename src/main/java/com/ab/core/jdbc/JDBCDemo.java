@@ -7,8 +7,9 @@ import java.time.LocalDate;
  * @author Arpit Bhardwaj
  *
  * Class
- *      Driver Manager : Manages JDBC Drivers and creates connection objects
+ *      Driver Manager : Manages list of JDBC Drivers and creates connection objects
  * Interface:
+ *      Driver : to interact with databases.
  *      Connection : represent a session with a specific database and creates all type of statements
  *      Statement : represent a basic SQL Statement
  *      Prepared Statement : represent a precompiled SQL Statement
@@ -137,7 +138,7 @@ public class JDBCDemo {
     private static void readWithExecuteQuery(Connection conn) throws SQLException {
         String sql = "select * from t";
         PreparedStatement ps = null;
-        ps = conn.prepareStatement(sql);
+        ps = conn.prepareStatement(sql);//precompile sql
         ResultSet rs = ps.executeQuery();//used for reading the data
         while (rs.next()){
             System.out.println(rs.getString(1));
@@ -152,7 +153,7 @@ public class JDBCDemo {
         try {
             conn.setAutoCommit(false);
             ps = conn.createStatement();
-            ResultSet rs = ps.executeQuery(sql);//used for reading the data
+            ResultSet rs = ps.executeQuery(sql);//need to parse and recompile sql before every execution
 
             //analyze result set
             ResultSetMetaData metaData = rs.getMetaData();
@@ -162,7 +163,6 @@ public class JDBCDemo {
             }
 
             while (rs.next()){
-
                 System.out.println(rs.getString(1));
             }
             conn.commit();
@@ -170,6 +170,26 @@ public class JDBCDemo {
             conn.rollback();
             String state = e.getSQLState(); //get the database error
             int errorCode = e.getErrorCode();
+            e.printStackTrace();
+        }
+    }
+
+    private static void trick1(Connection conn) throws SQLException {
+        String sql = "select * from t";
+        PreparedStatement ps = null;
+        try {
+            ps = conn.prepareStatement(sql);
+            ResultSet rs1 = ps.executeQuery();
+            ResultSet rs2 = ps.executeQuery(); //closes rs1
+            //When running a query on a PreparedStatement, Java closes any already open ResultSet objects associated with the statement.
+            while (rs1.next()){//throws SQL Exception
+                System.out.println(rs1.getString(1));
+            }
+
+            while (rs2.next()){
+                System.out.println(rs2.getString(1));
+            }
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }

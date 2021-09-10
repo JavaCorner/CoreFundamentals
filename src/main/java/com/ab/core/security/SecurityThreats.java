@@ -3,6 +3,12 @@ package com.ab.core.security;
 /**
  * @author Arpit Bhardwaj
  *
+ * Security Threats
+ *      DoS Attacks
+ *      Sensitive data leaks
+ *      Code corruption
+ *      Code injection
+ *
  * Denial of Service Attacks
  *      Unchecked and unrestricted resource utilization can be exploited
  * Prevention:
@@ -10,7 +16,6 @@ package com.ab.core.security;
  *      Validate all aplication inputs
  *      Release resources in all cases
  *      Monitor excessive resource consumption
- *
  *
  * Best practices for protecting code
  *      Enforce tight encapsulation

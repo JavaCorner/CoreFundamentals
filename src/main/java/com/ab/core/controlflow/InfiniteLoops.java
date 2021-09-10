@@ -7,14 +7,20 @@ package com.ab.core.controlflow;
 public class InfiniteLoops {
     public static void main(String[] args) {
         //while (true){ }
-        //or
         //while(true);
 
         //in for loop all three initialization, condition, modification is optional
         //if above loop is uncomment then unreachable code compiler error will come
         //for (;;) { }
-        //or
         //for (;;);
+        //for (;true;)
+
+        //do {}while(true);
+
+        loop:do {
+            System.out.println("Broke the infinite do while");
+            break loop;
+        }while (true);
 
         //you cannot make for each infinite in similar way
         //for(:){} //will not compile

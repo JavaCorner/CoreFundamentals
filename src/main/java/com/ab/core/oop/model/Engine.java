@@ -9,12 +9,14 @@ package com.ab.core.oop.model;
  * Interface may contain default, private or static methods.
  *
  * Default methods
- *      by default public and are only allowed in interface
+ *      by default public
+ *      only allowed in interface
  *      help minimize code duplication
  *      can be overridden if necessary
  *
  * Static Methods
- *      by default public but you can also mark it as private
+ *      by default public, but you can also mark it as private
+ *
  * Iterface cannot contain constructors
  */
 

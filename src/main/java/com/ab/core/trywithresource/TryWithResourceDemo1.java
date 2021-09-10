@@ -15,6 +15,12 @@ import java.io.IOException;
  */
 public class TryWithResourceDemo1 {
     public static void main(String[] args) {
+        var resource0 = new Closeable() {
+            @Override
+            public void close() {
+                System.out.println("Closeable -> Close");
+            }
+        };
         var resource1 = new Closeable(){
 
             @Override
@@ -32,21 +38,20 @@ public class TryWithResourceDemo1 {
                 throw new IllegalArgumentException();
             }
         };
+        //try with resource can exist without catch and finally which is not the case of normal try
+        try (resource0){}
 
         try (resource1;resource2;){
             System.out.println("try with resource block");
             throw new NullPointerException();
             //all close operation of resources mentioned in try() done here in reverse manner
         } catch (Exception e) {
-
             System.out.println(e);
-
             Throwable[] suppressed = e.getSuppressed();
             for (Throwable s:
                  suppressed) {
                 System.out.println(s);
             }
-
             System.out.println("catch");
         } finally {
             System.out.println("finally");

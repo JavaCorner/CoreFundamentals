@@ -28,9 +28,10 @@ public class TryWithoutThrowing {
         validTest7();
         validTest8();
         validTest9();
+        validTest10();
     }
 
-        /*Exception class is checked exception and when some method throw CHECKED exception,
+        /*Exception class is checked exception and when some methods throw CHECKED exception,
     then it requires a handler for checked exception or the method itself throws the exception
     claiming as I am not going to handle exception and whoever calls me need to be handled.*/
 
@@ -51,13 +52,12 @@ public class TryWithoutThrowing {
     }
 
     //or
-
     private static void validTest2() throws IOException{throw new IOException();}
 
-    /*NullPointerException which is Unchecked exception,
+    /*NullPointerException which is unchecked exception,
     So it is not mandatory for caller to catch it, If it catches still it is fine.
     also propagating the same is also optional
-    that is why compiler doesn't complain for catch block.*/
+    that is why compiler doesn't complain about catch block.*/
 
     private static void validTest3() {throw new NullPointerException();}
 
@@ -71,44 +71,35 @@ public class TryWithoutThrowing {
     private static void validTest5() throws NullPointerException {}
 
     //It is not allowed to catch a Checked Exception which is not thrown from try block
-    private static int invalidTest3() {
+    private static void invalidTest3() {
         /*try {
-
         } catch (IOException e){
-
         }*/
-        return 0;
     }
 
     //It is allowed to throw a Checked Exception using throws clause (as compiler respects unreachable code)
-    private static int validTest6() throws IOException{return 0;}
+    private static void validTest6() throws IOException{}
 
     /*compiler doesn't complain because when you catch Unchecked exception
     that is either RuntimeException or Error or any subclass of it then compiler doesn't check what is written in try block
     because this Exception/Error can occur at run time*/
 
-    private static int validTest7() {
+    private static void validTest7() {
         try {
-
         } catch (NullPointerException e){
-
         }
-        return 0;
     }
 
-    //It is allowed to throw a unchecked Exception using throws clause
-    private static int validTest8() throws NullPointerException{return 0;}
+    //It is allowed to throw an unchecked exception using throws clause
+    private static void validTest8() throws NullPointerException{}
 
     /*Compiler doesn't complain because compiler is not sure if that catch block is wrote to handle checked exception or unchecked(Runtime) exception
     as Exception class can handle both so below code is perfectly valid.*/
 
-    private static int validTest9() {
+    private static void validTest9() {
         try {
-
         } catch (Exception e){
-
         }
-        return 0;
     }
 
     private static Exception validTest10(){

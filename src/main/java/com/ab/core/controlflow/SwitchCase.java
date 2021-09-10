@@ -86,6 +86,10 @@ public class SwitchCase {
         boolean h = true;   // not allowed
         var v = 1;
 
+        switch (v){}
+        switch (v){case 1:}
+        switch (v){default:}
+
         int iVal = 10;
         final int even = 0;
         final int odd = 1;

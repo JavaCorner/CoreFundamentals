@@ -11,22 +11,17 @@ public class Helicopter extends Aircraft{
         super(altitude);
     }
 
+    //widen the visibility from package-private to protected
     @Override
-    protected void checkSystems() {
-
-    }
-
-    @Override
-    protected void getClearance() {
-
-    }
+    protected void checkSystems() {}
 
     @Override
-    protected void implementActions() {
+    protected void getClearance() {}
 
-    }
+    @Override
+    public void implementActions() {}
 
-    //@Override //uncomment will result in compiler error
+    //@Override //static methods cannot be overridden
     public static void aircraftDimensions(){
 
     }

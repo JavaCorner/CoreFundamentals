@@ -35,16 +35,15 @@ public abstract class Aircraft {
         return altitude;
     }
 
-    public static void aircraftDimensions(){
+    public static void aircraftDimensions(){}
 
-    }
     public final void takeOff(){
         checkSystems();
         getClearance();
         implementActions();
     }
-
-    protected abstract void checkSystems();
+    //an abstract method can be package-private,protected,public
+    abstract void checkSystems();
     protected abstract void getClearance();
-    protected abstract void implementActions();
+    public abstract void implementActions();
 }

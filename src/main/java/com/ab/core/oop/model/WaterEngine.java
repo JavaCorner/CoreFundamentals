@@ -3,7 +3,7 @@ package com.ab.core.oop.model;
 /**
  * @author Arpit Bhardwaj
  *
- * Private methods do not cause conflicts , because they are not visible outside of that interface.
+ * Private methods do not cause conflicts , because they are not visible outside that interface.
  * Static methods do not cause conflicts, because they are invoked via specific parent types and do not rely on super ref
  * Default methods may create conflicts which must be resolved by overriding default method with in implementation class
  *
