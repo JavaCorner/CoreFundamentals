@@ -7,19 +7,18 @@ import java.lang.annotation.*;
 /**
  * @author Arpit Bhardwaj
  *
- * Annotation can have attributes
- * Attributes could be
+ * Annotation can have below attributes
  *      primitive type
  *      String
  *      Class
  *      enum
  *      another annotation
- *      An array of any of the above.
+ *      An array of the above.
  *
  * Different Retention Levels
- *      SOURCE : is retained in the source code by discarded by the compiler
- *      CLASS : is retained by the compiler but ignored by the JVM
- *      RUNTIME : is reatined by JVM and readble at runtime
+ *      SOURCE :    is retained in the source code by discarded by the compiler
+ *      CLASS :     is retained by the compiler but ignored by the JVM
+ *      RUNTIME :   is reatined by JVM and readble at runtime
  * Different Target Type
  *      ANNOTATION_TYPE
  *      CONSTRUCTOR
@@ -32,12 +31,20 @@ import java.lang.annotation.*;
  *      TYPE
  *      TYPE_PARAMETER
  *      TPE_USE
+ *
+ * Annotation used to annotate annotation
+ *      @Target
+ *      @Retention
+ *      @Repeatable
+ *      @Inherited - Marker Annotation
+ *      @Documented
  * Marker Annotation
- *      @Inherited
  *      @Documented : Class documentation would include a reference to annotations that are marked as documented
  *      The annotation that validates design
  *          @Override :
  *          @FunctionalInterface
+ *          @Cloneable
+ *          @Serializable
  * Other Annotations
  *      @Deprecated
  *      @SuppressWarnings
@@ -60,5 +67,4 @@ public @interface Version {
     //default void test1();                                         //not allowed
     //static void test2();                                          //not allowed
     //private void test3();                                         //not allowed
-
 }

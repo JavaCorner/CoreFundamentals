@@ -3,11 +3,15 @@ package com.ab.core.overriding;
 /**
  * @author Arpit Bhardwaj
  *
+ * overriding is only applicable to methods
+ * variables in do not follow polymorphism
+ *
  */
 public class OverridingDemo {
 
     static class Animal{
-        int i = 11;
+        public int i = 11;
+
         void nonstaticFun(){
             System.out.println("Animal-nonstaticFun()-"+i);
         }
@@ -16,7 +20,7 @@ public class OverridingDemo {
         }
     }
     static class Camel extends Animal{
-        int i = 12;
+        private int i = 12;
         @Override
         void nonstaticFun() {
             System.out.println("Camel-nonstaticFun()-" + i);
@@ -39,6 +43,9 @@ public class OverridingDemo {
 
         Camel.staticFun();
         Animal.staticFun();
+
+        System.out.println(a1.i); //11
+        System.out.println(a2.i); //11
 
     }
 }

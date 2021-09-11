@@ -20,7 +20,7 @@ import static java.util.Arrays.asList;
  * Multi Line:
  * Javadoc Comment: This comment is similar to a multiline comment except it starts with /**.
  *                  This special syntax tells the Javadoc tool to pay attention to the comment.
- *                  Javadoc comments have a specific structure that the Javadoc tool knows how to read.
+ *                  Javadoc's comments have a specific structure that the Javadoc tool knows how to read.
  *
  * Multiple Classes in Single File
  * You can put multiple default(package private) classes and a single public class in the same file.
@@ -46,7 +46,7 @@ Point to note:
 It doesn’t import child packages, fields, or methods; it imports only classes.
 Listing the classes used makes the code easier to read, especially for new programmers.
 Using the wildcard can shorten the import list.
-Importing with wildcards doen't slow down your program.The compiler is smart enough figures out what’s actually needed.
+Importing with wildcards doesn't slow down your program.The compiler is smart enough figures out what’s actually needed.
 There’s one special package in the Java world called java.lang. This package is special in that it is automatically imported.
 
 3 Redundant Imports
@@ -55,7 +55,7 @@ import java.lang.*;
 import java.util.Random;
 import java.util.*;
 
-import java.nio.*;         // Will not work (but there is no compiler error in this line though there is an compiler error on actual usage line as import still not happended) -
+import java.nio.*;         // Will not work (but there is no compiler error in this line though there is a compiler error on actual usage line as import still not happended) -
 a wildcard only matches class names, not "file.Files"
 
 import java.nio.*.*;       // Will not work - you can only have one wildcard and it must be at the end
@@ -64,9 +64,13 @@ import java.nio.file.Paths.*; // Will not work - you cannot import methods only 
 
 Compiling with packages and directories
 javac -d classes packagea/ClassA.java packageb/ClassB.java
-java -cp classes packageb.ClassB or java -classpath classes packageb.ClassB or java --class-path classes packageb.ClassB
+java -cp classes packageb.ClassB
+        or
+java -classpath classes packageb.ClassB
+        or
+java --class-path classes packageb.ClassB
 
-or if you classes or directory elsewhere
+or if your classes or directory elsewhere
 
 java -cp ".;C:\temp\someOtherLocation;c:\temp\myJar.jar" myPackage.MyClass
 

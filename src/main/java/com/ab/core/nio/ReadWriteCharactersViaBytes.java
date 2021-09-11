@@ -7,7 +7,7 @@ import java.io.*;
  *
  * In case you want to read/write characters in byte stream
  * There are 2 classes that act as a bridge between characters and bytes.
- *      OutputStreamWriter : Eventually a writer built upon outputstream
+ *      OutputStreamWriter : Eventually a writer built upon outputstream means it needs an outsput stream in his constructor
  *      InputStreamReader : Eventually a reader built upon inputstream
  *
  *  Tip: Memorize it as the name contains both Stream and Reader/Writer
@@ -22,7 +22,7 @@ public class ReadWriteCharactersViaBytes {
         try (ByteArrayOutputStream bos = new ByteArrayOutputStream();
              OutputStreamWriter writer = new OutputStreamWriter(bos)){
             writer.write(data);
-            writer.flush();
+            writer.flush(); //explicit flush is needed because we need to write data to byte array in next line. so here the implicit flush which is called during close will not help
             bytes = bos.toByteArray();
         } catch (IOException e) {
             e.printStackTrace();

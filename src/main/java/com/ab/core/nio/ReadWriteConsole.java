@@ -16,8 +16,9 @@ import java.util.stream.Collectors;
  */
 public class ReadWriteConsole {
     public static void main(String[] args) {
-        //console object is singleton and synchronized console
-        Console console = System.console();//console is null here as intellij by default gives no console
+        //console object is singleton and all operations belongs(reading, writing etc) are synchronized
+        //console is null here as intellij by default gives no console
+        Console console = System.console();
         //writer object is singleton
         PrintWriter writer = console.writer();//no need to close (closing is redundant)
         writer.println("What is you name >");

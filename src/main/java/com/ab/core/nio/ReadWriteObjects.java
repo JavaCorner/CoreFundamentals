@@ -14,21 +14,20 @@ import java.security.NoSuchAlgorithmException;
  */
 public class ReadWriteObjects {
     public static void main(String[] args) {
-        Person p1 = new Person("Arpit",30,"Bengaluru");
-        Person p2 = new Person("Nisha",29,"Bengaluru");
+        Person p1 = new Person("Arpit",30,"Bengaluru",6876676);
+        Person p2 = new Person("Nisha",29,"Bengaluru",6787673);
 
-        /*try (FileOutputStream fos = new FileOutputStream("files/persons.bin");
+        try (FileOutputStream fos = new FileOutputStream("files/persons.bin");
              ObjectOutputStream oos = new ObjectOutputStream(fos)){
             oos.writeObject(p1);
             oos.writeObject(p2);
         }catch (IOException e) {
             e.printStackTrace();
-        }*/
+        }
         //if the class is not found which the persons.bin is referring then ClassNotFoundException is raised
-        //if any filed name is changed in class which the persons.bin is referring then InvalidClassException is raised
-
+        //if any filed name is changed in class which the persons.bin is referring then below exception is raised
         //java.io.InvalidClassException: com.ab.core.nio.Person; local class incompatible: stream classdesc serialVersionUID = -7137426691571486177, local class serialVersionUID = -1894419180813272900
-        //in order to silently pass InvalidClassException, there should be a serialVersion Id present in class
+        //in order to silently pass InvalidClassException, there should be a serialVersion id present in class
         //missing fields will have default value
 
         try (FileInputStream fis = new FileInputStream("files/persons.bin");

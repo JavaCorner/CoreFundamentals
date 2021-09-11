@@ -32,7 +32,6 @@ public class Person {
      */
     @Version(1)
     @SuppressWarnings({"unchecked","deprecation"})
-
     public String greet(){
         return "Hi, I am " + this.name;
     }

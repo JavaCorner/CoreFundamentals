@@ -20,6 +20,7 @@ package com.ab.core.oop.model;
  */
 public abstract class Aircraft {
     private int altitude;
+    protected String colour;
 
     public final void land(){
         checkSystems();

@@ -7,6 +7,8 @@ package com.ab.core.oop.model;
  */
 public class Helicopter extends Aircraft{
 
+    private String colour;
+
     public Helicopter(int altitude) {
         super(altitude);
     }

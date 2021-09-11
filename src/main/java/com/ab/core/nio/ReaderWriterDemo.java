@@ -5,20 +5,18 @@ import java.io.*;
 /**
  * @author Arpit Bhardwaj
  *
- * Writer is meant to write characters only
- * Writer is an abstract class whose main extensions are below
- *
+ * Writer is to write characters
+ * Low level implementation of Writer are
  *      FileWriter : disk writer
- *      StringWriter : in memory writer (doesn't violate string immutable, write internally in buffer)
- *      CharArrayWriter : in memory writer
+ *      StringWriter : in memory (doesn't violate string immutable, write internally in buffer)
+ *      CharArrayWriter : in memory
  *
  *      In Memory readers support marking and resetting
  *
- * Reader is meant to read characters only
- * Reader is an abstract class whose main extensions are below
- *
+ * Reader is to read characters
+ * Low level implementation of Reader are
  *      FileReader : disk reader
- *      StringReader : in memory reader
+ *      StringReader : in memory
  *      CharArrayReader : in memory
  *
  *      In Memory readers support marking and resetting
@@ -35,7 +33,8 @@ public class ReaderWriterDemo {
             e.printStackTrace();
         }
 
-        try(StringWriter writer = new StringWriter(); var t = System.out) {
+        try(StringWriter writer = new StringWriter();
+            var t = System.out) {
             writer.write("Hello World!");// write chars to internal buffer, hence explicit flush required to flush
             //writer.flush();
             writer.write('c');
@@ -54,8 +53,7 @@ public class ReaderWriterDemo {
             while((length = reader.read(buf)) > 0){
                 sb.append(buf,0,length);
             }
-
-            System.out.println(sb.toString());
+            System.out.println(sb);
         } catch (IOException e) {
             e.printStackTrace();
         }

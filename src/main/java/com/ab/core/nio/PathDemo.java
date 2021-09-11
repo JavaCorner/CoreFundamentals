@@ -7,8 +7,15 @@ import java.nio.file.Paths;
 /**
  * @author Arpit Bhardwaj
  *
- * Path is an interface and it represents files and folders as immutable objects
+ * Path is an interface, and it represents files and folders as immutable objects
  * Specfic implementation can be created for specific file system
+ *
+ * current: represented by .
+ * parent: everything before the last /. represented by ..
+ * root: may not exist. File system dependent
+ * absolute: identififed by file system
+ *
+ * A path with a absolute may not be absolute.
  *
  */
 
@@ -58,31 +65,66 @@ public class PathDemo {
         Path someFile = Path.of("/","users","joe","docs","some.txt");
 
         Path justSomeFile = someFile.getFileName();
-        System.out.println(justSomeFile);
+        System.out.println(justSomeFile);       //some.txt
 
         Path docsFolder = someFile.getParent();
-        System.out.println(docsFolder);
+        System.out.println(docsFolder);         //\\users\joe\docs
 
         Path currentFolder = Path.of(".");
-        System.out.println(currentFolder);
+        System.out.println(currentFolder);      //.
 
+        /*
+        this.resolve(other)
+            if other is
+                "" -> returns this
+                absolute -> other
+                root path -> undefined
+            else
+                concatenated this with other
+         */
         Path acmeFile = docsFolder.resolve("../pics/acme.jpg");
-        System.out.println(acmeFile);
+        System.out.println(acmeFile);           //\\users\joe\docs\..\pics\acme.jpg
 
+        /*
+        this.resolveSibling(other)
+            if other is
+                "" -> returns parent of this. if this does not have parent then return "".
+                absolute -> other
+                root path -> undefined
+            else
+                concatenated parent of this with other
+         */
         Path otherFile = someFile.resolveSibling("others.txt");
-        System.out.println(otherFile);
+        System.out.println(otherFile);          //\\users\joe\docs\others.txt
 
+        /*
+        this.normalize()
+            implementation dependant
+            removes redundancies (. and ..)
+         */
         Path normalizeAcmeFile = acmeFile.normalize();
-        System.out.println(normalizeAcmeFile);
+        System.out.println(normalizeAcmeFile);  //\\users\joe\pics\acme.jpg
 
+        /*
+        this.toRealPath()
+            implementation dependant
+            creates n absolute path with no links
+         */
         try {
             Path verifiedPath = acmeFile.toRealPath();
             System.out.println(verifiedPath);
         } catch (IOException e) {
-
+            System.out.println("Exception Occurred");
         }
 
+        /*
+        this.relativize(other)
+            if both this and other have a root and none have a root.
+                build a relative path from this to other
+            if this or other does not have parent
+                throws an exception
+         */
         Path betweenSomeAndAcme = someFile.relativize(acmeFile);
-        System.out.println(betweenSomeAndAcme);
+        System.out.println(betweenSomeAndAcme);//..\..\pics\acme.jpg
     }
 }

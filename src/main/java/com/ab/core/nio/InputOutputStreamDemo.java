@@ -5,10 +5,17 @@ import java.io.*;
 /**
  * @author Arpit Bhardwaj
  *
- * Input/output Stream deals with bytes
- *
  * Output Stream is to write bytes
+ * Low level implementation of OutputStream
+ *      FileOutputStream
+ *      ByteArrayOutputStream
+ *      PrintStream
+ *
  * Input Stream is to read bytes
+ * Low level implementation of InputStream
+ *      FileInputStream
+ *      ByteArrayInputStream
+ *
  */
 public class InputOutputStreamDemo {
     public static void main(String[] args) {

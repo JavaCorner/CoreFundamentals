@@ -12,11 +12,19 @@ public class Person implements Serializable {
     private String name2;
     private int age;
     private String city;
+    private transient int aadharNo;
+
+
 
     public Person(String name, int age, String city) {
         this.name2 = name;
         this.age = age;
         this.city = city;
+    }
+
+    public Person(String name, int age, String city, int aadharNo) {
+        this(name,age,city);
+        this.aadharNo = aadharNo;
     }
 
     @Override
