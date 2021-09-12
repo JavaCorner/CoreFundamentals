@@ -126,5 +126,7 @@ public class PathDemo {
          */
         Path betweenSomeAndAcme = someFile.relativize(acmeFile);
         System.out.println(betweenSomeAndAcme);//..\..\pics\acme.jpg
+
+        Path users = Paths.get("/", "users");
     }
 }

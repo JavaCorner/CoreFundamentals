@@ -36,13 +36,15 @@ public class ReaderWriterDemo {
         try(StringWriter writer = new StringWriter();
             var t = System.out) {
             writer.write("Hello World!");// write chars to internal buffer, hence explicit flush required to flush
-            //writer.flush();
+            writer.flush();
             writer.write('c');
             StringBuffer buf = writer.getBuffer();
             t.println(buf.toString());
             t.println(writer);
         } catch (IOException e) {
             e.printStackTrace();
+        } finally {
+            System.out.println("d");//at this out will be closed, hence this has no affect
         }
 
 

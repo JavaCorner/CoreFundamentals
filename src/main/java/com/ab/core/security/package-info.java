@@ -6,7 +6,7 @@ package com.ab.core.security;
  * Security Threats
  *      Sensitive data leaks
  *      Injection
- *      Inclusion
+ *      Inclusion (Ex. zip bomb or the billion laughs attack)
  *      DoS Attacks
  *      Code corruption
  *
@@ -28,6 +28,7 @@ package com.ab.core.security;
  *      encode outputs
  *      used an appropriately configured third party
  *
+ * Inclusion attacks occur when multiple files or components are embedded within a single entity
  * Prevent Inclusions
  *      Don't use untrusted input to load resources.
  *      Load resources locally, using allow list

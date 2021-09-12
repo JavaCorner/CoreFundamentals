@@ -62,21 +62,20 @@ import java.nio.*.*;       // Will not work - you can only have one wildcard and
 
 import java.nio.file.Paths.*; // Will not work - you cannot import methods only class names
 
-Compiling with packages and directories
-javac -d classes packagea/ClassA.java packageb/ClassB.java
-java -cp classes packageb.ClassB
-        or
-java -classpath classes packageb.ClassB
-        or
-java --class-path classes packageb.ClassB
+Compiling Java Files
+    javac -d <path to compiled output folder>
+            <fully qualified .java files to compile>
 
-or if your classes or directory elsewhere
-
-java -cp ".;C:\temp\someOtherLocation;c:\temp\myJar.jar" myPackage.MyClass
+Running Java App
+    java -cp <path to compiled output folder>
+            <fully qualified main class name>
 
 Create Jar File (. represents current directory)
-jar -cvf myNewFile.jar . or jar --create --verbose --file myNewFile.jar .
-jar -cvf myNewFile.jar -C <directory>
+    jar -cvf <New jar file name>
+        -C <path to compiled output folder>
+
+    jar -cvf myNewFile.jar .
+    jar --create --verbose --file myNewFile.jar .
 
  */
 

@@ -8,7 +8,10 @@ import java.util.ServiceLoader;
 /**
  * @author Arpit Bhardwaj
  *
- * service locator
+ * service consumer as well as service locator
+ *
+ * ServiceLoader allows you to make your application extensible
+ * A service can be added without recompiling the entire application.
  */
 public class Main {
     public static void main(String[] args) {

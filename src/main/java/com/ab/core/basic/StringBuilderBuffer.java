@@ -42,7 +42,8 @@ public class StringBuilderBuffer {
         System.out.println(sb1);                            //-ani-mals-
 
         //in substring and delete, start is inclusive and end is exclusive and optional
-        //substring returns string and delete returns same string builder instance
+        //substring returns new string builder instance and delete returns same string builder instance
+        //substring is an immutable operation while delete or deleteCharAt is mutable
         var sb = new StringBuilder().append("reddish");
         System.out.println(sb.substring(2));           //ddish
         System.out.println(sb.substring(1,3));              //ed

@@ -2,8 +2,10 @@ package com.ab.core.nio;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.CopyOption;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
 
 /**
  * @author Arpit Bhardwaj
@@ -61,6 +63,14 @@ public class FilesDemo {
                 .filter(s -> s.endsWith("txt"))
                 .forEach(System.out::println);
         Path path = Files.readSymbolicLink(p2);
+
+        //throws AtomicMoveNotSupportedException – if the options array contains the ATOMIC_MOVE option but the file cannot be moved as an atomic file system operation.
+        //throws FileAlreadyExistsException – if the target file exists but cannot be replaced
+        Files.move(p1,p2, StandardCopyOption.ATOMIC_MOVE);
+
+        Files.move(p1,p2, StandardCopyOption.REPLACE_EXISTING);
+
+
 
     }
 }
