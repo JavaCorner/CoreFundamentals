@@ -22,7 +22,11 @@ public class LocaleDemo {
         Locale inLocaleC = new Locale("hi", "IN", "WIN");
         displayLocaleAttributes(inLocaleC);
 
-        Locale frLocale = new Locale.Builder().setLanguage("fr").setRegion("FR").build();
+        Locale frLocale = new Locale.Builder()
+                .setLanguage("fr")
+                .setRegion("FR")
+                .setVariant("")
+                .build();
         displayLocaleAttributes(frLocale);
 
         System.out.println("********Predefined Locale********");

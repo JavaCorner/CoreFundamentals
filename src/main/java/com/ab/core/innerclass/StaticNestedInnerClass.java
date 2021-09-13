@@ -5,13 +5,14 @@ import javax.crypto.spec.PSource;
 /**
  * @author Arpit Bhardwaj
  *
- * Static Nested classes are associated with static context of outer class
- *        Everything allowed except no direct access to outer class nonstatic members
+ * Static Nested classes
+ *      are associated with static context of outer class
+ *      everything allowed except no direct access to outer class nonstatic members
  */
 public class StaticNestedInnerClass {
     public static void main(String[] args) {
-        Outer1 outer = new Outer1();
         Outer1.Inner.staticInnerShow();
+        Outer1.Inner.InnerInterface innerInterface = new Outer1.Inner.InnerInterface() {};
         Outer1.Inner inner = new Outer1.Inner();//instance of static inner class in order to access nonstatic methods
         inner.innerShow();
     }

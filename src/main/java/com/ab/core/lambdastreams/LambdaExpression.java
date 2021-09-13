@@ -1,5 +1,6 @@
 package com.ab.core.lambdastreams;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.function.BiFunction;
 import java.util.function.Function;
@@ -13,7 +14,7 @@ import java.util.function.ToIntBiFunction;
  * it will be passed as a code to other method
  *
  * A Lambda expression implements a functional interface
- * {} and return keyword is optional in case one line simple statement
+ * {}, return keyword and ; is optional in case one line simple statement
  * () are optional in case of single parameter
  *
  */
@@ -55,6 +56,10 @@ public class LambdaExpression {
             return "null";
         };
         wouldNotCompile();
+
+        var list = new ArrayList<>();
+        list.add("Jan");
+        //list.add(String::new);
     }
 
     private static void wouldNotCompile() {

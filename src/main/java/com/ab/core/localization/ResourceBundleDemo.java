@@ -30,8 +30,7 @@ public class ResourceBundleDemo {
         int quantity = 4;
 
         ResourceBundle bundleFR = ResourceBundle.getBundle("messages", localeFR);
-        String helloFR = bundleFR.getString("hello");
-        System.out.println(helloFR);
+        System.out.println(bundleFR.getString("hello"));
 
         NumberFormat currencyFormat = NumberFormat.getCurrencyInstance(localeFR);
         NumberFormat numberFormat = NumberFormat.getNumberInstance(localeFR);

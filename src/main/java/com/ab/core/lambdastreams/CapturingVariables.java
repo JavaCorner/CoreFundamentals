@@ -15,8 +15,8 @@ import java.util.function.Predicate;
  * Variable type	    Rule
  * Instance variable	Allowed
  * Static variable	    Allowed
- * Local variable	    Allowed if effectively final
- * Method parameter	    Allowed if effectively final
+ * Local variable	    Allowed if final or effectively final
+ * Method parameter	    Allowed if final or effectively final
  * Lambda parameter	    Allowed
  *
  */
@@ -24,13 +24,12 @@ public class CapturingVariables {
     int a = 1;
     static int b = 2;
     public static void main(String[] args) {
-        CapturingVariables o = new CapturingVariables();
         List<Product> products = ExampleData.getProducts();
         List<Product> cheapProducts = new ArrayList<>();
         BigDecimal priceLimit = new BigDecimal("5.00");
         //priceLimit = new BigDecimal("6.00");//will not be anymore effectively final//compile error in lambda line
         Predicate<Product> filterPredicateByPrice = p -> {
-            o.a = 4;
+            new CapturingVariables().a = 4;
             b = 3;
             return p.getPrice().compareTo(priceLimit) < 0;
         };

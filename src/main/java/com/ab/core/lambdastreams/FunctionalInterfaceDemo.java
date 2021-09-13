@@ -7,24 +7,21 @@ import java.util.function.*;
  * @author Arpit Bhardwaj
  *
  * Function (unary function from T to R) -> apply
+ *      UnaryOperator (extends Function from T to T) -> identity
  * Supplier (nullary function to R) -> get
  * Consumer (unary function from T to void) -> accept
  * Predicate (unary function from T to boolean) -> test
  *
  * BiFunction (bi function from T, U to R)
+ *      BinaryOperator (extends BiFunction from T, T to R) -> minBy, maxBy
  * BiConsumer (bi function from T, U to void)
  * BiPredicate (bi function from T, U to boolean)
  *
- * UnaryOperator (extends Function) -> identity
- * BinaryOperator (extends BiFunction) -> minBy, maxBy
- *
  * Specialized Functional Interfaces are present for int, long, double
- *                  "PrefixToSuffixInterface"
- *
- *                  Before To will be taken types
- *                  After To will be return type
- *
- *                  In case return type is generic To will be omitted.
+ *      "PrefixToSuffixInterface"
+ *      Before To will be taken types
+ *      After To will be return type
+ *      In case return type is generic To will be omitted.
  *
  * IntFunction (Function) Take int return R
  * ToIntFunction (Function) Take T return int
@@ -37,7 +34,6 @@ import java.util.function.*;
  * ToIntBiFunction (Bi Function) Take T, U return int
  * ToLongBiFunction (Bi Function) Take T, U return long
  * ToDoubleBiFunction (Bi Function) Take T, U return double
- *
  */
 public class FunctionalInterfaceDemo {
     public static void main(String[] args) {
@@ -64,14 +60,22 @@ public class FunctionalInterfaceDemo {
 
         //supplier
         Supplier<Integer> random = () ->  new Random().nextInt();
-
+        DoubleSupplier doubleSupplier = () -> 1.3;
+        LongSupplier longSupplier =  () -> 1L;
+        IntSupplier intSupplier = () -> 1;
+        
         //comparator
-        Comparator<String> reverseOrder1 = Comparator.reverseOrder();
-        Comparator<String> reverseOrder2 = (s1, s2) -> s2.compareTo(s1);
-        Comparator<String> reverseOrder3 = (s1, s2) -> - s1.compareTo(s2);
+        Comparator<String> naturalOrder1 = (s1, s2) -> - s1.compareTo(s2);
+        Comparator<String> naturalOrder2 = Comparator.naturalOrder();
+        Comparator<String> reverseOrder1 = (s1, s2) -> s2.compareTo(s1);
+        Comparator<String> reverseOrder2 = Comparator.reverseOrder();
+
+        Comparator<String> reverseOrder3 = Collections.reverseOrder();
+        List<Integer> integers = Arrays.asList(1, 2, 3);
+        Collections.reverse(integers);//mutable operation
+        System.out.println(integers);
 
         //calling collection APIs with lambda
-
         List<String> bunnies = new ArrayList<>();
         bunnies.add("long ear");
         bunnies.add("floppy");

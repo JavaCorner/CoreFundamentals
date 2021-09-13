@@ -8,13 +8,18 @@ import java.util.stream.Collectors;
 /**
  * @author Arpit Bhardwaj
  *
+ * Collecting strategies returns maps
+ *      groupingBy
+ *      partitioningBy
+ * Collecting strategies returns another collector
+ *      mapping
  */
 public class GroupingPartitioning {
     public static void main(String[] args) {
         List<Product> products = ExampleData.getProducts();
 
         //group products by category
-        //groupingBy accepts classifier
+        //groupingBy accepts classifier function
         Map<Category, List<Product>> productByCategory = products.stream()
                 .collect(Collectors.groupingBy(Product::getCategory));
 
@@ -38,9 +43,9 @@ public class GroupingPartitioning {
 
         BigDecimal priceLimit = new BigDecimal("5.00");
 
-        //partition by accepts predicate
+        //partitioningBy accepts predicate
         Map<Boolean, List<Product>> cheapExpensiveProducts = products.stream()
-                .collect(Collectors.partitioningBy(product -> product.getPrice().compareTo(priceLimit) < 0));
+                .collect(Collectors.partitioningBy(p -> p.getPrice().compareTo(priceLimit) < 0));
 
 
         /*System.out.println("Cheap Products : ");
@@ -52,7 +57,7 @@ public class GroupingPartitioning {
         //partition by accepts predicate and downstream collector
         Map<Boolean, List<String>> cheapExpensiveProductsName = products.stream()
                 .collect(Collectors.partitioningBy(
-                        product -> product.getPrice().compareTo(priceLimit) < 0,
+                        p -> p.getPrice().compareTo(priceLimit) < 0,
                         Collectors.mapping(Product::getName,
                                 Collectors.toList())));
 

@@ -12,6 +12,12 @@ import java.util.TimeZone;
  * @author Arpit Bhardwaj
  *
  * LocalDateTime,LocalDate,LocalTime are immutable objects
+ *
+ * Period,Duration,Instant
+ *
+ * TimeZone,ZonedDateTime,Timestamp
+ *
+ *
  */
 
 public class DateTimeZoneDemo {
@@ -36,37 +42,46 @@ public class DateTimeZoneDemo {
         LocalDateTime localDateTime1 = localDate.atTime(localTime);
         LocalDateTime localDateTime2 = LocalDateTime.of(localDate, localTime);
 
-        //new date and time objects can be produced using methods withXXX(),plusXXX(),minusXXX()
+        //new date and time objects can be produced using methods withXXX(),plusXXX(),minusXXX() - with is for replace
         LocalDateTime localDateTime3 = localDateTime1.withMinute(14).withDayOfMonth(3).plusHours(3).minusHours(1);
         System.out.println("LocalDateTime: " + localDateTime3);
 
         LocalDate today = LocalDate.now();
         LocalDate foolsDay = LocalDate.of(2021,Month.APRIL,1);
 
-        Period howLong = Period.between(foolsDay, today); //represent an amount of time
+        Period howLong = Period.between(foolsDay, today);   //represent an amount of time
         System.out.println(howLong.getMonths());
-        Duration twoHrs = Duration.ofHours(2);//represent an amount of time
+
+        Duration twoHrs = Duration.ofHours(2);              //represent an amount of time
         System.out.println(twoHrs.getNano());
-        Instant now = Instant.now();
-        System.out.println(now);
+
+        Instant now = Instant.now();                        //represent timestamp
+        System.out.println(now);                            //YYYY-mm-ddTHH:mm:ss.SSSS
 
         TimeZone timeZone = TimeZone.getDefault();
         System.out.println("Time Zone: " + timeZone.getDisplayName(Locale.getDefault()));
 
         ZonedDateTime zonedDateTime = ZonedDateTime.now(ZoneId.of("Asia/Tokyo"));
-        System.out.println("Zoned Date time: " + zonedDateTime.toString());
+        System.out.println("Zoned Date time: " + zonedDateTime);
 
         Timestamp timestamp = Timestamp.valueOf(localDateTime);
-        System.out.println("Timestamp: " + timestamp.toString());
-
-        //custom format pattern
-        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd-MMMM-yyyy HH:mm:ss.SSS");
-        System.out.println("Custom Formatted Date Time: " + localDateTime.format(dateTimeFormatter));
-        var df = DateTimeFormatter.ofPattern("MMMM' at 'h' o''clock'");
-        System.out.println("Custom Formatted Date Time: " + localDateTime.format(df));
+        System.out.println("Timestamp: " + timestamp);      //YYYY-mm-DD HH:mm:ss.SSS
 
         //standard format patterns defined by FormatStyle enum
+        /*
+        FULL    Tuesday, April 13, 1952 AD
+        LONG    January 13, 1952
+        MEDIUM  Jan 13, 1952
+        SHORT   12.13.52
+         */
         DateTimeFormatter dateTimeFormatterFr = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM);
         System.out.println("Formatted Date Time: " + localDateTime.format(dateTimeFormatterFr));
+
+        //custom format pattern
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd-MMMM-yyyy HH:mm:ss.SSSSS");
+        System.out.println("Custom Formatted Date Time: " + localDateTime.format(dateTimeFormatter));
+
+        var df = DateTimeFormatter.ofPattern("MMMM' at 'h' o''clock'");
+        System.out.println("Custom Formatted Date Time: " + localDateTime.format(df));
     }
 }

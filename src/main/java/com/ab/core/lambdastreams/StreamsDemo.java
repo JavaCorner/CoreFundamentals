@@ -18,16 +18,38 @@ import java.util.stream.Stream;
  * List is an ordered collection, hence stream on it produce ordered elements
  * Set is an unordered collection, hence stream on it produce unordered elements
  *
- * Intermediate :
- *      filter,map,flatmap,peek,distinct,sorted,dropWhile,skip.limit,takeWhile
- * Terminal :
- *      forEach, forEachOrdered,count,min,max,sum,average,collect,reduce,allMatch,anyMatch,NoneMatch,findAny, findFirst
+ * BaseStream (Interface)
+ *      Stream (Interface)
+ *      IntStream (Interface)
+ *      LongStream (Interface)
+ *      DoubleStream (Interface)
+ *
+ * Methods in BaseStream Interface
+ *      sequential
+ *      parallel
+ *      isParallel
+ *      unordered
+ * Methods in Stream Interface
+ *      Intermediate Operation:
+ *          filter
+ *          map,flatmap
+ *          peek,distinct,sorted,skip,limit
+ *          dropWhile,takeWhile
+ *      Terminal Operation:
+ *          forEach,forEachOrdered
+ *          count,min,max,sum,average : return values
+ *          collect,reduce
+ *          allMatch,anyMatch,NoneMatch,findAny,findFirst : return Optional object
  *
  * Differences:
- *      forEach and forEachOrdered: forEach operation doesn't gurantee the order of elements, which is actually beneficial for parallel stream
- *      map, flatMap:
+ *      forEach,forEachOrdered:
+ *          forEach operation doesn't gurantee the order of elements, which is actually beneficial for parallel stream
+ *      map,flatMap:
  *          map stream elements to a new stream of different content type
  *          flatMap flatten a number of streams to a single stream
+ *      dropWhile,takeWhile:
+ *          takeWhile() accepts all values until predicate returns false
+ *          dropWhile() drops all values until it matches the predicate
  *
  */
 public class StreamsDemo {
@@ -85,14 +107,13 @@ public class StreamsDemo {
                 .filter(product -> product.getCategory() == Category.OFFICE)
                 .findFirst();
 
-        //The Optional class has an isPresent() method that doesn't take any parameters.
-        // It returns a boolean and is commonly used in if statements.
-        // There is also an ifPresent() method that takes a Consumer parameter and runs it only if the Optional is nonempty.
+        //The Optional class has
+        // isPresent() method that doesn't take any parameter and returns a boolean and is commonly used in if statements.
+        // ifPresent() method that takes a consumer parameter and runs it only if the Optional is nonempty.
         firstOfficeProduct.ifPresent(System.out::println);
 
         //in case the stream produce unordered elements then findFirst and findAny has no difference
-        //in case the stream produce ordered elements then findFirst element which first match the filter criteria and findAny return any random
-        //match
+        //in case the stream produce ordered elements then findFirst element which first match the filter criteria and findAny return any random match
         Optional<Product> anyOfficeProduct = products.stream()
                 .filter(product -> product.getCategory() == Category.OFFICE)
                 .findAny();
@@ -119,10 +140,19 @@ public class StreamsDemo {
         System.out.println("Are all products expensive : " + allExpensiveProducts);
 
 
+        Stream.of("India", "Australia", "New Zealand", "", "South Africa", "England")
+                .takeWhile(o->!o.isEmpty())
+                .forEach(System.out::print);
+        System.out.println();
+
+        Stream.of("India", "Australia", "New Zealand", "", "England", "Srilanka")
+                .dropWhile(o->!o.isEmpty())
+                .forEach(System.out::print);
+
         //Perform actions on stream pipeline elements
         //combine consumers
         //Default addThen Method of Consumer Interface combines consumer together
-        Consumer<Product> expireProduct = product -> product.setBestBefore(LocalDate.now());
+        Consumer<Product> expireProduct = p -> p.setBestBefore(LocalDate.now());
         Consumer<Product> discountProduct = p -> p.setDiscount(BigDecimal.valueOf(0.1));
 
         products.stream().forEach(expireProduct.andThen(discountProduct));
@@ -134,12 +164,14 @@ public class StreamsDemo {
         //Perform filtering on stream pipeline elements
         //combine filtering
         Predicate<Product> foodFilter = p -> p.getCategory().equals(Category.FOOD);
-        Predicate<Product> priceFiter = p -> p.getPrice().compareTo(BigDecimal.valueOf(2)) < 0;
+        Predicate<Product> priceFilter = p -> p.getPrice().compareTo(BigDecimal.valueOf(2)) < 0;
 
-        products.stream().filter(foodFilter.negate().or(priceFiter))
+        products.stream().filter(foodFilter.negate().or(priceFilter))   // !foodFilter || priceFilter
                 .forEach(discountProduct);
 
         //Perform mapping on stream pipeline elements
+        //combine functions
+        //Default addThen Method of Function Interface combines functions together
         Function<Product,String> nameMapper = p -> p.getName();
         UnaryOperator<String> trimMapper = p -> p.trim();
         ToIntFunction<String> lengthMapper = p -> p.length();

@@ -10,58 +10,61 @@ import java.util.stream.Collectors;
 /**
  * @author Arpit Bhardwaj
  *
- * Reducing Streams: At the end of stream pipeline, in terminal operation construct final result by combining stream elements some way.
+ * Reducing Streams
+ *      At the end of stream pipeline, in terminal operation construct final result by combining stream elements some way.
+ *      is designed for immutable reduction
  *
- * Collecting Streams is also a type of reduction operation
- * More General: A Collection operation reduces a stream into a mutable result container
+ * Collecting Streams
+ *      reduces a stream into a mutable result container
+ *      is designed for mutable reduction
  *
+ * An accumulator in a serial or parallel reduction should be associative and stateless.
+ * In a parallel reduction, problematic accumulators tend to produce more visible errors.
+ * 
  */
-public class ReducingCollecting {
+public class ReduceCollect {
     public static void main(String[] args) {
         List<Product> products = ExampleData.getProducts();
 
-        /**
-         *Reduction
-         * Reduce method is designed for immutable reduction
-         */
+        /********************Reduction*********************/
 
         //add prices of all
         //reduce takes accumulator(binary operator)
-        products.stream()
+        Optional<BigDecimal> totalPrices1 = products.stream()
                 .map(Product::getPrice)
-                .reduce((result,currentElement)->result.add(currentElement));
+                .reduce((result, currentElement) -> result.add(currentElement));
 
-        Optional<BigDecimal> opt = products.stream()
+        Optional<BigDecimal> totalPrices2 = products.stream()
                 .map(Product::getPrice)
                 .reduce(BigDecimal::add);
 
         //takes consumer and runnable(0 input,0 output)
-        opt.ifPresentOrElse(
+        totalPrices2.ifPresentOrElse(
                 total -> System.out.println("The total price of all products " + total),
                 ()-> System.out.println("There are no products")
         );
 
         //takes identity (default value of final result) and accumulator(binary operator)
-        BigDecimal total = products.stream()
+        BigDecimal totalPrices3 = products.stream()
                 .map(Product::getPrice)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
 
-        System.out.println("The total price of all products " + total);
+        System.out.println("The total price of all products " + totalPrices3);
 
         //takes identity (default value of final result) , accumulator(bi function), combiner(binary operator)
         //combiner is required mainly for parallel streams
-        products.stream()
+        BigDecimal totalPrices4 = products.stream()
                 .reduce(BigDecimal.ZERO, (result, product) -> result.add(product.getPrice()), BigDecimal::add);
-        System.out.println("The total price of all products " + total);
+        System.out.println("The total price of all products " + totalPrices4);
+
 
         /**
-         * Collection
-         * Collecting methods is designed for mutable reduction
-         * supplier, accumulator(bi consumer), combiner(bi consumer)
+         * Collection takes supplier, accumulator(bi consumer), combiner(bi consumer)
          */
 
         //collecting product names in list using reduce method (inefficient)
-        List<String> productNames = products.stream()
+        //as its immutable reduction, hence need to return the new list inside accumulator and combiner
+        List<String> productNames1 = products.stream()
                 .reduce(new ArrayList<>(),
                         (list, product) -> {
                             ArrayList<String> newList = new ArrayList<>(list);
@@ -74,15 +77,14 @@ public class ReducingCollecting {
                             return newList;
                         }
                 );
+        //productNames1.forEach(System.out::println);
 
-        //productNames.forEach(System.out::println);
-
-        ArrayList<String> collectProductNames = products.stream()
+        //collecting product names in list using collect method (efficient)
+        ArrayList<String> productNames2 = products.stream()
                 .collect(ArrayList::new,
                         (list, product) -> list.add(product.getName()),
                         ArrayList::addAll);
-
-        //collectProductNames.forEach(System.out::println);
+        //productNames2.forEach(System.out::println);
 
         //using Collectors factory methods (which provides a combination of above functions(supplier/accumulator/combiner/finisher))
         List<String> collectFactory = products.stream()

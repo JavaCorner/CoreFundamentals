@@ -66,7 +66,7 @@ public class ComplexBranching {
         //Labels follow the same rules for formatting as identifiers.
         OUTER_LOOP:  for(int[] mySimpleArray : myComplexArray) {
             INNER_LOOP:  for(int k=0; i<mySimpleArray.length; k++) {
-                System.out.print(mySimpleArray[k]+"\t");
+                //System.out.print(mySimpleArray[k]+"\t");
             }
             System.out.println();
         }
@@ -79,6 +79,35 @@ public class ComplexBranching {
                 frog++;
         }
         methodWithLoops();
+        printOdd();
+    }
+
+    private static void printOdd() {
+        for(int i=0; i<5; i++) {
+            System.out.println(++i);
+        }
+
+        for(int i=0; i<5; ){
+            //System.out.println(++i++);
+        }
+
+        int i=0;
+        while(i<5){
+            i++;
+            System.out.println(++i);
+        }
+
+        /*for(int j=0; ; j++){
+            if(j<5)
+                continue;
+            System.out.println(++j);
+        }*/
+
+        int k=0;
+        while(k<5){
+            System.out.println(++k);
+            ++k;
+        }
     }
 
     private static void methodWithLoops() {
