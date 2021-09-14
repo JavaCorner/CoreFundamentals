@@ -7,7 +7,7 @@ package com.ab.core.oop.model;
  * Interface methods are public and abtract by default.Specifying the same will be redundant
  * Interface may contain default, private or static methods.
  * Iterface cannot contain constructors
- * Interface can only extend other interface.
+ * Interface can only extend other interface. Even extending abstract classes conatins only abstract method are not allowed
  *
  * Default methods
  *      by default public

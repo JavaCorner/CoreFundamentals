@@ -32,9 +32,9 @@ public class OverloadingDemo {
 
     //Java treats varargs as if they were an array.the method signature is the same for both methods below.
     public void fly(int[] lengths) {}
-    //public void fly(int... lengths) {}            // DOES NOT COMPILE
+    //public void fly(int... lengths) {}            // DOES NOT COMPILE (varargs are implicit arrays)
 
-    //Java has a concept called type erasure where generics are used only at compile time.
+    //Due to generics erasure below will not compile
     public void walk(List<String> strings) {}
     //public void walk(List<Integer> integers) {}   // DOES NOT COMPILE
 

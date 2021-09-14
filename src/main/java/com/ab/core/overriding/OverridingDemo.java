@@ -4,7 +4,7 @@ package com.ab.core.overriding;
  * @author Arpit Bhardwaj
  *
  * overriding is only applicable to methods
- * variables in do not follow polymorphism
+ * variables and static methods do not follow polymorphism and they are tied to the classes at compile time
  *
  */
 public class OverridingDemo {

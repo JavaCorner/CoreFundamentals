@@ -33,7 +33,7 @@ public class StringBuilderBuffer {
         System.out.println("a=" + a);                       //a=abcdefg
         System.out.println("b=" + b);                       //b=abcdefg
 
-        //insert(int offset, String str)
+        //insert(int offset, String str) - insert shifts characters to right
         StringBuilder sb1 = new StringBuilder("animals")
                 .insert(7,'-')
                 .insert(0, "-")

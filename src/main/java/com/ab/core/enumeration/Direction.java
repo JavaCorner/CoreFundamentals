@@ -3,14 +3,9 @@ package com.ab.core.enumeration;
 /**
  * @author Arpit Bhardwaj
  *
- * each enum is an instance of enum type itself
  * Direction is enum which is implicitly extends Enum, hence Direction is instance of Enum
- *
- * 1.enums are implicitly final subclasses of java.lang.Enum class
- * 2.enum constants (or enum instances) are implicitly public static final
- * 3.ordinal(), values() and valueOf() are implicitly inherited from Enum abstract class
- * 4.As noted all enums extends java.lang.Enum, so enum cannot extend any other class because Java does not support multiple inheritance this way.
- *   But enums can implement any number of interfaces.
+ *      enums are implicitly final subclasses of java.lang.Enum class
+ *      ordinal(), values() and valueOf() are implicitly inherited from Enum abstract class
  */
 
 
@@ -44,6 +39,5 @@ public enum Direction {
     public static final Direction NORTH = new Direction();
     public static final Direction SOUTH = new Direction();
 }*/
-
 
 

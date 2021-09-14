@@ -18,11 +18,12 @@ package com.ab.core.basic;
  * Ternary operators	                boolean expression ? expression1 : expression2
  * Assignment operators	                =, +=, -=, *=, /=, %=, &=, ^=, |=, <<=, >>=, >>>=
  *
+ *Post-Pre-OtherUnary-Mathematical-shift-relational-equality-logical-shortcircuit-ternany-assignments
  *
  * Numeric Promotion Rules
  * Smaller data types, namely, byte, short, and char, are first promoted to int any time they’re used with a Java binary arithmetic operator, even if neither of the operands is int.
  * If two values have different data types, Java will automatically promote one of the values to the larger of the two data types.
- * If one of the values is integral and the other is floating-point, Java will automatically promote the integral value to the floating-point value’s data type.
+ *      ex. If one of the values is integral and the other is floating-point, Java will automatically promote the integral value to the floating-point value’s data type.
  * After all promotion has occurred and the operands have the same data type, the resulting value will have the same data type as its promoted operands.
  *
  */
@@ -54,9 +55,9 @@ public class Operators {
         short capybara = (short) (mouse * hamster);
 
 
-        //First, w will automatically be promoted to int solely because it is a short and it is being used in an arithmetic binary operation.
-        // The promoted w value will then be automatically promoted to a float so that it can be multiplied with x3.
-        // The result of w * x3 will then be automatically promoted to a double so that it can be divided by y, resulting in a double value
+        //First, w will automatically be promoted to int solely because it is a short, and it is being used in an arithmetic binary operation.
+        //The promoted w value will then be automatically promoted to a float so that it can be multiplied with x3.
+        //The result of w * x3 will then be automatically promoted to a double so that it can be divided by y, resulting in a double value
         short w = 14;
         float x3 = 13;
         double y3 = 30;

@@ -79,7 +79,7 @@ public class ComplexBranching {
                 frog++;
         }
         methodWithLoops();
-        printOdd();
+        //printOdd();
     }
 
     private static void printOdd() {
@@ -97,7 +97,8 @@ public class ComplexBranching {
             System.out.println(++i);
         }
 
-        /*for(int j=0; ; j++){
+        /*//infinite loop
+        for(int j=0; ; j++){
             if(j<5)
                 continue;
             System.out.println(++j);
