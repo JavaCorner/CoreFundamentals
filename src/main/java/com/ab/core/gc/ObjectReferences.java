@@ -12,7 +12,7 @@ import java.lang.ref.WeakReference;
  *  Any object which has Strong reference attached to it is not eligible for garbage collection.
  *
  * Weak Reference
- * If JVM detects an object with only weak references (i.e. no strong or soft references linked to any object object),
+ * If JVM detects an object with only weak references (i.e. no strong or soft references linked to any object),
  * this object will be marked for garbage collection.
  *
  * Soft Reference
@@ -47,7 +47,7 @@ public class ObjectReferences {
         strongTestObjectRef.getObjName();
         SoftReference<TestClass> softTestObjectRef = new SoftReference<>(strongTestObjectRef);//Soft Reference
         strongTestObjectRef = null;
-        //free for garbage collection then also its not garbage collected, until JVM is in need of memory badly.(OutOfMemoryError)
+        //free for garbage collection then also it's not garbage collected, until JVM is in need of memory badly.(OutOfMemoryError)
 
         strongTestObjectRef = softTestObjectRef.get();
         strongTestObjectRef.getObjName();

@@ -15,7 +15,7 @@ public class RuntimeDemo {
 
         //runtime.gc();
         //runtime.runFinalization();
-        //executeCommand(runtime);
+        executeCommand(runtime);
     }
 
     private static void executeCommand(Runtime runtime) {
@@ -25,13 +25,9 @@ public class RuntimeDemo {
 
     private static void executeCommandUsingProcessBuilder() {
         try {
-            ProcessBuilder pb =
-                    new ProcessBuilder(
-                            "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe",
+            ProcessBuilder pb = new ProcessBuilder("C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe",
                             "youtube.com");
-
             pb.start();
-
             System.out.println("Google Chrome launched!");
         } catch (IOException e) {
             e.printStackTrace();
@@ -40,7 +36,7 @@ public class RuntimeDemo {
 
     private static void executeCommandUsingRuntime(Runtime runtime) {
         try {
-            Process process = runtime.exec(new String[]{"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe",
+            runtime.exec(new String[]{"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe",
                     "youtube.com"});
             System.out.println("Google Chrome successfully started");
         } catch (IOException e) {
