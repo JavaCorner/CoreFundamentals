@@ -3,6 +3,8 @@ package com.ab.core.basic;
 /**
  * @author Arpit Bhardwaj
  *
+ * Range Formulae
+ *      -2 pow n-1 to (2 pow n-1) -1
  * Keyword	Type	                    Example         Range
  * boolean	true/false	                true            true/false
  * byte	    8-bit integral value	    123             2 pow 8 = 256 = -128 to 127

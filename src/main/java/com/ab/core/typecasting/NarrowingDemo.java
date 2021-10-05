@@ -62,7 +62,7 @@ public class NarrowingDemo {
     }
 
     private static void narrowingPrimitives() {
-        double d = 10.5;
+        double d = 10;
         byte b = (byte) d;
         short s = (short) d;
         char c = (char) d;

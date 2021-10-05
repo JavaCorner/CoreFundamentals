@@ -17,8 +17,6 @@ import java.lang.ref.WeakReference;
  *
  * Soft Reference
  * Phantom Reference
- *
- *
  */
 public class ObjectReferences {
     public static void main(String[] args) {
