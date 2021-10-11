@@ -28,8 +28,7 @@ package com.ab.core.security;
  *      encode outputs
  *      used an appropriately configured third party
  *
- * Inclusion attacks occur when multiple files or components are embedded within a single entity
- * Prevent Inclusions
+ * Prevent Inclusions - occur when multiple files or components are embedded within a single entity
  *      Don't use untrusted input to load resources.
  *      Load resources locally, using allow list
  *      Load remote resources over HTTPS, using an allowlist
