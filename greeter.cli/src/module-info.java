@@ -15,6 +15,12 @@
  *      in case if you want to generate directly module-info.java
  *          jdeps --generate-module-info . <non modular jar file>
  *
+ * Before making a decision to migrate to Java 9, it’s important to know the result you want to achieve:
+ *
+ * You just want to make your Java application simply run on JDK 9 and you don’t want to define any modules inside the code (Only the classpath is used).
+ * You want to modularize only a part of an application and keep the rest of it not modularized (Both the classpath and the module path are used).
+ * You want to modularize the whole application (Only the module path is used).
+ *
  * Bottom Up Migration
  *      Start writing the module-info.java for jars from the leaf
  *      Third party jars you will be stuck and that's a limitation here.
