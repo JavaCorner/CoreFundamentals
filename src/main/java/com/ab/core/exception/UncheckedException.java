@@ -54,21 +54,19 @@ public class UncheckedException {
         try{
             String s1 = null;
             s1.toUpperCase();
-
         }catch (NullPointerException e){
             e.printStackTrace();
             System.out.println(e.getCause());
             System.out.println(e.getMessage());
             System.out.println(e.getLocalizedMessage());
         }
-        //System.out.println(Integer.parseInt("1"));
 
         //NumberFormatException
-        //System.out.println(Integer.parseInt("a"));
-
         try {
+            System.out.println(Integer.parseInt("a"));
         }
         catch (NumberFormatException e){
+            e.printStackTrace();
             try {
             }catch (NumberFormatException f){//if you use e as variable then code will not compile
             }

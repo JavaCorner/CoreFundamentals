@@ -4,7 +4,7 @@ package com.ab.core.enumeration;
  * @author Arpit Bhardwaj
  *
  * Direction is enum which is implicitly extends Enum, hence Direction is instance of Enum
- *      enums are implicitly final subclasses of java.lang.Enum class
+ *      enums are implicitly final subclasses of class java.lang.Enum
  *      ordinal(), values() and valueOf() are implicitly inherited from Enum abstract class
  */
 

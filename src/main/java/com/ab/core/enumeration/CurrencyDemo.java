@@ -11,10 +11,8 @@ public class CurrencyDemo {
         System.out.println(currency);
         System.out.println(Currency.DIME.color());
 
-        //iterate over values of Enum
-        //prints in the same order
-        for (Currency curr:
-             Currency.values()) {
+        //iterate over values of Enum in order of definition
+        for (Currency curr: Currency.values()) {
             System.out.println("Coin: " + curr);
         }
     }

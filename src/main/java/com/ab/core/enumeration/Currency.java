@@ -5,7 +5,7 @@ package com.ab.core.enumeration;
  *
  * Enum are reference types like class or interface, and you can define constructor, methods and variables inside java Enum
  * Enums are type-safe and has their own namespace. It means your enum will have a type for example "Currency" in below example and you can not assign any value other than specified in Enum Constants.
- * Enum constants are implicitly public, static and final and can not be changed once created.Speciying the same will be a compile error
+ * Enum constants are implicitly public, static and final and can not be changed once created.Specifying the same will be a compile error
  * Enum constructor must be private any other access modifier will result in compilation error.Specifying the same will be redundant
  *
  * You can specify values of enum constants at the creation time

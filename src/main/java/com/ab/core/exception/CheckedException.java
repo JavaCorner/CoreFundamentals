@@ -5,7 +5,7 @@ import java.io.*;
 /**
  * @author Arpit Bhardwaj
  *
- * Checked exceptions usually represent genuine problem that a normal fnctioning program may encounter and thus must be caught
+ * Checked exceptions usually represent genuine problem that a normal functioning program may encounter and thus must be caught
  *
  * Throwable
  *      Exception
