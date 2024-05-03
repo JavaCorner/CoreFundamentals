@@ -18,10 +18,10 @@ package com.ab.core.basic;
  * Ternary operators	                boolean expression ? expression1 : expression2
  * Assignment operators	                =, +=, -=, *=, /=, %=, &=, ^=, |=, <<=, >>=, >>>=
  *
- *Post-Pre-OtherUnary-Mathematical-shift-relational-equality-logical-shortcircuit-ternany-assignments
+ * Post-Pre-OtherUnary-Mathematical-shift-relational-equality-logical-shortcircuit-ternany-assignments
  *
  * Numeric Promotion Rules
- * Smaller data types, namely, byte, short, and char, are first promoted to int any time they’re used with a Java binary arithmetic operator, even if neither of the operands is int.
+ * Smaller data types such as byte, short, char are first promoted to int any time they’re used with a Java binary arithmetic operator, even if neither of the operands is int.
  * If two values have different data types, Java will automatically promote one of the values to the larger of the two data types.
  *      ex. If one of the values is integral and the other is floating-point, Java will automatically promote the integral value to the floating-point value’s data type.
  * After all promotion has occurred and the operands have the same data type, the resulting value will have the same data type as its promoted operands.
@@ -62,7 +62,6 @@ public class Operators {
         float x3 = 13;
         double y3 = 30;
         var z3 = w * x3 / y3;
-
 
     }
 }

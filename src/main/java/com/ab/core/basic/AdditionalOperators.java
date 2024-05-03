@@ -5,7 +5,7 @@ package com.ab.core.basic;
  *
  * Assignment Opeartor
  *
- * Assignment operator = does 2 things
+ * Assignment operator does 2 things
  *      First, it sets the value of the variable
  *      Second, it returns a value of the assignment
  *
@@ -21,7 +21,7 @@ package com.ab.core.basic;
  *
  * &	Logical AND is true only if both values are true.
  * |	Inclusive OR is true if at least one of the values is true.
- * ^	Exclusive XOR is true only if one value is true and the other is false.
+ * ^	Exclusive OR (XOR) is true only if one value is true and the other is false.
  *
  * Tip:
  *      AND is only true if both operands are true.
@@ -64,7 +64,7 @@ public class AdditionalOperators {
 
         boolean healthy = false;
         if(healthy = true)
-            System.out.print("Good!");
+            System.out.println("Good!");
 
         boolean zebra = true == false;      //as per precedence == then =
         System.out.println(zebra);
@@ -76,7 +76,7 @@ public class AdditionalOperators {
         boolean bear = false;
         boolean polar = (bear = true);
         System.out.println(polar);          //true
-        System.out.print(null == null);     //true
+        System.out.println(null == null);     //true
     }
 
     private static void relationalOperators() {
@@ -87,7 +87,7 @@ public class AdditionalOperators {
 
         //ternary operator
         int stripes = 7;
-        System.out.print((stripes > 5) ? 21 : "Zebra");
+        System.out.println((stripes > 5) ? 21 : "Zebra");
         //int animal = (stripes < 9) ? 3 : "Horse";  // DOES NOT COMPILE
     }
 

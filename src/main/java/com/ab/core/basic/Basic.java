@@ -54,13 +54,10 @@ import java.lang.System;
 import java.lang.*;
 import java.util.Random;
 import java.util.*;
-
-import java.nio.*;         // Will not work (but there is no compiler error in this line though there is a compiler error on actual usage line as import still not happended) -
-a wildcard only matches class names, not "file.Files"
-
-import java.nio.*.*;       // Will not work - you can only have one wildcard and it must be at the end
-
-import java.nio.file.Paths.*; // Will not work - you cannot import methods only class names
+import java.nio.*;              // Will not work (but there is no compiler error in this line though there is a compiler error on actual usage line as import still not happended) -
+                                    a wildcard only matches class names, not package names
+import java.nio.*.*;            // Will not work - you can only have one wildcard, and it must be at the end
+import java.nio.file.Paths.*;   // Will not work - you cannot import methods
 
 Compiling Java Files
     javac -d <path to compiled output folder>
@@ -85,11 +82,8 @@ public class Basic {
     */
 
     // bear
-
     // // cat
-
     // /* dog */
-
     /* elephant */
 
     /*

@@ -13,7 +13,7 @@ package com.ab.core.basic;
  *      The shortcut to declare multiple variables in the same statement is legal only when they share a type.
  *
  */
-public class AllowedNaming {
+public class NamingRules {
     public static void main(String[] args) {
         //allowed
         long okidentifier;

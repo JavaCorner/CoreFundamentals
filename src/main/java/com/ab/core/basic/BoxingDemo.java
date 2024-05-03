@@ -70,7 +70,7 @@ public class BoxingDemo {
         Integer i2 = list.get(2);
         //int i3 = list.get(2);//throws NullPointerException as java tries to do implicit unboxing here
         //list.remove(1);//this will remove the value at index 1 means element 2 in case you want to remove element 1
-        list.remove(new Integer(1));
+        //list.remove(new Integer(1));
         System.out.println(list);
     }
 }

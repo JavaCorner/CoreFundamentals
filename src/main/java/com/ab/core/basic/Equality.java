@@ -6,7 +6,7 @@ import java.util.Arrays;
  * @author Arpit Bhardwaj
  *
  * "==" compare two objects based on memory reference.
- * "==" operator will return true only if two object reference it is comparing represent exactly same object otherwise "==" will return false.
+ *      true if exactly same object else false
  *
  * Hence, In terms of comparing primitives like boolean, int, float "==" works fine
  * but when it comes to comparing objects it creates confusion with equals method in Java.
@@ -15,12 +15,21 @@ import java.util.Arrays;
  */
 public class Equality {
     public static void main(String[] args) {
-        //for primitive as use == as equals works only with object
+        //for primitive use == since equals works only with object
         primitivesComparison();
-        //for objects as per best practise use equals till you don't want to equate reference address
+        //for objects as per best practices use overridden equals method since you don't want to equate reference address
         objectComparison();
         stringComparison();
         arrayComparison();
+    }
+
+    private static void primitivesComparison() {
+        System.out.println("*******Primitives Comparison******");
+        System.out.println(10 == 10);       //true
+        System.out.println(10 == 20);       //false
+        System.out.println('a' == 'a');     //true
+        System.out.println('a' == 'b');     //false
+        System.out.println(true == true);   //true
     }
 
     private static void objectComparison() {
@@ -55,14 +64,6 @@ public class Equality {
         System.out.println(x1 == z1);       //false
     }
 
-    private static void primitivesComparison() {
-        System.out.println("*******Primitives Comparison******");
-        System.out.println(10 == 10);       //true
-        System.out.println(10 == 20);       //false
-        System.out.println('a' == 'a');     //true
-        System.out.println('a' == 'b');     //false
-        System.out.println(true == true);   //true
-    }
 
     private static void arrayComparison() {
         System.out.println("*******Array Comparison******");

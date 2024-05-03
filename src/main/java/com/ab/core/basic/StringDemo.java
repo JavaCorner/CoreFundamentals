@@ -30,13 +30,13 @@ public class StringDemo {
 
         //indexOf(String str, int fromIndex)                            //fromIndex is inclusive and optional
         String string = "animals";
-        System.out.println(string.indexOf('a'));                        // 0
-        System.out.println(string.indexOf("al"));                       // 4
-        System.out.println(string.indexOf('a', 4));         // 4
-        System.out.println(string.indexOf("al", 5));        // -1
+        System.out.println(string.indexOf('a'));                         // 0
+        System.out.println(string.indexOf("al"));                        // 4
+        System.out.println(string.indexOf('a', 4));        // 4
+        System.out.println(string.indexOf("al", 5));       // -1
 
         //substring(int beginIndex, int stopAt)                         //beginIndex is inclusive //stopAt is exclusive and optional
-        System.out.println(string.substring(3));                        // mals
+        System.out.println(string.substring(3));              // mals
         System.out.println(string.substring(string.indexOf('m')));      // mals
         System.out.println(string.substring(3, 4));                     // m
         System.out.println(string.substring(3, 7));                     // mals //notice 7 is not giving index out of bound because its exclusive
@@ -45,7 +45,7 @@ public class StringDemo {
         //contains() method is a convenience method so you don’t have to write str.indexOf(otherString) != -1.
         System.out.println(string.contains("al"));                      // true
 
-        //trim() - remove whitespace from the beginning and end of a String.whitespace consists of spaces along with the \t (tab), \n (newline), \r (carriage return).
+        //trim() - remove whitespace from the beginning and end of a String. Whitespace consists of spaces along with the \t (tab), \n (newline), \r (carriage return).
         //Methods added in Java 11 strip(), stripLeading(), and stripTrailing()
         //strip() does everything that trim() does, but it supports Unicode.
         // \u2000 is a unicode whitespace which trim will not remove. this can be verified in console print
@@ -61,7 +61,7 @@ public class StringDemo {
             alpha.append(current);
         System.out.println(alpha);                                      //total 27 string objects will be created
 
-        String s3 = new String("Hello");                         // s3 points to memory in heap
+        String s3 = new String("Hello");                         //s3 points to memory in heap
         String s4 = s3.intern();                                        //s4 points in string pool
         String s5 = "Hello";                                            //s5 points in string pool
 

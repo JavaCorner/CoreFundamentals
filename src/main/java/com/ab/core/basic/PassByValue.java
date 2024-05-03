@@ -18,8 +18,7 @@ public class PassByValue {
     static class Test{
         int y;
 
-        public Test() {
-        }
+        public Test() {}
 
         public Test(int y) {
             this.y = y;
@@ -27,27 +26,25 @@ public class PassByValue {
 
         @Override
         public String toString() {
-            return "Test{" +
-                    "y=" + y +
-                    '}';
+            return "Test{y=" + y + '}';
         }
     }
     public static void main(String[] args) {
         int x = 5;
-        change(x);
+        changePrimitive(x);
         System.out.println(x);
 
         Test test = new Test(20);
-        change(test);
+        changeReference(test);
         System.out.println(test);
     }
 
-    private static void change(Test test) {
+    private static void changeReference(Test test) {
         //test = new Test();//uncomment to stop the changes to reflect back in main
         test.y = 30;
     }
 
-    private static void change(int x) {
+    private static void changePrimitive(int x) {
         x = 10;
     }
 }

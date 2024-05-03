@@ -51,7 +51,7 @@ public class StringBuilderBuffer {
         //System.out.println(sb.substring(3,10));           //end is invalid throws StringIndexOutOfBoundsException
         //System.out.println(sb.substring(10,3));           //start is invalid throws StringIndexOutOfBoundsException
 
-        sb.deleteCharAt(0);                                 //eddish
+        sb.deleteCharAt(0);                           //eddish
         sb.delete(1, 2);                                    //edish
         sb.delete(3, 3);                                    //will not do anything
         sb.delete(3, 10);                                   //end is invalid but it deletes character till end
@@ -65,11 +65,11 @@ public class StringBuilderBuffer {
         builder.replace(3, 100, "");
         System.out.println(builder);                        //pig
 
-        //StringBuilder did not implement equals(). If you call equals() on two StringBuilder instances, it will check reference equality.
+        //StringBuilder did not implement equals(). If you call equals() on two StringBuilder instances, it will check default reference equality.
         StringBuilder one = new StringBuilder("abc");
         StringBuilder two = new StringBuilder("abc");
-        System.out.println(one.equals(two));                //false
-        System.out.println(one.toString()                   //true
-                .equals(two.toString()));
+        System.out.println(one.equals(two));                        //false
+        System.out.println(one.toString().equals(two.toString()));  //true
+
     }
 }

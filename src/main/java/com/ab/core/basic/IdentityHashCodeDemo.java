@@ -5,10 +5,9 @@ import java.text.SimpleDateFormat;
 /**
  * @author Arpit Bhardwaj
  *
- * The java.lang.System.identityHashCode() is the method which is used to return the same hash code for any given object
- * that is returned by the default method hashCode()
+ * The java.lang.System.identityHashCode() is the method which is used to return the hash code for any given object that is returned by the default method hashCode()
  *
- *  if a class does not override hashCode(), then its own hash code will obviously match that provided by Object.
+ * if a class does not override hashCode(), then its own hash code will obviously match that provided by Object.
  */
 public class IdentityHashCodeDemo {
     static class SimpleData{
