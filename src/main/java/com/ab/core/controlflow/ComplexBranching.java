@@ -44,13 +44,6 @@ public class ComplexBranching {
                     else
                 System.out.println("if do while else");
 
-        //while and for exists without body but not doWhile
-        // while(true);     //compiles (infinite loop)
-        //for (;true;);     //compiles (infinite loop)
-        //do while(true);   //not compile
-
-        //while(false);//not compile due to unreachability
-
         int sum = 0;
         int x = 0;
         for(int k = 0; k < 2; sum += k++)

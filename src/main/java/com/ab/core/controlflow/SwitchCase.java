@@ -69,7 +69,7 @@ public class SwitchCase {
                 System.out.println("Divide3");
         }
 
-        switch (ENUM_CONSTANT.MULTIPLY){    //a switch condition should qualified enum constant
+        switch (ENUM_CONSTANT.MULTIPLY){    //a switch condition should qualify enum constant
             //case ENUM_CONSTANT.MULTIPLY:  //will not compile a case label should be unqualified constant
             case POSITIVE:
             case NEGATIVE:

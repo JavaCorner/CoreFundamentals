@@ -6,16 +6,18 @@ package com.ab.core.controlflow;
  */
 public class InfiniteLoops {
     public static void main(String[] args) {
-        //while (true){ }
-        //while(true);
+        //while and for exists without body but not doWhile
+        //while (true){ }   //compiles (infinite loop)
+        //while(true);      //compiles (infinite loop)
+        //while(false);     //not compile due to unreachability
 
         //in for loop all three initialization, condition, modification is optional
-        //if above loop is uncomment then unreachable code compiler error will come
-        //for (;;) { }
-        //for (;;);
-        //for (;true;)
+        //for (;;) { }      //compiles (infinite loop)
+        //for (;;);         //compiles (infinite loop)
+        //for (;true;);     //compiles (infinite loop)
 
-        //do {}while(true);
+        //do {}while(true); //compiles (infinite loop)
+        //do while(true);   //not compile
 
         loop:do {
             System.out.println("Broke the infinite do while");
