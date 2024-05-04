@@ -15,19 +15,19 @@ import java.io.IOException;
  * Closeable close throws IOException whereas AutoCloseable close throws Exception.
  * Closeable interface is idempotent (calling close() method more than once does not have any side effects) whereas AutoCloseable does not provide this feature.
  */
-public class TryWithResourceDemo1 {
+public class CloseableVsAutoCloseable {
     public static void main(String[] args) {
         var resource0 = new Closeable() {
             @Override
             public void close() {
-                System.out.println("Closeable -> Close");
+                System.out.println("resource0 -> Closeable -> Close");
             }
         };
 
         var resource1 = new Closeable(){
             @Override
             public void close() throws IOException {
-                System.out.println("Closeable -> Close");
+                System.out.println("resource1 -> Closeable -> Close");
                 throw new IOException();
             }
         };
@@ -35,7 +35,7 @@ public class TryWithResourceDemo1 {
         var resource2 = new AutoCloseable(){
             @Override
             public void close() throws Exception {
-                System.out.println("AutoCloseable -> Close");
+                System.out.println("resource2 -> AutoCloseable -> Close");
                 throw new IllegalArgumentException();
             }
         };

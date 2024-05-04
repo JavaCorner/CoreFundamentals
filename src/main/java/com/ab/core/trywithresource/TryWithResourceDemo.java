@@ -6,7 +6,7 @@ import java.io.Writer;
 /**
  * @author Arpit Bhardwaj
  */
-public class TryWithResourceDemo2 {
+public class TryWithResourceDemo {
     static class MyAutoCloseable implements AutoCloseable {
         public void saySomething() throws IOException {
             throw new IOException("Exception from saySomething");
@@ -24,56 +24,6 @@ public class TryWithResourceDemo2 {
         //doTryWithResources();
         //doTryWithResourcesMulti();
         //doClose();
-    }
-    //Reader class for text
-    //InputStream for bytes
-    private static void doClose() throws Exception {
-        //Need to handle closing separately
-        /*MyAutoCloseable myAutoCloseable = new MyAutoCloseable();
-        try {
-            myAutoCloseable.saySomething();
-        } catch (IOException e) {
-            System.out.println(e.getClass().getSimpleName() + "-" + e.getMessage());
-        }*/
-
-        try (MyAutoCloseable myAutoCloseable = new MyAutoCloseable()){
-            myAutoCloseable.saySomething();
-        } catch (IOException e) {
-            System.out.println(e.getClass().getSimpleName() + "-" + e.getMessage());
-            for (Throwable T:
-                 e.getSuppressed()) {
-                System.out.println("Suppressed : " + T.getClass().getSimpleName() + "-" +T.getMessage());
-            }
-        }
-    }
-
-    private static void doTryWithResourcesMulti() {
-        char[] buffer = new char[8];
-        int length;
-        try (Reader reader = IOHelper.openReader("file1.txt")
-             ; Writer writer = IOHelper.openWriter("files2.txt")){
-            while ((length = reader.read(buffer))>= 0){
-                System.out.println("\nlength: " + length);
-                writer.write(buffer,0,length);
-            }
-        } catch (IOException e) {
-            System.out.println(e.getClass().getSimpleName() + "-" + e.getMessage());
-        }
-    }
-
-    private static void doTryWithResources() {
-        char[] buffer = new char[8];
-        int length;
-        try (Reader reader = IOHelper.openReader("file1.txt")){
-            while ((length = reader.read(buffer))>= 0){
-                System.out.println("\nlength: " + length);
-                for (int i = 0; i < length; i++) {
-                    System.out.print(buffer[i]);
-                }
-            }
-        } catch (IOException e) {
-            System.out.println(e.getClass().getSimpleName() + "-" + e.getMessage());
-        }
     }
 
     private static void doTryCatchFinally() {
@@ -98,6 +48,57 @@ public class TryWithResourceDemo2 {
             } catch (IOException e) {
                 e.printStackTrace();
                 System.out.println(e.getClass().getSimpleName() + "-" + e.getMessage());
+            }
+        }
+    }
+
+    private static void doTryWithResources() {
+        char[] buffer = new char[8];
+        int length;
+        try (Reader reader = IOHelper.openReader("file1.txt")){
+            while ((length = reader.read(buffer))>= 0){
+                System.out.println("\nlength: " + length);
+                for (int i = 0; i < length; i++) {
+                    System.out.print(buffer[i]);
+                }
+            }
+        } catch (IOException e) {
+            System.out.println(e.getClass().getSimpleName() + "-" + e.getMessage());
+        }
+    }
+
+    private static void doTryWithResourcesMulti() {
+        char[] buffer = new char[8];
+        int length;
+        try (Reader reader = IOHelper.openReader("file1.txt")
+             ; Writer writer = IOHelper.openWriter("files2.txt")){
+            while ((length = reader.read(buffer))>= 0){
+                System.out.println("\nlength: " + length);
+                writer.write(buffer,0,length);
+            }
+        } catch (IOException e) {
+            System.out.println(e.getClass().getSimpleName() + "-" + e.getMessage());
+        }
+    }
+
+    //Reader class for text
+    //InputStream for bytes
+    private static void doClose() throws Exception {
+        //Need to handle closing separately
+        /*MyAutoCloseable myAutoCloseable = new MyAutoCloseable();
+        try {
+            myAutoCloseable.saySomething();
+        } catch (IOException e) {
+            System.out.println(e.getClass().getSimpleName() + "-" + e.getMessage());
+        }*/
+
+        try (MyAutoCloseable myAutoCloseable = new MyAutoCloseable()){
+            myAutoCloseable.saySomething();
+        } catch (IOException e) {
+            System.out.println(e.getClass().getSimpleName() + "-" + e.getMessage());
+            for (Throwable T:
+                 e.getSuppressed()) {
+                System.out.println("Suppressed : " + T.getClass().getSimpleName() + "-" +T.getMessage());
             }
         }
     }

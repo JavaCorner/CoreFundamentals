@@ -18,11 +18,11 @@ import java.io.Reader;
  */
 public class TrickyScenarios {
     public static void main(String[] args) {
-        System.out.println("Value of a: " + validTest0());  // print a : 10
-        System.out.println("Value of a: " + validTest());   // print a : 20
-        System.out.println("Value of a: " + validTest2());  // print a : 30
-        System.out.println("Value of a: " + validTest3());  // print a : 50
-        suppressException();
+        System.out.println("Value of a: " + validTest0());  // a : 10
+        System.out.println("Value of a: " + validTest());   // a : 20
+        System.out.println("Value of a: " + validTest2());  // a : 30
+        System.out.println("Value of a: " + validTest3());  // a : 50
+        System.out.println(suppressException());
         wrapExceptions();
         test1();
     }
@@ -83,9 +83,9 @@ public class TrickyScenarios {
         try {
             doThings();
         } catch (NameNotFoundException e) {
-            System.out.println(e.getMessage());
+            System.out.println(e.getMessage());     //prints the outer exception message
             Throwable cause = e.getCause();
-            System.out.println(cause.getMessage());
+            System.out.println(cause.getMessage()); //prints the inner(wrapped) exception message
         }
     }
 

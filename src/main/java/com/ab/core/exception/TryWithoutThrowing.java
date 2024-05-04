@@ -93,7 +93,7 @@ public class TryWithoutThrowing {
     //It is allowed to throw an unchecked exception using throws clause
     private static void validTest8() throws NullPointerException{}
 
-    /*Compiler doesn't complain because compiler is not sure if that catch block is wrote to handle checked exception or unchecked(Runtime) exception
+    /*Compiler doesn't complain because it is not sure if that catch block is wrote to handle checked exception or unchecked(Runtime) exception
     as Exception class can handle both so below code is perfectly valid.*/
 
     private static void validTest9() {
