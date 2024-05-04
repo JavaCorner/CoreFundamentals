@@ -3,6 +3,7 @@ package com.ab.core.overloading;
 /**
  * @author Arpit Bhardwaj
  *
+ * Rule: First Autoboxing then Widening using inheritance rule
  * You cannot widen and then box.
  * E.g. test(int) cannot call test(Long) since to call test(Long) the compiler need to convert int to Integer then Integer to Long which is not possible.
  *
@@ -15,9 +16,9 @@ public class BreakingBad {
         //bad.testInteger(s);   //Compile time error. You cannot widen and then box
         bad.testNumber(s);      //first Boxed to Short then Widen to Number
         int i = 10;
-        bad.testInteger(i);     //Autoboxed to Integer
+        bad.testInteger(i);     //Auto boxed to Integer
         long l = 10;
-        bad.testLong(l);        //Autoboxed to Long
+        bad.testLong(l);        //Auto boxed to Long
     }
 
     private void testNumber(Number number) {

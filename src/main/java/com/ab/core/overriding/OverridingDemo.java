@@ -4,14 +4,13 @@ package com.ab.core.overriding;
  * @author Arpit Bhardwaj
  *
  * overriding is only applicable to methods
- * variables and static methods do not follow polymorphism and they are tied to the classes at compile time
+ * variables and static methods do not follow polymorphism, and they are tied to the classes at compile time
  *
  */
 public class OverridingDemo {
 
     static class Animal{
         public int i = 11;
-
         void nonstaticFun(){
             System.out.println("Animal-nonstaticFun()-"+i);
         }

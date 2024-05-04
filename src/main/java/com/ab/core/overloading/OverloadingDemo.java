@@ -10,13 +10,6 @@ import java.util.List;
  * but above all are irrelevant and raise compile error if done standalone to overload
  * Hence all above change will be effective if done along with parameter list
  *
- * The order that Java uses to choose the right overloaded method for glide(1,2)
- * Rule	                                what will be chosen for
- * Exact match by type (Specific)	    String glide(int i, int j)
- * Larger primitive type (Widening)	    String glide(long i, long j)
- * Autoboxed type (Boxing)	            String glide(Integer i, Integer j)
- * Varargs	                            String glide(int... nums)
- *
  */
 
 public class OverloadingDemo {
@@ -24,7 +17,7 @@ public class OverloadingDemo {
     public void fly(int numMiles) {}
     //public int fly(int numMiles) {}               // DOES NOT COMPILE (only return type change)
     //public static void fly(int numMiles) {}       // DOES NOT COMPILE (only specifier change)
-    //private static void fly(int numMiles) {}       // DOES NOT COMPILE (only access modifier change)
+    //private static void fly(int numMiles) {}      // DOES NOT COMPILE (only access modifier change)
     public void fly(short numFeet) {}
     public boolean fly() { return false; }
     void fly(int numMiles, short numFeet) {}

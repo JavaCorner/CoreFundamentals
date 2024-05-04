@@ -3,11 +3,6 @@ package com.ab.core.basic;
 /**
  * @author Arpit Bhardwaj
  *
- *  String extends nothing implements CharSequence, Serializable and Comparable
- *  AbstractStringBuilder implements CharSequence, Apendable
- *  StringBuilder extends AbstractStringBuilder implements CharSequence, Serializable
- *  StringBuffer extends AbstractStringBuilder implements CharSequence, Serializable
- *
  *  Objects of String are immutable, and objects of StringBuffer and StringBuilder are mutable.
  *  StringBuffer and StringBuilder are similar, but
  *  StringBuilder is faster and preferred over StringBuffer for the single-threaded program.

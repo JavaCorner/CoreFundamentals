@@ -23,9 +23,9 @@ public class MethodArguments {
 
     class Child extends Parent{
         @Override
-        protected Number connect(A1 a, A3 b) {
-            return null;
-        }
+        protected Number connect(A1 a, A3 b) {return null;}
+        //@Override
+        //protected Number connect(A2 a, A3 b) {return null;} // compile error
     }
     public static void main(String[] args) {}
 }

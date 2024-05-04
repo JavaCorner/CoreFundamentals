@@ -18,7 +18,7 @@ package com.ab.core.typecasting;
  *      From a float   ---> double
  *
  * Reference widening depends on inheritance tree
- * Ex.Integer cannot be widened to Long. But, Integer widened to Number because they are in same inheritance hierarchy).
+ * Ex.Integer cannot be widened to Long. But, Integer can be widened to Number because they are in same inheritance hierarchy.
  *
  *  Inheritance Hirarchy
  *
@@ -30,8 +30,8 @@ package com.ab.core.typecasting;
  *
  *  String extends nothing implements CharSequence, Serializable and Comparable
  *  AbstractStringBuilder implements CharSequence, Apendable
- *  StringBuilder extends AbstractStringBuilder implements CharSequence, Serializable
- *  StringBuffer extends AbstractStringBuilder implements CharSequence, Serializable
+ *  StringBuilder extends AbstractStringBuilder implements CharSequence, Serializable, Comparable
+ *  StringBuffer extends AbstractStringBuilder implements CharSequence, Serializable, Comparable
  *
  */
 public class WideningDemo {

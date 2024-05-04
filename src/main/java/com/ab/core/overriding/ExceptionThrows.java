@@ -24,15 +24,10 @@ import java.sql.SQLException;
 public class ExceptionThrows {
     class Parent1{
         protected void connect(String s1) {}
-
         protected void connect1(String s1) throws Exception{}
-
         protected void connect2(String s1) throws IOException, SQLException {}
-
         protected void connect3(String s1) throws IOException{}
-
         protected void connect4(String s1){}
-
     }
 
     class Child1 extends Parent1{
@@ -42,12 +37,11 @@ public class ExceptionThrows {
         protected void connect1(String s1) throws Exception, FileNotFoundException, MalformedURLException {}
         @Override
         protected void connect2(String s1) throws FileNotFoundException{}
-        //compile error
         /*@Override
-        protected void connect3(String s1) throws Exception{}*/
-        //compile error
+        protected void connect3(String s1) throws Exception{}*/              //compile error
         /*@Override
-        protected void connect4(String s1) throws FileNotFoundException{}*/
+        protected void connect4(String s1) throws FileNotFoundException{}*/  //compile error
     }
+
     public static void main(String[] args) {}
 }
