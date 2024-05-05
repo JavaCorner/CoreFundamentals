@@ -19,7 +19,6 @@ public class IslandOfIsolation {
         testObject2 = null;
 
         System.gc();
-
         Thread.sleep(1000);
     }
 }

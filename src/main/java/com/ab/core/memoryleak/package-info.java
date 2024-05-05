@@ -3,14 +3,14 @@ package com.ab.core.memoryleak;
 /**
  * @author Arpit Bhardwaj
  *
+ * Avoid
  * 1.Referencing a heavy object with a static field.
  * 2.Calling String.intern() on Long String
  * 3.Unclosed Streams
  * 4.Unclosed Connections
  * 5.Adding Objects with no hashCode() and equals() into a HashSet
  *
- * Avoid
- *
+ * Follow
  * 1. need to pay close attention to our usage of static;
  * 2. interned String objects are stored in PermGen space
  * 3. try-with-resource clause.
@@ -26,5 +26,3 @@ package com.ab.core.memoryleak;
  * 2. Using profiler such as Visual VM,YourKit
  *
  */
-public class MemoryLeak {
-}

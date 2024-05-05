@@ -19,14 +19,16 @@ public class RuntimeDemo {
     }
 
     private static void executeCommand(Runtime runtime) {
-        //executeCommandUsingRuntime(runtime);
-        executeCommandUsingProcessBuilder();
+        //String chromeAppPath = "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe";
+        String chromeAppPath = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
+        String siteUrl = "youtube.com";
+        executeCommandUsingRuntime(runtime, chromeAppPath, siteUrl);
+        //executeCommandUsingProcessBuilder(chromeAppPath, siteUrl);
     }
 
-    private static void executeCommandUsingProcessBuilder() {
+    private static void executeCommandUsingProcessBuilder(String appPath, String siteUrl) {
         try {
-            ProcessBuilder pb = new ProcessBuilder("C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe",
-                            "youtube.com");
+            ProcessBuilder pb = new ProcessBuilder(appPath, siteUrl);
             pb.start();
             System.out.println("Google Chrome launched!");
         } catch (IOException e) {
@@ -34,10 +36,9 @@ public class RuntimeDemo {
         }
     }
 
-    private static void executeCommandUsingRuntime(Runtime runtime) {
+    private static void executeCommandUsingRuntime(Runtime runtime, String appPath, String siteUrl) {
         try {
-            runtime.exec(new String[]{"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe",
-                    "youtube.com"});
+            runtime.exec(new String[]{appPath,siteUrl});
             System.out.println("Google Chrome successfully started");
         } catch (IOException e) {
             e.printStackTrace();

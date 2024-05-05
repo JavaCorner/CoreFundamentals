@@ -16,7 +16,6 @@ public class TestClass {
 
     @Override
     protected void finalize() throws Throwable {
-        //super.finalize();
         System.out.println(this.objName + " garbage collected successfully");
     }
 }

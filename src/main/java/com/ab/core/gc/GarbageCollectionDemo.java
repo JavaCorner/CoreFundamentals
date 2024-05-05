@@ -10,16 +10,16 @@ public class GarbageCollectionDemo {
         createObject();
 
         //Reassigning the reference variable
-        TestClass testObject1 = new TestClass("Object3");
-        TestClass testObject2 = new TestClass("Object4");
+        TestClass testObject1 = new TestClass("Object2");
+        TestClass testObject2 = new TestClass("Object3");
         testObject1 = testObject2;
 
         //Nullifying the reference variable
-        TestClass testObject3 = new TestClass("Object5");
+        TestClass testObject3 = new TestClass("Object4");
         testObject3 = null;
 
         //Anonymous object
-        new TestClass("Object6");
+        new TestClass("Object5");
 
         System.gc();
         Thread.sleep(2000);
@@ -27,10 +27,5 @@ public class GarbageCollectionDemo {
 
     private static void createObject() {
         TestClass testObject = new TestClass("Object1");
-        display();
-    }
-
-    private static void display() {
-        TestClass testObject = new TestClass("Object2");
     }
 }
